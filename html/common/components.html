@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>PROJECT NAME</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<script src="../js/jquery-3.6.0.min.js"></script>
+	<style>
+		h2, h3 {color: #444;}
+		h1 {margin-top: 30px; margin-bottom: 20px;}
+		h2 {margin-top: 20px; margin-bottom: 10px;}
+		h3 {margin-top: 10px; margin-bottom: 5px;}
+		div {display: flex; gap: 5px; justify-content: start; align-items: start;}
+	</style>
+</head>
+
+<body>
+	<h1>Input</h1>
+	<h2>Text</h2>
+	<div>
+		<div class="input-text">
+			<input type="text" placeholder="" />
+			<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+		</div>
+	</div>
+
+	<h2>Checkbox</h2>
+	<div>
+		<label for="chkSample1" class="input-checkbox">
+			<input type="checkbox" id="chkSample1" name="chkSample1" />
+			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
+		</label>
+		<label for="chkSample2" class="input-checkbox">
+			<input type="checkbox" id="chkSample2" name="chkSample2" checked />
+			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
+		</label>
+	</div>
+
+	<h3>Toggle</h3>
+	<div>
+		<label for="toggleSample2" class="input-checkbox is--toggle">
+			<input type="checkbox" id="toggleSample2" name="toggleSample2" />
+			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (off)</span></p>
+		</label>
+		<label for="toggleSample3" class="input-checkbox is--toggle">
+			<input type="checkbox" id="toggleSample3" name="toggleSample3" checked />
+			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (on)</span></p>
+		</label>
+		<label for="toggleSample4" class="input-checkbox is--toggle">
+			<input type="checkbox" id="toggleSample4" name="toggleSample4" disabled checked />
+			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (disabled, on)</span></p>
+		</label>
+		<label for="toggleSample5" class="input-checkbox is--toggle">
+			<input type="checkbox" id="toggleSample5" name="toggleSample5" disabled />
+			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (disabled, off)</span></p>
+		</label>
+	</div>
+
+	<h2>Radio</h2>
+	<h3>Default</h3>
+	<label for="radSample1A" class="input-radio">
+		<input type="radio" id="radSample1A" name="radSample1" checked />
+		<p class="input-text"><span class="icon"></span><span class="text">(Default : on)</span></p>
+	</label>
+	<label for="radSample1B" class="input-radio">
+		<input type="radio" id="radSample1B" name="radSample1" />
+		<p class="input-text"><span class="icon"></span><span class="text">(Default : off)</span></p>
+	</label>
+	<label for="radSample2C" class="input-radio">
+		<input type="radio" id="radSample2C" name="radSample2" disabled checked />
+		<p class="input-text"><span class="icon"></span><span class="text">(Default - disabled : on)</span></p>
+	</label>
+	<label for="radSample2D" class="input-radio">
+		<input type="radio" id="radSample2D" name="radSample2" disabled />
+		<p class="input-text"><span class="icon"></span><span class="text">(Default - disabled : off)</span></p>
+	</label>
+
+	<h1>Button</h1>
+	<h2>Color</h2>
+	<div>
+		<button type="button" class="btn is--blue">btn--blue</button>
+		<button type="button" class="btn is--blue" disabled>btn--blue</button>
+		<button type="button" class="btn is--blue is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+		<button type="button" class="btn is--red">btn--red</button>
+		<button type="button" class="btn is--red" disabled>btn--red</button>
+		<button type="button" class="btn is--red is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+		<button type="button" class="btn is--white">btn--white</button>
+		<button type="button" class="btn is--white" disabled>btn--white</button>
+		<button type="button" class="btn is--white is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+	</div>
+	<h2>Type</h2>
+	<div>
+		<button type="button" class="btn is--blue">(Default)</button>
+		<button type="button" class="btn is--large is--blue">is--large</button>
+		<button type="button" class="btn is--search is--blue">is--search</button>
+		<button type="button" class="btn is--search is--white">is--search</button>
+		<button type="button" class="btn is--search is--blue"><span class="ico-22 ico-search-white"></span>검색</button>
+		<button type="button" class="btn is--search is--white">초기화</button>
+		<button type="button" class="btn is--state is--blue">is--state is--blue</button>
+		<button type="button" class="btn is--state is--blue active">is--state is--blue active</button>
+		<button type="button" class="btn is--state is--white">is--state is--white</button>
+		<button type="button" class="btn is--state is--white disabled">is--state is--white disabled</button>
+		<button type="button" class="btn is--state is--blue" disabled>is--state is--blue :disabled</button>
+		<button type="button" class="btn is--state is--white" disabled>is--state is--white :disabled</button>
+	</div>
+	<h2>Width</h2>
+	<div>
+		<button type="button" class="btn is--px25 is--blue">is--px25</button>
+		<button type="button" class="btn is--px13 is--blue">is--px13</button>
+		<button type="button" class="btn is--w160 is--blue">is--w160</button>
+		<button type="button" class="btn is--w328 is--blue">is--w328</button>
+		<button type="button" class="btn is--full is--blue">is--full</button>
+	</div>
+
+
+	<h1>Login</h1>
+	<div class="login--box">
+		<p class="login__logo">에스원</p>
+		<p class="login__site">주문형 카드 접수 시스템</p>
+		<div class="login--form">
+			<div class="input-box">
+				<input type="text" placeholder="" />
+				<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+			</div>
+			<div class="input-box">
+				<input type="text" placeholder="" />
+				<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+			</div>
+			<label for="rememberId" class="input-check">
+				<input type="checkbox" id="rememberId" name="rememberId" />
+				<p class="input-text"><span>아이디 저장</span></p>
+			</label>
+		</div>
+		<div class="login--button">
+		</div>
+		<login__desc></login__desc>
+	</div>
+</body>
+</html>

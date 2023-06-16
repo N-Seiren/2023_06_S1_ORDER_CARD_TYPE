@@ -1,0 +1,290 @@
+@use '../abstract/' as *;
+
+.ico {
+	@each $SIZE in $ICON-SIZE-ALL {
+		&-#{$SIZE} {
+			@extend %resetIcon;
+			display: inline-block;
+			width: #{$SIZE}px;
+			height: #{$SIZE}px;
+			flex-shrink: 0;
+		}
+	}
+}
+
+@each $TYPE, $COLOR-LIST in $IMAGE-SET-ALL {
+	@each $COLOR, $URL-LIST in $COLOR-LIST {
+		@each $NAME, $VALUE in $URL-LIST {
+			@if $COLOR == 'png' {
+				.#{$TYPE}-#{$NAME}-#{$COLOR} {
+					background-image: url('../images/' + $TYPE + '/' + $NAME + '.' + $VALUE);
+				}
+			} @else if $COLOR != '' {
+				.#{$TYPE}-#{$NAME}-#{$COLOR} {
+					background-image: url('../images/' + $TYPE + '/' + $NAME + '-' + $COLOR + '.' + $VALUE);
+				}
+			} @else {
+				.#{$TYPE}-#{$NAME} {
+					background-image: url('../images/' + $TYPE + '/' + $NAME + '.' + $VALUE);
+				}
+			}
+		}
+	}
+}
+
+.btn {
+	@include set-flex($INLINE: true, $JUSTIFY: center, $ALIGN: center);
+	height: 34px;
+	border: {
+		width: 1px;
+		style: solid;
+		radius: 4px;
+	}
+	background-color: transparent;
+	outline: none;
+
+	&.is {
+		// Color
+		&--blue {
+			background-color: $C-PN;
+			border-color: $C-PN;
+			color: $C-W;
+			&:active {
+				background-color: $C-PD;
+				border-color: $C-PD;
+			}
+			&:disabled {
+				color: $C-FID;
+				background-color: $C-BD;
+				border-color: $C-BN;
+			}
+		}
+		&--red {
+			background-color: $C-SN;
+			border-color: $C-SN;
+			color: $C-W;
+			&:active {
+				background-color: $C-SD;
+				border-color: $C-SD;
+			}
+			&:disabled {
+				color: $C-FID;
+				background-color: $C-BD;
+				border-color: $C-BN;
+			}
+			&.has--ico {
+			}
+		}
+		&--white {
+			background-color: $C-W;
+			border: 1px solid $C-BN;
+			color: $C-FI;
+			&:active {
+				background-color: $C-BN;
+				border-color: $C-BS;
+			}
+			&:disabled {
+				color: $C-FID;
+				background-color: $C-BN;
+				border-color: $C-BN;
+			}
+			&.has--ico {
+			}
+		}
+
+		// Type
+		&--large {
+			height: 44px;
+		}
+		&--search {
+			@include set-flex($FIXED: true);
+			width: 80px;
+			height: 54px;
+			font-weight: 500;
+			font-size: 18px;
+
+			[class*='ico-'] {
+				$S: 22px;
+				width: $S;
+				height: $S;
+				margin-right: 2px;
+			}
+
+			&.is--white {
+				color: $C-FI;
+			}
+		}
+		&--state {
+			height: 60px;
+			background-color: $C-W;
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: 600;
+
+			&.is--blue {
+				&,
+				&:active {
+					background-color: $C-W;
+					border: 1px solid $C-PN;
+					color: $C-PN;
+				}
+			}
+			&.is--white {
+				&,
+				&:active {
+					background-color: $C-W;
+					border: 1px solid $C-BN;
+					color: $C-FI;
+				}
+			}
+			&.active {
+				&,
+				&:active {
+					background-color: $C-PN;
+					color: $C-W;
+				}
+			}
+
+			&.disabled,
+			&.disabled:active,
+			&:disabled,
+			&:disabled:active {
+				background-color: $C-BD;
+				border-color: $C-BN;
+				color: $C-FID;
+			}
+		}
+
+		// Width
+		&--px25 {
+			@include space(false, 25px, x);
+		}
+		&--px13 {
+			@include space(false, 13px, x);
+		}
+		&--w160 {
+			width: 160px;
+		}
+		&--w328 {
+			width: 328px;
+		}
+		&--full {
+			width: 100%;
+		}
+	}
+
+	&.has--ico {
+		[class*='ico-'] {
+			margin-left: -8px;
+		}
+	}
+}
+
+%defaultInput {
+	position: relative;
+	input {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: 10;
+
+		&[type='checkbox'] {
+			& + .input-text {
+				.icon {
+					border-radius: 2px;
+					&::after {
+					}
+				}
+			}
+			&:checked:not(:disabled) + .input-text {
+				.icon {
+					background-color: $C-PN;
+				}
+			}
+		}
+		&[type='radio'] {
+			& + .input-text {
+				.icon {
+					border-radius: 30px;
+					&::after {
+					}
+				}
+			}
+			&:checked:not(:disabled) + .input-text {
+				.icon {
+					background-color: $C-W;
+				}
+			}
+		}
+
+		&:checked:not(:disabled) + .input-text {
+			.icon {
+				background-color: $C-BD;
+				border-color: $C-PN;
+				&::after {
+					display: block;
+				}
+			}
+		}
+
+		&:disabled {
+			& + .input-text {
+				.icon {
+					background-color: $C-BD;
+					border-color: $C-PN;
+				}
+				.text {
+					color: $C-FID;
+				}
+			}
+		}
+	}
+	.input-text {
+		@include set-flex();
+		position: relative;
+		gap: 6px;
+		z-index: 5;
+		.icon {
+			$S: 18px;
+			position: relative;
+			width: $S;
+			height: $S;
+			background-color: $C-W;
+			border: 1px solid $C-BN;
+			&::after {
+				position: absolute;
+				display: none;
+				top: 0;
+				left: 0;
+				border-radius: $S;
+				content: '';
+			}
+		}
+		.text {
+			color: $C-FI;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+}
+
+.input {
+	&-text {
+		input {
+		}
+		p {
+			&.err {
+			}
+		}
+	}
+	&-checkbox {
+		@extend %defaultInput;
+	}
+	&-radio {
+		@extend %defaultInput;
+	}
+}

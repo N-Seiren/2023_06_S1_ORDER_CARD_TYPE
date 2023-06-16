@@ -1,0 +1,84 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	&,
+	tr {
+		border-collapse: inherit;
+	}
+	&,
+	tr,
+	td,
+	th,
+	thead,
+	tbody,
+	tfoot,
+	caption {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+}
+
+a {
+	vertical-align: baseline;
+	text-decoration: none;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h1,
+div,
+p,
+span,
+i,
+em,
+b,
+strong,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+img,
+button,
+a,
+table,
+tr,
+th,
+td,
+thead,
+tbody,
+tfoot,
+header,
+footer,
+nav,
+aside,
+main,
+article,
+section,
+hgroup,
+details,
+figure,
+figcaption,
+mark,
+time,
+address,
+summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: 'pretendard', 'malgun gothic', 'Dotum', sans-serif;
+	line-height: 1;
+}

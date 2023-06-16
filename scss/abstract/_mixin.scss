@@ -1,0 +1,83 @@
+@use 'sass:list';
+@use 'variable' as *;
+
+// Flex
+@mixin set-flex(
+	$FIXED: null,
+	$INLINE: false,
+	$DIRECTION: row,
+	$JUSTIFY: null,
+	$ALIGN: null,
+	$WRAP: null
+) {
+	@if $FIXED != null {
+		@if $FIXED {
+			flex-shrink: 0;
+			flex-grow: 0;
+		} @else {
+			flex-shrink: 1;
+			flex-grow: 1;
+		}
+	} @else {
+		@if $INLINE {
+			display: inline-flex;
+		} @else {
+			display: flex;
+		}
+		@if $DIRECTION {
+			flex-direction: $DIRECTION;
+		}
+		@if $JUSTIFY {
+			justify-content: $JUSTIFY;
+		}
+		@if $ALIGN {
+			align-items: $ALIGN;
+		}
+		@if $WRAP {
+			flex-wrap: $WRAP;
+		}
+	}
+}
+
+// SPACE
+@mixin spaceDirection($TYPE, $SIZE, $DIRECTION) {
+	@if $DIRECTION == null {
+		#{$TYPE}: $SIZE;
+	}
+	@if $DIRECTION == t or $DIRECTION == y {
+		#{$TYPE}-top: $SIZE;
+	}
+	@if $DIRECTION == b or $DIRECTION == y {
+		#{$TYPE}-bottom: $SIZE;
+	}
+	@if $DIRECTION == r or $DIRECTION == x {
+		#{$TYPE}-right: $SIZE;
+	}
+	@if $DIRECTION == l or $DIRECTION == x {
+		#{$TYPE}-left: $SIZE;
+	}
+}
+@mixin space($MARGIN, $SIZE, $DIRECTION: null) {
+	@if $MARGIN {
+		@include spaceDirection(margin, $SIZE, $DIRECTION);
+	} @else {
+		@include spaceDirection(padding, $SIZE, $DIRECTION);
+	}
+}
+
+// Ellipsis
+@mixin ellipsis($line: 1, $line-height: null) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	@if $line == 1 {
+		white-space: nowrap;
+	}
+	@if $line > 1 {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line;
+		@if $line-height != null {
+			max-height: $line-height * $line;
+		}
+	}
+}

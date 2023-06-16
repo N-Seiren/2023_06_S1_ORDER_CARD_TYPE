@@ -1,0 +1,344 @@
+@font-face {
+  font-family: "pretendard";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: local("Pretendard GOV Variable"), url("../fonts/PretendardGOVVariable.woff2") format("woff2-variations");
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+table,
+table tr {
+  border-collapse: inherit;
+}
+table,
+table tr,
+table td,
+table th,
+table thead,
+table tbody,
+table tfoot,
+table caption {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h1,
+div,
+p,
+span,
+i,
+em,
+b,
+strong,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+img,
+button,
+a,
+table,
+tr,
+th,
+td,
+thead,
+tbody,
+tfoot,
+header,
+footer,
+nav,
+aside,
+main,
+article,
+section,
+hgroup,
+details,
+figure,
+figcaption,
+mark,
+time,
+address,
+summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "pretendard", "malgun gothic", "Dotum", sans-serif;
+  line-height: 1;
+}
+
+.ico-24, .ico-22 {
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: transparent;
+  font-size: 0;
+}
+
+.ico-24 {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.ico-22 {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.ico-search-black {
+  background-image: url("../images/ico/search-black.svg");
+}
+
+.ico-product-name-blue {
+  background-image: url("../images/ico/product-name-blue.svg");
+}
+
+.ico-logo-family-blue {
+  background-image: url("../images/ico/logo-family-blue.svg");
+}
+
+.ico-logo-blue {
+  background-image: url("../images/ico/logo-blue.svg");
+}
+
+.ico-logo-gray {
+  background-image: url("../images/ico/logo-gray.svg");
+}
+
+.ico-checkbox-gray {
+  background-image: url("../images/ico/checkbox-gray.svg");
+}
+
+.ico-logo-white {
+  background-image: url("../images/ico/logo-white.svg");
+}
+
+.ico-search-white {
+  background-image: url("../images/ico/search-white.svg");
+}
+
+.ico-checkbox-white {
+  background-image: url("../images/ico/checkbox-white.svg");
+}
+
+.ico-logo-symbol1 {
+  background-image: url("../images/ico/logo-symbol1.svg");
+}
+
+.ico-logo-symbol2 {
+  background-image: url("../images/ico/logo-symbol2.svg");
+}
+
+.btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  background-color: transparent;
+  outline: none;
+}
+.btn.is--blue {
+  background-color: #1d6ceb;
+  border-color: #1d6ceb;
+  color: #ffffff;
+}
+.btn.is--blue:active {
+  background-color: #005ba5;
+  border-color: #005ba5;
+}
+.btn.is--blue:disabled {
+  color: #bfbfbf;
+  background-color: #f2f2f2;
+  border-color: #dcdcdc;
+}
+.btn.is--red {
+  background-color: #ff4555;
+  border-color: #ff4555;
+  color: #ffffff;
+}
+.btn.is--red:active {
+  background-color: #cc3744;
+  border-color: #cc3744;
+}
+.btn.is--red:disabled {
+  color: #bfbfbf;
+  background-color: #f2f2f2;
+  border-color: #dcdcdc;
+}
+.btn.is--white {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  color: #353535;
+}
+.btn.is--white:active {
+  background-color: #dcdcdc;
+  border-color: #b0b0b0;
+}
+.btn.is--white:disabled {
+  color: #bfbfbf;
+  background-color: #dcdcdc;
+  border-color: #dcdcdc;
+}
+.btn.is--large {
+  height: 44px;
+}
+.btn.is--search {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 80px;
+  height: 54px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.btn.is--search [class*=ico-] {
+  width: 22px;
+  height: 22px;
+  margin-right: 2px;
+}
+.btn.is--search.is--white {
+  color: #353535;
+}
+.btn.is--state {
+  height: 60px;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+.btn.is--state.is--blue, .btn.is--state.is--blue:active {
+  background-color: #ffffff;
+  border: 1px solid #1d6ceb;
+  color: #1d6ceb;
+}
+.btn.is--state.is--white, .btn.is--state.is--white:active {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  color: #353535;
+}
+.btn.is--state.active, .btn.is--state.active:active {
+  background-color: #1d6ceb;
+  color: #ffffff;
+}
+.btn.is--state.disabled, .btn.is--state.disabled:active, .btn.is--state:disabled, .btn.is--state:disabled:active {
+  background-color: #f2f2f2;
+  border-color: #dcdcdc;
+  color: #bfbfbf;
+}
+.btn.is--px25 {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.btn.is--px13 {
+  padding-right: 13px;
+  padding-left: 13px;
+}
+.btn.is--w160 {
+  width: 160px;
+}
+.btn.is--w328 {
+  width: 328px;
+}
+.btn.is--full {
+  width: 100%;
+}
+.btn.has--ico [class*=ico-] {
+  margin-left: -8px;
+}
+
+.input-radio, .input-checkbox {
+  position: relative;
+}
+.input-radio input, .input-checkbox input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+}
+.input-radio input[type=checkbox] + .input-text .icon, .input-checkbox input[type=checkbox] + .input-text .icon {
+  border-radius: 2px;
+}
+.input-radio input[type=checkbox]:checked:not(:disabled) + .input-text .icon, .input-checkbox input[type=checkbox]:checked:not(:disabled) + .input-text .icon {
+  background-color: #1d6ceb;
+}
+.input-radio input[type=radio] + .input-text .icon, .input-checkbox input[type=radio] + .input-text .icon {
+  border-radius: 30px;
+}
+.input-radio input[type=radio]:checked:not(:disabled) + .input-text .icon, .input-checkbox input[type=radio]:checked:not(:disabled) + .input-text .icon {
+  background-color: #ffffff;
+}
+.input-radio input:checked:not(:disabled) + .input-text .icon, .input-checkbox input:checked:not(:disabled) + .input-text .icon {
+  background-color: #f2f2f2;
+  border-color: #1d6ceb;
+}
+.input-radio input:checked:not(:disabled) + .input-text .icon::after, .input-checkbox input:checked:not(:disabled) + .input-text .icon::after {
+  display: block;
+}
+.input-radio input:disabled + .input-text .icon, .input-checkbox input:disabled + .input-text .icon {
+  background-color: #f2f2f2;
+  border-color: #1d6ceb;
+}
+.input-radio input:disabled + .input-text .text, .input-checkbox input:disabled + .input-text .text {
+  color: #bfbfbf;
+}
+.input-radio .input-text, .input-checkbox .input-text {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  gap: 6px;
+  z-index: 5;
+}
+.input-radio .input-text .icon, .input-checkbox .input-text .icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+}
+.input-radio .input-text .icon::after, .input-checkbox .input-text .icon::after {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  border-radius: 18px;
+  content: "";
+}
+.input-radio .input-text .text, .input-checkbox .input-text .text {
+  color: #353535;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}

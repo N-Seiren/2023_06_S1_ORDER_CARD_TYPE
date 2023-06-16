@@ -1,0 +1,15 @@
+@use 'colors' as *;
+@use 'variable' as *;
+@use 'mixin' as *;
+
+// ICON
+%resetIcon {
+	background: {
+		color: transparent;
+		position: center;
+		size: contain;
+		repeat: no-repeat;
+	}
+	color: transparent;
+	font-size: 0;
+}

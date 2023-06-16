@@ -1,0 +1,6 @@
+// css 파일로 컴파일시 css 구문으로 생성되도록 작성
+// index.scss에서 한번만 호출 (다른 파일에서 중복 호출 하지 않도록 주의)
+// 추가 시 css 적용 순서 유의해서 추가할 것
+@forward 'font-face';
+@forward 'normalize';
+@forward 'elements';

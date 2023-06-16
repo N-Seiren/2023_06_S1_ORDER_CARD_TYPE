@@ -1,0 +1,35 @@
+{
+	"editor.indentSize": "tabSize",
+	"editor.tabSize": 4,
+	"stylelint.enable": true,
+	"stylelint.validate": ["scss"],
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"[html]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnPaste": false
+	},
+	"[scss]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"liveSassCompile.settings.generateMap": false, //css map파일 생성
+	"liveSassCompile.settings.autoprefix": false, //벤더프리픽스
+	"liveSassCompile.settings.compileOnWatch": false, //Watch Sass 실행 시 모든 .scss 컴파일
+	"liveSassCompile.settings.watchOnLaunch": true, //Watch Sass 자동 실행
+	"liveSassCompile.settings.formats": [
+		//포맷 설정(복수 설정 가능)
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "~/../css/"
+		}
+	],
+	"liveSassCompile.settings.excludeList": [
+		//컴파일 제외 파일
+		"/**/node_modules/**",
+		"/.vscode/**"
+	]
+}

@@ -1,0 +1,31 @@
+@use 'variable' as *;
+
+// 사이트 내 사용되는 이미지파일
+$IMAGE-SET-ALL: (
+	ico: (
+		'black': (
+			search: svg,
+		),
+		'blue': (
+			product-name: svg,
+			logo-family: svg,
+			logo: svg,
+		),
+		'gray': (
+			logo: svg,
+			checkbox: svg,
+		),
+		'white': (
+			logo: svg,
+			search: svg,
+			checkbox: svg,
+		),
+		'': (
+			logo-symbol1: svg,
+			logo-symbol2: svg,
+		),
+	),
+);
+
+//  사용되는 아이콘 사이즈
+$ICON-SIZE-ALL: (24, 22);
