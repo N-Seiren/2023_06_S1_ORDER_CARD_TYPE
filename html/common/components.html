@@ -12,7 +12,19 @@
 		h1 {margin-top: 30px; margin-bottom: 20px;}
 		h2 {margin-top: 20px; margin-bottom: 10px;}
 		h3 {margin-top: 10px; margin-bottom: 5px;}
-		div {display: flex; gap: 5px; justify-content: start; align-items: start;}
+		div {flex-wrap: wrap;}
+		div,
+		.icon > div,
+		.icon > div > p {display: flex; gap: 5px; justify-content: start; align-items: start;}
+		.icon {width: 100%; flex-direction: column;}
+		.icon > div,
+		.icon > div > p {align-items: center; width: 100%;}
+		.icon > div > h2 {width: 90px; margin: 0;}
+		.icon > div > p {width: auto; padding-top: 10px; padding-bottom: 10px; margin-right: 10px;}
+		.icon > div > p > span {font-size: 12px; letter-spacing: -0.5px;}
+
+		.input-text {width: 150px;}
+		.input-text.is--large {width: 255px;}
 	</style>
 </head>
 
@@ -21,8 +33,114 @@
 	<h2>Text</h2>
 	<div>
 		<div class="input-text">
-			<input type="text" placeholder="" />
-			<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text focus">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text pass">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text err">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+	</div>
+	<div>
+		<div class="input-text is--large">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<div class="pw-btn">
+					<button type="button" class="pw-action show">비밀번호 보이기</button>
+					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--large">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+				<div class="pw-btn">
+					<button type="button" class="pw-action show">비밀번호 보이기</button>
+					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--large">
+			<div class="box has--button double">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<div class="pw-btn">
+					<button type="button" class="pw-action show">비밀번호 보이기</button>
+					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--large">
+			<div class="box has--button double">
+				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+				<div class="pw-btn">
+					<button type="button" class="pw-action show">비밀번호 보이기</button>
+					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<div class="pw-btn">
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+				<div class="pw-btn">
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<div class="pw-btn">
+					<button type="button" class="pw-search">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box has--button single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+				<div class="pw-btn">
+					<button type="button" class="pw-search">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
 		</div>
 	</div>
 
@@ -36,23 +154,31 @@
 			<input type="checkbox" id="chkSample2" name="chkSample2" checked />
 			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
 		</label>
+		<label for="chkSample1B" class="input-checkbox">
+			<input type="checkbox" id="chkSample1B" name="chkSample1B" disabled />
+			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
+		</label>
+		<label for="chkSample2B" class="input-checkbox">
+			<input type="checkbox" id="chkSample2B" name="chkSample2B" checked disabled />
+			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
+		</label>
 	</div>
 
 	<h3>Toggle</h3>
 	<div>
-		<label for="toggleSample2" class="input-checkbox is--toggle">
+		<label for="toggleSample2" class="input-toggle">
 			<input type="checkbox" id="toggleSample2" name="toggleSample2" />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (off)</span></p>
 		</label>
-		<label for="toggleSample3" class="input-checkbox is--toggle">
+		<label for="toggleSample3" class="input-toggle">
 			<input type="checkbox" id="toggleSample3" name="toggleSample3" checked />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (on)</span></p>
 		</label>
-		<label for="toggleSample4" class="input-checkbox is--toggle">
+		<label for="toggleSample4" class="input-toggle">
 			<input type="checkbox" id="toggleSample4" name="toggleSample4" disabled checked />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (disabled, on)</span></p>
 		</label>
-		<label for="toggleSample5" class="input-checkbox is--toggle">
+		<label for="toggleSample5" class="input-toggle">
 			<input type="checkbox" id="toggleSample5" name="toggleSample5" disabled />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (disabled, off)</span></p>
 		</label>
@@ -114,6 +240,208 @@
 		<button type="button" class="btn is--full is--blue">is--full</button>
 	</div>
 
+	<h1>Icon</h1>
+	<div class="icon">
+		<div>
+			<h2>Black</h2>
+			<p>
+				<span class="ico-24 ico-search-black"></span>
+				<span>ico-search-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-off-black"></span>
+				<span>ico-pw-off-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-on-black"></span>
+				<span>ico-pw-on-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-combo-arrow-black"></span>
+				<span>ico-combo-arrow-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-calendar-black"></span>
+				<span>ico-calendar-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-arrow-right-black"></span>
+				<span>ico-arrow-right-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-more-black"></span>
+				<span>ico-more-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-first-black"></span>
+				<span>ico-page-first-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-last-black"></span>
+				<span>ico-page-last-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-prev-black"></span>
+				<span>ico-page-prev-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-next-black"></span>
+				<span>ico-page-next-black</span>
+			</p>
+		</div>
+		<div>
+			<h2>Blue</h2>
+			<p>
+				<span class="ico-24 ico-product-name-blue"></span>
+				<span>ico-product-name-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-logo-family-blue"></span>
+				<span>ico-logo-family-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-logo-blue"></span>
+				<span>ico-logo-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-on-blue"></span>
+				<span>ico-pw-on-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-off-blue"></span>
+				<span>ico-pw-off-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-combo-arrow-blue"></span>
+				<span>ico-combo-arrow-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-calendar-blue"></span>
+				<span>ico-calendar-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-arrow-right-blue"></span>
+				<span>ico-arrow-right-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-more-blue"></span>
+				<span>ico-more-blue</span>
+			</p>
+		</div>
+		<div>
+			<h2>Gray</h2>
+			<p>
+				<span class="ico-24 ico-search-gray"></span>
+				<span>ico-search-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-logo-gray"></span>
+				<span>ico-logo-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-checkbox-gray"></span>
+				<span>ico-checkbox-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-remove-gray"></span>
+				<span>ico-remove-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-on-gray"></span>
+				<span>ico-pw-on-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-off-gray"></span>
+				<span>ico-pw-off-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-combo-arrow-gray"></span>
+				<span>ico-combo-arrow-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-calendar-gray"></span>
+				<span>ico-calendar-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-arrow-right-gray"></span>
+				<span>ico-arrow-right-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-more-gray"></span>
+				<span>ico-more-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-first-gray"></span>
+				<span>ico-page-first-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-last-gray"></span>
+				<span>ico-page-last-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-prev-gray"></span>
+				<span>ico-page-prev-gray</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-page-next-gray"></span>
+				<span>ico-page-next-gray</span>
+			</p>
+		</div>
+		<div>
+			<h2>Red</h2>
+			<p>
+				<span class="ico-24 ico-pw-on-red"></span>
+				<span>ico-pw-on-red</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-pw-off-red"></span>
+				<span>ico-pw-off-red</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-combo-arrow-red"></span>
+				<span>ico-combo-arrow-red</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-calendar-red"></span>
+				<span>ico-calendar-red</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-arrow-right-red"></span>
+				<span>ico-arrow-right-red</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-more-red"></span>
+				<span>ico-more-red</span>
+			</p>
+		</div>
+		<div style="background-color: #ccc;">
+			<h2>White</h2>
+			<p>
+				<span class="ico-24 ico-logo-white"></span>
+				<span>ico-logo-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-search-white"></span>
+				<span>ico-search-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-checkbox-white"></span>
+				<span>ico-checkbox-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-calendar-white"></span>
+				<span>ico-calendar-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-arrow-right-white"></span>
+				<span>ico-arrow-right-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-more-white"></span>
+				<span>ico-more-white</span>
+			</p>
+		</div>
+	</div>
 
 	<h1>Login</h1>
 	<div class="login--box">
@@ -122,11 +450,11 @@
 		<div class="login--form">
 			<div class="input-box">
 				<input type="text" placeholder="" />
-				<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+				<p class="err">유효성 문구</p>
 			</div>
 			<div class="input-box">
 				<input type="text" placeholder="" />
-				<p class="err">아이디와 비밀번호를 다시 확인해 주세요.</p>
+				<p class="err">유효성 문구</p>
 			</div>
 			<label for="rememberId" class="input-check">
 				<input type="checkbox" id="rememberId" name="rememberId" />
