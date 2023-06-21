@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>PROJECT NAME</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
+	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/design.js"></script>
+</head>
+
+<body>
+    <div class="wrap login">
+		<div class="container">
+			<div class="contents--box">
+                <div class="login--area">
+                    <p class="login__logo">에스원</p>
+                    <p class="login__title">주문형 카드 접수 시스템</p>
+                    
+                    <!-- 아이디 -->
+                    <div class="input-text is--large login__id">
+                        <div class="box">
+                            <input type="text" placeholder="아이디" />
+                        </div>
+                        <p class="valid">유효성 문구</p>
+                    </div>
+                    <!-- //아이디 -->
+                    <!-- 비밀번호 -->
+                    <div class="input-text is--large login__pw err">
+                        <div class="box has--button single">
+                            <input type="password" placeholder="비밀번호" />
+                            <div class="pw-btn">
+                                <button type="button" class="pw-action show">비밀번호 보이기</button>
+                                <!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+                            </div>
+                        </div>
+                        <p class="valid">아이디 또는 비밀번호가 없거나 잘못 입력되었습니다.<br>확인 후 다시 로그인 해주세요. (1/5)</p>
+                    </div>
+                    <!-- //비밀번호 -->
+
+                    <!-- 아이디 저장 -->
+                    <div class="login__save">
+                        <label for="saveLoginId" class="input-checkbox">
+                            <input type="checkbox" id="saveLoginId" name="saveLoginId" />
+                            <p class="input-text"><span class="icon"></span><span class="text">아이디 저장</span></p>
+                        </label>
+                    </div>
+                    <!-- //아이디 저장 -->
+
+                    <button type="button" class="btn is--large is--blue login__login">로그인</button>
+
+                    <!-- 아이디, 비번 찾기 -->
+                    <div class="login__find">
+                        <button type="button">아이디 찾기</button>
+                        <p class="devide"></p>
+                        <button type="button">비밀번호 찾기</button>
+                    </div>
+                    <!-- //아이디, 비번 찾기 -->
+
+                    <!-- 지원 정보 -->
+                    <div class="login__information">
+                        <p>* 아이디</p>
+                        <p>- 인쇄업체 : 업체코드, 팀</p>
+                        <p>- 에스원CRM, 에스원지원센터 : Knox ID</p>
+                    </div>
+                    <!-- //지원 정보 -->
+
+
+                </div>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

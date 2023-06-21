@@ -1,0 +1,32 @@
+@use '../abstract/' as *;
+
+/*---------------------------------------- LAYOUT ----------------------------------------*/
+.wrap {
+	@include set-flex($DIRECTION: column);
+	min-height: 100%;
+	background-color: $C-BW;
+
+	&.login {
+		height: 100%;
+		background-color: $C-W;
+		.contents--box {
+			@include set-flex(
+				$DIRECTION: column,
+				$JUSTIFY: center,
+				$ALIGN: center
+			);
+		}
+		.container,
+		.contents--box {
+			height: 100%;
+		}
+	}
+
+	&.set {
+		background-color: $C-W;
+	}
+}
+
+.container {
+	padding: 8px;
+}

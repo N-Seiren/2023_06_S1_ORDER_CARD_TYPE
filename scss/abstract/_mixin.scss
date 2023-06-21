@@ -2,6 +2,33 @@
 @use 'variable' as *;
 @use 'colors' as *;
 
+// Grid
+@mixin set-grid(
+	$DIRECTION: columns,
+	$AUTO: fit,
+	$MIN: 0%,
+	$MAX: auto,
+	$TEMPLATE: null
+) {
+	display: grid;
+	@if type-of($AUTO) == string {
+		@if $TEMPLATE != null {
+			grid-template-#{$DIRECTION}: $TEMPLATE;
+		} @else {
+			grid-template-#{$DIRECTION}: repeat(
+				auto-#{$AUTO},
+				minmax(#{$MIN}, #{$MAX})
+			);
+		}
+	} @else {
+		@if $TEMPLATE != null {
+			grid-template-#{$DIRECTION}: $TEMPLATE;
+		} @else {
+			grid-template-#{$DIRECTION}: repeat(#{$AUTO}, minmax(0, 1fr));
+		}
+	}
+}
+
 // Flex
 @mixin set-flex(
 	$FIXED: null,

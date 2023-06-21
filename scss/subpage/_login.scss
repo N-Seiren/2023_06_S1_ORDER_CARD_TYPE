@@ -1,0 +1,124 @@
+@use '../abstract/' as *;
+
+$LOGIN: '.login';
+#{$LOGIN}--area {
+	@include set-flex($DIRECTION: column, $JUSTIFY: stretch, $ALIGN: center);
+	width: 450px;
+	padding: 50px 85px;
+	border: 1px solid $C-BN;
+
+	.input-text {
+		width: 100%;
+		.valid {
+			margin-bottom: 2px;
+			font-size: 13px;
+			line-height: 22px;
+		}
+	}
+
+	#{$LOGIN}__logo {
+		@extend %resetIcon;
+		width: 79px;
+		height: 30px;
+		background-image: url(urlImg(ico, logo, blue));
+	}
+	#{$LOGIN}__title {
+		margin-top: 8px;
+		color: $C-PN;
+		font-size: 28px;
+		line-height: 34px;
+		font-weight: $F-EB;
+	}
+	// 아이디
+	#{$LOGIN}__id {
+		margin-top: 45px;
+	}
+	// 비밀번호
+	#{$LOGIN}__pw {
+		margin-top: 10px;
+	}
+	// 아이디 저장
+	#{$LOGIN}__save {
+		width: 100%;
+		margin-top: 20px;
+	}
+	#{$LOGIN}__login {
+		width: 100%;
+		margin-top: 45px;
+	}
+	// 아이디, 비번 찾기
+	#{$LOGIN}__find {
+		@include set-flex($JUSTIFY: center, $ALIGN: center);
+		gap: 11px;
+		margin-top: 20px;
+		button {
+			display: block;
+			color: $C-FT;
+			font-size: 13px;
+			line-height: 16px;
+			font-weight: $F-N;
+		}
+		.devide {
+			width: 1px;
+			height: 12px;
+			background-color: $C-BN;
+		}
+	}
+	// 지원 정보
+	#{$LOGIN}__information {
+		width: 100%;
+		padding: 9px;
+		margin-top: 20px;
+		border: 1px solid $C-TLN;
+		border-radius: 4px;
+		p {
+			color: $C-FM;
+			font-size: 13px;
+			font-weight: $F-N;
+			line-height: 16px;
+		}
+	}
+}
+
+$SET-PW: '.set-pw';
+#{$SET-PW} {
+	width: 740px;
+	margin-right: auto;
+	margin-left: auto;
+	#{$SET-PW}--title {
+		margin-top: 165px;
+		color: $C-B;
+		font-size: 36px;
+		font-weight: $F-EB;
+		line-height: 48px;
+	}
+	#{$SET-PW}--form {
+		width: 100%;
+		margin-top: 60px;
+		#{$SET-PW}--row {
+			@include set-flex($ALIGN: flex-start);
+			margin-top: 30px;
+			#{$SET-PW}--form__title {
+				@include set-flex($FIXED: true);
+				@include set-flex($ALIGN: center);
+				width: 190px;
+				height: 50px;
+				color: $C-FI;
+				font-size: 20px;
+				font-weight: $F-EB;
+				line-height: 24px;
+			}
+			.input-text {
+				@include set-flex($FIXED: false);
+				.valid {
+					margin-bottom: 2px;
+				}
+			}
+		}
+	}
+	#{$SET-PW}--button {
+		@include set-flex($JUSTIFY: center, $ALIGN: center);
+		gap: 11px;
+		margin-top: 70px;
+	}
+}

@@ -1,0 +1,128 @@
+@use '../abstract/' as *;
+
+/*--------------- HEADER ---------------*/
+header {
+	$H: 57px;
+	$H-GAP: 90px;
+	position: relative;
+	padding-right: 25px;
+	padding-left: 25px;
+
+	%headerChild {
+		position: relative;
+		height: $H;
+		z-index: 10;
+	}
+
+	@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+
+	&::before {
+		position: absolute;
+		width: 100%;
+		height: $H;
+		top: 0;
+		left: 0;
+		background-color: $C-W;
+		border-bottom: 1px solid $C-BN;
+		z-index: 5;
+		content: '';
+	}
+	&::after {
+		position: absolute;
+		display: none;
+		width: 100%;
+		height: 177px;
+		top: $H;
+		left: 0;
+		background-color: $C-W;
+		box-shadow: 0px 2px 30px transparentize($color: $C-B, $amount: 0.85);
+		z-index: 3;
+		content: '';
+	}
+
+	#{$HD}__left {
+		@extend %headerChild;
+		@include set-flex($ALIGN: center);
+
+		#{$HD}__logo {
+			@include set-flex($FIXED: true);
+			@include set-flex($ALIGN: center);
+			width: 260px;
+			gap: 8px;
+			.logo {
+				@extend %resetIcon;
+				width: 42px;
+				height: 16px;
+				background-image: url(urlImg(ico, logo, blue));
+			}
+			.text {
+				color: $C-PN;
+				font-size: 18px;
+				font-weight: $F-EB;
+				line-height: 22px;
+			}
+		}
+		#{$HD}__menu {
+			@include set-flex($ALIGN: stretch);
+			gap: $H-GAP;
+
+			> a,
+			.depth1 > a {
+				@include set-flex($ALIGN: center);
+				height: $H;
+				padding: 2px 0;
+				color: $C-B;
+				font-size: 16px;
+				line-height: 19px;
+				font-weight: $F-EB;
+				text-align: center;
+
+				&.active {
+					border-bottom: 2px solid $C-PN;
+				}
+			}
+
+			.depth1 {
+				position: relative;
+			}
+		}
+	}
+	#{$HD}__right {
+		@extend %headerChild;
+		@include set-flex($ALIGN: center);
+		gap: 20px;
+		&--text {
+			color: $C-FIS;
+			font-size: 12px;
+			font-weight: $F-SB;
+			line-height: 14px;
+		}
+	}
+
+	#{$HD}__depth2 {
+		@include set-flex($DIRECTION: column);
+		position: absolute;
+		display: none;
+		gap: 17px;
+		padding-top: 26px;
+		a {
+			color: $C-FI;
+			font-size: 16px;
+			line-height: 19px;
+			font-weight: $F-N;
+			white-space: nowrap;
+			&.active {
+				color: $C-PN;
+			}
+		}
+	}
+
+	&.hover {
+		&::after {
+			display: block;
+		}
+		#{$HD}__depth2 {
+			display: flex;
+		}
+	}
+}

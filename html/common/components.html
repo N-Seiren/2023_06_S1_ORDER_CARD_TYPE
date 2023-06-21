@@ -6,7 +6,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>PROJECT NAME</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
-	<script src="../js/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
+	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/design.js"></script>
 	<style>
 		h2, h3 {color: #444;}
 		h1 {margin-top: 30px; margin-bottom: 20px;}
@@ -23,8 +25,8 @@
 		.icon > div > p {width: auto; padding-top: 10px; padding-bottom: 10px; margin-right: 10px;}
 		.icon > div > p > span {font-size: 12px; letter-spacing: -0.5px;}
 
-		.input-text {width: 150px;}
-		.input-text.is--large {width: 255px;}
+		/* .input-text {width: 150px;} */
+		/* .input-text.is--large {width: 255px;} */
 	</style>
 </head>
 
@@ -44,6 +46,13 @@
 			</div>
 			<p class="valid">유효성 문구</p>
 		</div>
+		<div class="input-text">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+			<p class="desc">input 설명 문구</p>
+		</div>
 		<div class="input-text focus">
 			<div class="box">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
@@ -55,19 +64,21 @@
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
 			</div>
 			<p class="valid">유효성 문구</p>
+			<p class="desc" style="display: none;">input 설명 문구</p>
 		</div>
 		<div class="input-text err">
 			<div class="box">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
 			</div>
 			<p class="valid">유효성 문구</p>
+			<p class="desc">input 설명 문구</p>
 		</div>
 	</div>
 	<div>
 		<div class="input-text is--large">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
-				<div class="pw-btn">
+				<div class="input-btn">
 					<button type="button" class="pw-action show">비밀번호 보이기</button>
 					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
 				</div>
@@ -77,28 +88,28 @@
 		<div class="input-text is--large">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
-				<div class="pw-btn">
+				<div class="input-btn">
 					<button type="button" class="pw-action show">비밀번호 보이기</button>
 					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
-				</div>
-			</div>
-			<p class="valid">유효성 문구</p>
-		</div>
-		<div class="input-text is--large">
-			<div class="box has--button double">
-				<input type="text" placeholder="플레이스 홀더 텍스트" />
-				<div class="pw-btn">
-					<button type="button" class="pw-action show">비밀번호 보이기</button>
-					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
-					<button type="button" class="pw-remove">비밀번호 삭제</button>
 				</div>
 			</div>
 			<p class="valid">유효성 문구</p>
 		</div>
 		<div class="input-text is--large">
 			<div class="box has--button double">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<div class="input-btn">
+					<button type="button" class="pw-action show">비밀번호 보이기</button>
+					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
+				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--large">
+			<div class="box has--button double">
 				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
-				<div class="pw-btn">
+				<div class="input-btn">
 					<button type="button" class="pw-action show">비밀번호 보이기</button>
 					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
 					<button type="button" class="pw-remove">비밀번호 삭제</button>
@@ -109,7 +120,7 @@
 		<div class="input-text">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
-				<div class="pw-btn">
+				<div class="input-btn">
 					<button type="button" class="pw-remove">비밀번호 삭제</button>
 				</div>
 			</div>
@@ -118,7 +129,7 @@
 		<div class="input-text">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
-				<div class="pw-btn">
+				<div class="input-btn">
 					<button type="button" class="pw-remove">비밀번호 삭제</button>
 				</div>
 			</div>
@@ -127,8 +138,8 @@
 		<div class="input-text">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
-				<div class="pw-btn">
-					<button type="button" class="pw-search">비밀번호 삭제</button>
+				<div class="input-btn">
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
 				</div>
 			</div>
 			<p class="valid">유효성 문구</p>
@@ -136,8 +147,8 @@
 		<div class="input-text">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
-				<div class="pw-btn">
-					<button type="button" class="pw-search">비밀번호 삭제</button>
+				<div class="input-btn">
+					<button type="button" class="pw-remove">비밀번호 삭제</button>
 				</div>
 			</div>
 			<p class="valid">유효성 문구</p>
@@ -208,13 +219,13 @@
 	<div>
 		<button type="button" class="btn is--blue">btn--blue</button>
 		<button type="button" class="btn is--blue" disabled>btn--blue</button>
-		<button type="button" class="btn is--blue is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+		<button type="button" class="btn is--blue has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
 		<button type="button" class="btn is--red">btn--red</button>
 		<button type="button" class="btn is--red" disabled>btn--red</button>
-		<button type="button" class="btn is--red is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+		<button type="button" class="btn is--red has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
 		<button type="button" class="btn is--white">btn--white</button>
 		<button type="button" class="btn is--white" disabled>btn--white</button>
-		<button type="button" class="btn is--white is--px13 has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
+		<button type="button" class="btn is--white has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
 	</div>
 	<h2>Type</h2>
 	<div>
@@ -234,10 +245,300 @@
 	<h2>Width</h2>
 	<div>
 		<button type="button" class="btn is--px25 is--blue">is--px25</button>
-		<button type="button" class="btn is--px13 is--blue">is--px13</button>
 		<button type="button" class="btn is--w160 is--blue">is--w160</button>
 		<button type="button" class="btn is--w328 is--blue">is--w328</button>
 		<button type="button" class="btn is--full is--blue">is--full</button>
+	</div>
+
+	<h2>Dropdown</h2>
+	<div>
+		<div class="dropdown--area" style="width: 150px;">
+			<button type="button" class="dropdown--select"><div>선택</div></button>
+			<div class="dropdown--box">
+				<button type="button">선택 항목 1</button>
+				<button type="button">선택 항목 2</button>
+				<button type="button">선택 항목 3</button>
+			</div>
+		</div>
+		<div class="dropdown--area">
+			<button type="button" class="dropdown--select"><div>선택</div></button>
+			<div class="dropdown--box">
+				<button type="button">선택 항목 1</button>
+				<button type="button">선택 항목 2</button>
+				<button type="button" class="active">선택 항목 3</button>
+			</div>
+		</div>
+		<div class="dropdown--area">
+			<button type="button" class="dropdown--select" disabled><span>선택</span></button>
+			<div class="dropdown--box">
+				<button type="button">선택 항목 1</button>
+				<button type="button">선택 항목 2</button>
+				<button type="button" class="active">선택 항목 3</button>
+			</div>
+		</div>
+
+	</div>
+
+
+	<h1>Box</h1>
+	<h2>Input</h2>
+	<div>
+		<div class="input-box">
+			<div class="input-text">
+				<div class="box has--button single">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+					<div class="input-btn">
+						<button type="button" class="pw-remove">비밀번호 삭제</button>
+					</div>
+				</div>
+				<p class="valid">유효성 문구</p>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
+		</div>
+		<div class="input-box is--large">
+			<div class="input-text">
+				<div class="box has--button single">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+					<div class="input-btn">
+						<button type="button" class="pw-remove">비밀번호 삭제</button>
+					</div>
+				</div>
+				<p class="valid">유효성 문구</p>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
+		</div>
+	</div>
+	<div>
+		<div class="input-box">
+			<p class="input-box--title input-box--fixed">항목명</p>
+			<div class="input-text">
+				<div class="box has--button single">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+					<div class="input-btn">
+						<button type="button" class="pw-search">비밀번호 삭제</button>
+					</div>
+				</div>
+				<p class="valid">유효성 문구</p>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
+		</div>
+		<div class="input-box is--large">
+			<p class="input-box--title input-box--fixed">항목명</p>
+			<div class="input-text">
+				<div class="box has--button single">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+					<div class="input-btn">
+						<button type="button" class="pw-search">비밀번호 삭제</button>
+					</div>
+				</div>
+				<p class="valid">유효성 문구</p>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
+		</div>
+
+		<div class="input-box disabled">
+			<p class="input-box--title input-box--fixed">항목명</p>
+			<div class="input-text">
+				<div class="box has--button single">
+					<input type="text" placeholder="플레이스 홀더 텍스트" disabled />
+					<div class="input-btn">
+						<button type="button" class="pw-search" disabled>비밀번호 삭제</button>
+					</div>
+				</div>
+				<p class="valid">유효성 문구</p>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed" disabled>btn--white</button>
+		</div>
+	</div>
+	<div>
+		<div class="input-box">
+			<div class="input-box is--double">
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트" />
+					</div>
+				</div>
+				<p class="input-desc">~</p>
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트" />
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
+		</div>
+		<div class="input-box">
+			<div class="input-box is--double">
+				<div class="input-text">
+					<div class="box has--button single">
+						<input type="text" placeholder="플레이스 홀더 텍스트" />
+						<div class="input-btn">
+							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+						</div>
+					</div>
+				</div>
+				<p class="input-desc">~</p>
+				<div class="input-text">
+					<div class="box has--button single">
+						<input type="text" placeholder="플레이스 홀더 텍스트" />
+						<div class="input-btn">
+							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2>Search</h2>
+	<div class="search--box">
+		<p class="search--title">타이틀</p>
+		<div class="search--contents">
+			<label for="searchOptA" class="input-radio">
+				<input type="radio" id="searchOptA" name="searchOpt" checked />
+				<p class="input-text"><span class="icon"></span><span class="text">상위 검색조건 1</span></p>
+			</label>
+			<label for="searchOptB" class="input-radio">
+				<input type="radio" id="searchOptB" name="searchOpt" />
+				<p class="input-text"><span class="icon"></span><span class="text">상위 검색조건 2</span></p>
+			</label>
+		</div>
+		<div class="search--contents">
+			<div class="search--items">
+
+				<!-- row -->
+				<div class="input-box search--row">
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">항목명</p>
+					<div class="input-box dropdown--area">
+						<button type="button" class="dropdown--select"><div>선택</div></button>
+						<div class="dropdown--box">
+							<button type="button">선택 항목 1</button>
+							<button type="button">선택 항목 2</button>
+							<button type="button" class="active">선택 항목 3</button>
+						</div>
+					</div>
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">이름이 긴 항목</p>
+					<div class="input-box dropdown--area">
+						<button type="button" class="dropdown--select"><div>선택</div></button>
+						<div class="dropdown--box">
+							<button type="button">선택 항목 1</button>
+							<button type="button">선택 항목 2</button>
+							<button type="button" class="active">선택 항목 3</button>
+						</div>
+					</div>
+				</div>
+				<!-- //row -->
+
+				<!-- row -->
+				<div class="input-box search--row">
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">항목명</p>
+					<div class="input-box">
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+							</div>
+							<p class="valid">유효성 문구</p>
+						</div>
+					</div>
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">항목명</p>
+					<div class="input-box">
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+							</div>
+							<p class="valid">유효성 문구</p>
+						</div>
+					</div>
+				</div>
+				<!-- //row -->
+
+				<!-- row -->
+				<div class="input-box search--row">
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">항목명</p>
+					<div class="input-box is--double">
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+								<div class="input-btn">
+									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+								</div>
+							</div>
+						</div>
+						<p class="input-desc">~</p>
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+								<div class="input-btn">
+									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">항목명</p>
+					<div class="input-box is--double">
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+								<div class="input-btn">
+									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+								</div>
+							</div>
+						</div>
+						<p class="input-desc">~</p>
+						<div class="input-text">
+							<div class="box has--button single">
+								<input type="text" placeholder="플레이스 홀더 텍스트" />
+								<div class="input-btn">
+									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //row -->
+
+			</div>
+			<button type="button" class="btn is--search is--blue">검색</button>
+		</div>
+	</div>
+
+
+	<h1>Tab</h1>
+	<div>
+		<div class="tab-text">
+			<button type="button" class="active">휴대전화번호</button>
+			<button type="button">이메일</button>
+		</div>
+	</div>
+
+
+	<h1>Layer</h1>
+	<div style="padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
+		<div class="layer--area" style="display: none;">
+			<div class="layer--box">
+				<div class="layer--header">header</div>
+				<div class="layer--contents">contents</div>
+				<div class="layer--buttons">
+					<button type="button" class="btn is--w328 is--blue">is--w328</button>
+				</div>
+			</div>
+		</div>
+		<div class="layer--box" style="width: 510px;">
+			<div class="layer--header">
+				<p class="layer--header__title">아이디 찾기</p>
+				<button type="button" class="ico-24 ico-close-black layer--header__close">닫기</button>
+
+			</div>
+			<div class="layer--contents">contents</div>
+			<div class="layer--buttons">
+				<button type="button" class="btn is--w328 is--blue">is--w328</button>
+			</div>
+		</div>
 	</div>
 
 	<h1>Icon</h1>
@@ -287,6 +588,10 @@
 			<p>
 				<span class="ico-24 ico-page-next-black"></span>
 				<span>ico-page-next-black</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-close-black"></span>
+				<span>ico-close-black</span>
 			</p>
 		</div>
 		<div>
@@ -441,29 +746,6 @@
 				<span>ico-more-white</span>
 			</p>
 		</div>
-	</div>
-
-	<h1>Login</h1>
-	<div class="login--box">
-		<p class="login__logo">에스원</p>
-		<p class="login__site">주문형 카드 접수 시스템</p>
-		<div class="login--form">
-			<div class="input-box">
-				<input type="text" placeholder="" />
-				<p class="err">유효성 문구</p>
-			</div>
-			<div class="input-box">
-				<input type="text" placeholder="" />
-				<p class="err">유효성 문구</p>
-			</div>
-			<label for="rememberId" class="input-check">
-				<input type="checkbox" id="rememberId" name="rememberId" />
-				<p class="input-text"><span>아이디 저장</span></p>
-			</label>
-		</div>
-		<div class="login--button">
-		</div>
-		<login__desc></login__desc>
 	</div>
 </body>
 </html>
