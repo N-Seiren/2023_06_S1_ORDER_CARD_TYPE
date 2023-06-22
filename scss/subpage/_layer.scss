@@ -1,0 +1,83 @@
+@use '../abstract/' as *;
+
+.layer {
+	&--area {
+	}
+
+	&-login {
+		.layer {
+			&--box {
+				gap: 0;
+				padding: 0;
+			}
+			&--contents {
+				@include set-flex($JUSTIFY: stretch, $ALIGN: center);
+				height: 211px;
+			}
+			&--buttons {
+				padding-top: 0;
+				padding-bottom: 40px;
+			}
+		}
+
+		p.text {
+			width: 100%;
+			color: $C-B;
+			font-size: 22px;
+			line-height: 33px;
+		}
+
+		&.login {
+			&-same {
+			}
+			&-lock {
+				text-align: center;
+			}
+		}
+	}
+	&-find {
+		.find-title {
+			margin-top: 20px;
+			margin-bottom: 12px;
+			color: $C-FIS;
+			font-size: 18px;
+			font-weight: $F-B;
+			line-height: 20px;
+			&:first-child {
+				margin-top: 30px;
+			}
+		}
+
+		.input-box + .input-box,
+		.input-box + .input-text,
+		.input-text + .input-text {
+			margin-top: 14px;
+		}
+
+		.find-result--text {
+			color: $C-B;
+			font-size: 22px;
+			font-weight: $F-EB;
+			line-height: 33px;
+			strong {
+				color: $C-PN;
+				font-weight: $F-EB;
+			}
+		}
+
+		&.find-id {
+		}
+		&.find-pw {
+		}
+		&.show-id {
+		}
+		&.change-pw {
+			.find-title {
+				margin-top: 30px;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

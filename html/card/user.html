@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>주문형 카드</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
+	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/design.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>header.html 참고</header>
+		<div class="container">
+			<div class="contents--box">
+                <div class="box--white">
+                    
+                    <!-- SEARCH -->
+                    <div class="search--box">
+                        <p class="search--title">카드 발급 대상</p>
+                        <div class="search--contents">
+                            <div class="search--items">
+
+                                <!-- row -->
+                                <div class="input-box search--row">
+                                    <!-- item -->
+                                    <p class="input-box--title input-box--fixed">카드상태</p>
+                                    <div class="dropdown--area">
+                                        <button type="button" class="dropdown--select"><div>선택</div></button>
+                                        <div class="dropdown--box">
+                                            <button type="button">선택 항목 1</button>
+                                            <button type="button">선택 항목 2</button>
+                                            <button type="button" class="active">선택 항목 3</button>
+                                        </div>
+                                    </div>
+                                    <!-- item -->
+                                    <p class="input-box--title input-box--fixed">사업팀</p>
+                                    <div class="dropdown--area">
+                                        <button type="button" class="dropdown--select"><div>선택</div></button>
+                                        <div class="dropdown--box">
+                                            <button type="button">선택 항목 1</button>
+                                            <button type="button">선택 항목 2</button>
+                                            <button type="button" class="active">선택 항목 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //row -->
+
+                                <!-- row -->
+                                <div class="input-box search--row">
+                                    <!-- item -->
+                                    <p class="input-box--title input-box--fixed">상태일자</p>
+                                    <div class="input-box is--double">
+                                        <div class="input-text">
+                                            <div class="box has--button date">
+                                                <input type="text" placeholder="시작일" value="2023.04.03">
+                                                <div class="input-btn">
+                                                    <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="input-desc">~</p>
+                                        <div class="input-text">
+                                            <div class="box has--button date">
+                                                <input type="text" placeholder="종료일" value="2023.04.10">
+                                                <div class="input-btn">
+                                                    <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item -->
+                                    <p class="input-box--title input-box--fixed disabled">인쇄업체</p>
+                                    <div class="dropdown--area">
+                                        <button type="button" class="dropdown--select" disabled><div>선택</div></button>
+                                        <div class="dropdown--box">
+                                            <button type="button">선택 항목 1</button>
+                                            <button type="button">선택 항목 2</button>
+                                            <button type="button" class="active">선택 항목 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //row -->
+
+                                <!-- row -->
+                                <div class="input-box search--row">
+                                    <!-- item -->
+                                    <p class="input-box--title input-box--fixed">카드종류</p>
+                                    <div class="dropdown--area">
+                                        <button type="button" class="dropdown--select"><div>선택</div></button>
+                                        <div class="dropdown--box">
+                                            <button type="button">선택 항목 1</button>
+                                            <button type="button">선택 항목 2</button>
+                                            <button type="button" class="active">선택 항목 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //row -->
+
+                            </div>
+                            <div class="search--button">
+                                <button type="button" class="btn is--search is--blue">검색</button>
+                                <button type="button" class="btn is--search is--white">초기화</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //SEARCH -->
+                    
+                    <!-- TABLE -->
+                    <div class="table--area">
+                        <!-- top -->
+                        <div class="table--top">
+                            <p class="table__title">총 26건</p>
+                            <div class="table__filter">
+                                <div class="table__filter--left">
+                                    <div class="input-box">
+                                        <p class="input-box--title input-box--fixed disabled">개시사업장</p>
+                                        <div class="dropdown--area is--w245">
+                                            <button type="button" class="dropdown--select" disabled><div>전체</div></button>
+                                            <div class="dropdown--box">
+                                                <button type="button">선택 항목 1</button>
+                                                <button type="button">선택 항목 2</button>
+                                                <button type="button" class="active">선택 항목 3</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table__filter--right has--devide">
+                                    <p class="filter--text">0/10</p>
+                                    <p class="devide"></p>
+                                    <div class="filter--devide">
+                                        <label for="tblFilter1" class="input-checkbox">
+                                            <input type="checkbox" id="tblFilter1" name="tblFilter1">
+                                            <p class="input-text"><span class="icon"></span><span class="text">인쇄접수</span></p>
+                                        </label>
+                                        <label for="tblFilter2" class="input-checkbox">
+                                            <input type="checkbox" id="tblFilter2" name="tblFilter2">
+                                            <p class="input-text"><span class="icon"></span><span class="text">인쇄완료</span></p>
+                                        </label>
+                                        <label for="tblFilter3" class="input-checkbox">
+                                            <input type="checkbox" id="tblFilter3" name="tblFilter3">
+                                            <p class="input-text"><span class="icon"></span><span class="text">취소</span></p>
+                                        </label>
+                                    </div>
+                                    <p class="devide"></p>
+                                    <div class="filter--devide">
+                                        <div class="input-box disabled">
+                                            <div class="input-text is--w160">
+                                                <div class="box has--button date">
+                                                    <input type="text" placeholder="" value="2023.04.07 07:24" disabled>
+                                                    <div class="input-btn">
+                                                        <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                    </div>
+                                                </div>
+                                                <p class="valid">유효성 문구</p>
+                                            </div>
+                                            <button type="button" class="btn is--white input-box--fixed" disabled="">변경</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //top -->
+
+                        <!-- table -->
+                        <div class="table--box">
+                            <table>
+                                <colgroup>
+                                    <col style="width: 34px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 160px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: auto; min-width: 300px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: 120px;" />
+                                    <col style="width: 120px;" />
+                                    <col style="width: 120px;" />
+                                    <col style="width: 120px;" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" class="px0">
+                                            <label for="tblChkAll2" class="input-checkbox tbl-check-all">
+                                                <input type="checkbox" id="tblChkAll2" name="tblChkAll2" />
+                                                <p class="input-text"><span class="icon"></span></p>
+                                            </label>
+                                        </th>
+                                        <th rowspan="2" class="line--none">사업팀</th>
+                                        <th rowspan="2">개시사업장</th>
+                                        <th rowspan="2">계약번호</th>
+                                        <th rowspan="2">고객명</th>
+                                        <th rowspan="2">신청인</th>
+                                        <th rowspan="2">제목</th>
+                                        <th rowspan="2">카드종류</th>
+                                        <th rowspan="2">카드신청</th>
+                                        <th rowspan="2">카드케이스<br>추가</th>
+                                        <th rowspan="2">카드상태</th>
+                                        <th colspan="4" class="line--full">상태일자</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="line--full">고객신청</th>
+                                        <th class="line--full">인쇄접수</th>
+                                        <th class="line--full">인쇄완료</th>
+                                        <th class="line--full">발급완료</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px0">
+                                            <label for="tblChk1" class="input-checkbox tbl-check">
+                                                <input type="checkbox" id="tblChk1" name="tblChk1" />
+                                                <p class="input-text"><span class="icon"></span></p>
+                                            </label>
+                                        </td>
+                                        <td>경기사업팀</td>
+                                        <td>시화지사</td>
+                                        <td>N2491124</td>
+                                        <td>홍길동님오피스텔</td>
+                                        <td>김*완</td>
+                                        <td>사원증 발급 요청</td>
+                                        <td>마이페어</td>
+                                        <td>10</td>
+                                        <td>100</td>
+                                        <td>고객신청</td>
+                                        <td class="is--date has--bg">
+                                            <div class="input-text">
+                                                <div class="box has--button date bg--white">
+                                                    <input type="text" placeholder="2023.04.07" disabled />
+                                                    <div class="input-btn">
+                                                        <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="is--date">
+                                            <div class="input-text">
+                                                <div class="box has--button date bg--white">
+                                                    <input type="text" placeholder="2023.04.07" value="2023.04.07" />
+                                                    <div class="input-btn">
+                                                        <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="is--date">
+                                            <div class="input-text err">
+                                                <div class="box has--button date bg--white">
+                                                    <input type="text" placeholder="2023.04.07" />
+                                                    <div class="input-btn">
+                                                        <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="is--date has--bg">
+                                            <div class="input-text">
+                                                <div class="box has--button date bg--white">
+                                                    <input type="text" placeholder="2023.04.07" />
+                                                    <div class="input-btn">
+                                                        <button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- //table -->
+
+                        <!-- page -->
+                        <div class="page--area">
+                            <div class="page--left"></div>
+                            <div class="page--center">
+                                <button type="button" class="page is--first" disabled>첫번째 페이지</button>
+                                <button type="button" class="page is--prev" disabled>이전 페이지</button>
+                                <div class="page--numberbox">
+                                    <button type="button" class="page is--num active">1</button>
+                                    <button type="button" class="page is--num">2</button>
+                                    <button type="button" class="page is--num" disabled>3</button>
+                                </div>
+                                <button type="button" class="page is--next">다음 페이지</button>
+                                <button type="button" class="page is--last">마지막 페이지</button>
+                            </div>
+                            <div class="page--right">
+                                <div class="dropdown--area is--small">
+                                    <button type="button" class="dropdown--select"><div>20개씩 보기</div></button>
+                                    <div class="dropdown--box">
+                                        <button type="button">10개씩 보기</button>
+                                        <button type="button">15개씩 보기</button>
+                                        <button type="button" class="active">20개씩 보기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //page -->
+                    </div>
+                    <!-- //TABLE -->
+
+                </div>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

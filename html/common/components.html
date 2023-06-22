@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title>PROJECT NAME</title>
+	<title>주문형 카드</title>
 	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
 	<script src="../../js/jquery-3.6.0.min.js"></script>
@@ -14,8 +14,8 @@
 		h1 {margin-top: 30px; margin-bottom: 20px;}
 		h2 {margin-top: 20px; margin-bottom: 10px;}
 		h3 {margin-top: 10px; margin-bottom: 5px;}
-		div {flex-wrap: wrap;}
-		div,
+		div.tmp {flex-wrap: wrap;}
+		div.tmp,
 		.icon > div,
 		.icon > div > p {display: flex; gap: 5px; justify-content: start; align-items: start;}
 		.icon {width: 100%; flex-direction: column;}
@@ -33,7 +33,7 @@
 <body>
 	<h1>Input</h1>
 	<h2>Text</h2>
-	<div>
+	<div class="tmp">
 		<div class="input-text">
 			<div class="box">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
@@ -74,7 +74,7 @@
 			<p class="desc">input 설명 문구</p>
 		</div>
 	</div>
-	<div>
+	<div class="tmp">
 		<div class="input-text is--large">
 			<div class="box has--button single">
 				<input type="text" placeholder="플레이스 홀더 텍스트" />
@@ -82,6 +82,13 @@
 					<button type="button" class="pw-action show">비밀번호 보이기</button>
 					<!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
 				</div>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--large">
+			<div class="box has--timer single">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+				<p class="find-time">02:59</p>
 			</div>
 			<p class="valid">유효성 문구</p>
 		</div>
@@ -156,7 +163,7 @@
 	</div>
 
 	<h2>Checkbox</h2>
-	<div>
+	<div class="tmp">
 		<label for="chkSample1" class="input-checkbox">
 			<input type="checkbox" id="chkSample1" name="chkSample1" />
 			<p class="input-text"><span class="icon"></span><span class="text">(Default)</span></p>
@@ -176,7 +183,7 @@
 	</div>
 
 	<h3>Toggle</h3>
-	<div>
+	<div class="tmp">
 		<label for="toggleSample2" class="input-toggle">
 			<input type="checkbox" id="toggleSample2" name="toggleSample2" />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (off)</span></p>
@@ -216,7 +223,7 @@
 
 	<h1>Button</h1>
 	<h2>Color</h2>
-	<div>
+	<div class="tmp">
 		<button type="button" class="btn is--blue">btn--blue</button>
 		<button type="button" class="btn is--blue" disabled>btn--blue</button>
 		<button type="button" class="btn is--blue has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
@@ -228,7 +235,7 @@
 		<button type="button" class="btn is--white has--ico"><span class="ico-24 ico-logo-blue"></span>has--ico</button>
 	</div>
 	<h2>Type</h2>
-	<div>
+	<div class="tmp">
 		<button type="button" class="btn is--blue">(Default)</button>
 		<button type="button" class="btn is--large is--blue">is--large</button>
 		<button type="button" class="btn is--search is--blue">is--search</button>
@@ -243,7 +250,7 @@
 		<button type="button" class="btn is--state is--white" disabled>is--state is--white :disabled</button>
 	</div>
 	<h2>Width</h2>
-	<div>
+	<div class="tmp">
 		<button type="button" class="btn is--px25 is--blue">is--px25</button>
 		<button type="button" class="btn is--w160 is--blue">is--w160</button>
 		<button type="button" class="btn is--w328 is--blue">is--w328</button>
@@ -251,7 +258,7 @@
 	</div>
 
 	<h2>Dropdown</h2>
-	<div>
+	<div class="tmp">
 		<div class="dropdown--area" style="width: 150px;">
 			<button type="button" class="dropdown--select"><div>선택</div></button>
 			<div class="dropdown--box">
@@ -282,7 +289,7 @@
 
 	<h1>Box</h1>
 	<h2>Input</h2>
-	<div>
+	<div class="tmp">
 		<div class="input-box">
 			<div class="input-text">
 				<div class="box has--button single">
@@ -308,7 +315,7 @@
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
 	</div>
-	<div>
+	<div class="tmp">
 		<div class="input-box">
 			<p class="input-box--title input-box--fixed">항목명</p>
 			<div class="input-text">
@@ -350,7 +357,7 @@
 			<button type="button" class="btn is--white input-box--fixed" disabled>btn--white</button>
 		</div>
 	</div>
-	<div>
+	<div class="tmp">
 		<div class="input-box">
 			<div class="input-box is--double">
 				<div class="input-text">
@@ -370,7 +377,7 @@
 		<div class="input-box">
 			<div class="input-box is--double">
 				<div class="input-text">
-					<div class="box has--button single">
+					<div class="box has--button date">
 						<input type="text" placeholder="플레이스 홀더 텍스트" />
 						<div class="input-btn">
 							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -379,7 +386,7 @@
 				</div>
 				<p class="input-desc">~</p>
 				<div class="input-text">
-					<div class="box has--button single">
+					<div class="box has--button date">
 						<input type="text" placeholder="플레이스 홀더 텍스트" />
 						<div class="input-btn">
 							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -392,7 +399,7 @@
 	<h2>Search</h2>
 	<div class="search--box">
 		<p class="search--title">타이틀</p>
-		<div class="search--contents">
+		<div class="search--contents is--radio">
 			<label for="searchOptA" class="input-radio">
 				<input type="radio" id="searchOptA" name="searchOpt" checked />
 				<p class="input-text"><span class="icon"></span><span class="text">상위 검색조건 1</span></p>
@@ -461,7 +468,7 @@
 					<p class="input-box--title input-box--fixed">항목명</p>
 					<div class="input-box is--double">
 						<div class="input-text">
-							<div class="box has--button single">
+							<div class="box has--button date">
 								<input type="text" placeholder="플레이스 홀더 텍스트" />
 								<div class="input-btn">
 									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -470,7 +477,7 @@
 						</div>
 						<p class="input-desc">~</p>
 						<div class="input-text">
-							<div class="box has--button single">
+							<div class="box has--button date">
 								<input type="text" placeholder="플레이스 홀더 텍스트" />
 								<div class="input-btn">
 									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -479,10 +486,10 @@
 						</div>
 					</div>
 					<!-- item -->
-					<p class="input-box--title input-box--fixed">항목명</p>
-					<div class="input-box is--double">
+					<p class="input-box--title input-box--fixed disabled">항목명</p>
+					<div class="input-box is--double disabled">
 						<div class="input-text">
-							<div class="box has--button single">
+							<div class="box has--button date">
 								<input type="text" placeholder="플레이스 홀더 텍스트" />
 								<div class="input-btn">
 									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -491,7 +498,7 @@
 						</div>
 						<p class="input-desc">~</p>
 						<div class="input-text">
-							<div class="box has--button single">
+							<div class="box has--button date">
 								<input type="text" placeholder="플레이스 홀더 텍스트" />
 								<div class="input-btn">
 									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
@@ -509,29 +516,194 @@
 
 
 	<h1>Tab</h1>
-	<div>
-		<div class="tab-text">
-			<button type="button" class="active">휴대전화번호</button>
-			<button type="button">이메일</button>
+	<div class="tmp">
+		<div class="tab--wrap">
+			<div class="tab-text">
+				<button type="button" class="active" onclick="openTabBtn(this)">휴대전화번호</button>
+				<button type="button" onclick="openTabBtn(this)">이메일</button>
+			</div>
+			<div class="tab--contents">sdf</div>
+			<div class="tab--contents" style="display: none;">sdf</div>
 		</div>
 	</div>
 
 
+	<h1>TABLE</h1>
+	<div class="table--area">
+		<!-- top -->
+		<div class="table--top">
+			<p class="table__title">TITLE</p>
+			<div class="table__title has--button">
+				<div class="table__title--left">TITLE (has--button)</div>
+				<div class="table__title--right">
+					<button type="button" class="btn is--blue">선택삭제</button>
+					<button type="button" class="btn is--white">등록</button>
+				</div>
+			</div>
+			<div class="table__filter">
+				<div class="table__filter--left">
+					
+				</div>
+				<div class="table__filter--right has--devide">
+					<p class="filter--text">0/10</p>
+					<div class="filter--devide">
+						sdf
+					</div>
+					<p class="devide"></p>
+					<div class="filter--devide">
+						sdf
+					</div>
+					<p class="devide"></p>
+					<div class="filter--devide">
+						sdf
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //top -->
+
+		<!-- table -->
+		<div class="table--box">
+			<table>
+				<thead>
+					<tr>
+						<th rowspan="2">sdf</th>
+						<th rowspan="2">
+							sdf
+							<button type="button" class="v-top ico-16 ico-combo-arrow-black"></button>
+						</th>
+						<th rowspan="2">
+							sdf
+							<button type="button" class="v-top ico-16 ico-combo-arrow-black"></button>
+						</th>
+						<th colspan="3" class="line--full">sdf</th>
+					</tr>
+					<tr>
+						<th class="line--full">sdf</th>
+						<th>sdf</th>
+						<th>sdf</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<label for="tblChk1" class="input-checkbox tbl-check">
+								<input type="checkbox" id="tblChk1" name="tblChk1" />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td class="is--date has--bg">is--date (has--bg)</td>
+						<td class="is--date">is--date</td>
+						<td class="is--date">is--date</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="tblChk2" class="input-checkbox tbl-check">
+								<input type="checkbox" id="tblChk2" name="tblChk2" checked />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td class="is--date has--bg">is--date (has--bg)</td>
+						<td class="is--date">is--date</td>
+						<td class="is--date">is--date</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- //table -->
+
+		<!-- table -->
+		<div class="table--box">
+			<table>
+				<thead>
+					<tr>
+						<th rowspan="2">
+							<label for="tblChkAll2" class="input-checkbox tbl-check-all">
+								<input type="checkbox" id="tblChkAll2" name="tblChkAll2" />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</th>
+						<th>sdf</th>
+						<th>sdf</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<label for="tblChk1" class="input-checkbox tbl-check">
+								<input type="checkbox" id="tblChk1" name="tblChk1" />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</td>
+						<td>sdf</td>
+						<td>sdf</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- //table -->
+	</div>
+
+	<h1>PAGE</h1>
+	<!-- page -->
+	<div class="page--area">
+		<div class="page--left">
+			<button type="button" class="btn is--white">등록</button>
+		</div>
+		<div class="page--center">
+			<button type="button" class="page is--first" disabled>첫번째 페이지</button>
+			<button type="button" class="page is--prev" disabled>이전 페이지</button>
+			<div class="page--numberbox">
+				<button type="button" class="page is--num active">1</button>
+				<button type="button" class="page is--num">2</button>
+				<button type="button" class="page is--num" disabled>3</button>
+			</div>
+			<button type="button" class="page is--next">다음 페이지</button>
+			<button type="button" class="page is--last">마지막 페이지</button>
+		</div>
+		<div class="page--right">
+			<div class="dropdown--area is--small">
+				<button type="button" class="dropdown--select"><div>선택</div></button>
+				<div class="dropdown--box">
+					<button type="button">선택 항목 1</button>
+					<button type="button">선택 항목 2</button>
+					<button type="button" class="active">선택 항목 3</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //page -->
+
+
 	<h1>Layer</h1>
-	<div style="padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
-		<div class="layer--area" style="display: none;">
+	<div class="tmp">
+		<button type="button" class="btn is--blue" onclick="toggleLayer('.layer-default')">layer-default</button>
+	</div>
+	<div style="position: relative; padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
+		<style>
+			.layer--area::after {position: absolute;}
+		</style>
+		<div class="layer--area layer-default" style="position: relative;">
 			<div class="layer--box">
-				<div class="layer--header">header</div>
+				<div class="layer--header">
+					<p class="layer--header__title">아이디 찾기</p>
+					<button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.layer-default')">닫기</button>
+
+				</div>
 				<div class="layer--contents">contents</div>
 				<div class="layer--buttons">
 					<button type="button" class="btn is--w328 is--blue">is--w328</button>
 				</div>
 			</div>
 		</div>
-		<div class="layer--box" style="width: 510px;">
+		<div class="layer--box layer-default2" style="width: 510px;">
 			<div class="layer--header">
 				<p class="layer--header__title">아이디 찾기</p>
-				<button type="button" class="ico-24 ico-close-black layer--header__close">닫기</button>
+				<button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.layer-default2')">닫기</button>
 
 			</div>
 			<div class="layer--contents">contents</div>

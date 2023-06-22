@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>주문형 카드</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
+	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/design.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>header.html 참고</header>
+		<div class="container">
+			<div class="contents--box">
+
+                <style>
+                    .icon {display: flex; gap: 5px; justify-content: start; align-items: start; flex-wrap: wrap;}
+                </style>
+                    
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.login-same')">동시접속 로그아웃</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.login-lock')">잠김 처리 계정</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.find-id')">아이디찾기</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.show-id')">아이디제공</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.find-pw')">비밀번호찾기</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.change-pw')">비밀번호변경</button>
+                
+			</div>
+		</div>
+    </div>
+
+    
+    <!-- 동시접속 로그아웃 -->
+    <div class="layer--area layer-login login-same">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--contents">
+                <p class="text">동시 접속이 확인되어<br>로그아웃 되었습니다.<br>동시접속 IP : 123.12.123.12</p>
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w328 is--blue is--large">확인</button>
+            </div>
+        </div>
+    </div>
+    <!-- //동시접속 로그아웃 -->
+
+    <!-- 잠김 처리 계정 -->
+    <div class="layer--area layer-login login-lock">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--contents">
+                <p class="text">관리자에 의해 잠김 처리된 계정입니다.</p>
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w328 is--blue is--large">로그인</button>
+            </div>
+        </div>
+    </div>
+    <!-- //잠김 처리 계정 -->
+
+    <!-- 아이디찾기 -->
+    <div class="layer--area layer-find find-id">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--header">
+                <p class="layer--header__title">아이디 찾기</p>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.find-id')">닫기</button>
+
+            </div>
+            <div class="layer--contents">
+                
+                <div class="tab--wrap">
+                    <div class="tab-text">
+                        <button type="button" class="active" onclick="openTabBtn(this)">휴대전화번호</button>
+                        <button type="button" onclick="openTabBtn(this)">이메일</button>
+                    </div>
+                    <div class="tab--contents">
+
+                        <!-- 기본 -->
+                        <p class="find-title">이름</p>
+                        <div class="input-text is--large">
+                            <div class="box">
+                                <input type="text" placeholder="이름을 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">이름을 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">휴대전화번호</p>
+                        <div class="input-box is--large">
+                            <div class="input-text">
+                                <div class="box">
+                                    <input type="text" placeholder="휴대전화번호를 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">휴대전화번호를 정확히 입력해 주세요.</p>
+                                <p class="desc">휴대전화번호 ‘-’ 제외하고 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 입력해주세요.">
+                                <p class="find-time">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //기본 -->
+
+                        <!-- 오류 -->
+                        <p class="find-title">이름</p>
+                        <div class="input-text is--large err">
+                            <div class="box">
+                                <input type="text" placeholder="이름을 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">이름을 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">휴대전화번호</p>
+                        <div class="input-box is--large">
+                            <div class="input-text err">
+                                <div class="box">
+                                    <input type="text" placeholder="휴대전화번호를 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">휴대전화번호를 정확히 입력해 주세요.</p>
+                                <p class="desc">휴대전화번호 ‘-’ 제외하고 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large err">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." value="123456">
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." disabled>
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //오류 -->
+
+                        
+                    </div>
+                    <div class="tab--contents" style="display: none;">
+
+                        <!-- 기본 -->
+                        <p class="find-title">아이디</p>
+                        <div class="input-text is--large">
+                            <div class="box">
+                                <input type="text" placeholder="아이디를 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">아이디를 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">이메일</p>
+                        <div class="input-box is--large">
+                            <div class="input-text">
+                                <div class="box">
+                                    <input type="text" placeholder="이메일을 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">이메일을 정확히 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 입력해주세요.">
+                                <p class="find-time">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //기본 -->
+
+                        <!-- 오류 -->
+                        <p class="find-title">아이디</p>
+                        <div class="input-text is--large err">
+                            <div class="box">
+                                <input type="text" placeholder="아이디를 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">아이디를 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">이메일</p>
+                        <div class="input-box is--large">
+                            <div class="input-text err">
+                                <div class="box">
+                                    <input type="text" placeholder="이메일을 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">이메일을 정확히 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large err">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." value="123456">
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." disabled>
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //오류 -->
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w328 is--blue is--large">확인</button>
+            </div>
+        </div>
+    </div>
+    <!-- //아이디찾기 -->
+
+    <!-- 아이디제공 -->
+    <div class="layer--area layer-find show-id">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--header">
+                <p class="layer--header__title"></p>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.show-id')">닫기</button>
+
+            </div>
+            <div class="layer--contents">
+                <p class="find-result--text">회원님의 아이디는 <br><strong>wkdaudtn0</strong>입니다.</p>
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w328 is--blue is--large">로그인</button>
+            </div>
+        </div>
+    </div>
+    <!-- //아이디제공 -->
+
+    <!-- 비밀번호찾기 -->
+    <div class="layer--area layer-find find-pw">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--header">
+                <p class="layer--header__title">비밀번호 찾기</p>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.find-pw')">닫기</button>
+
+            </div>
+            <div class="layer--contents">
+                
+                <div class="tab--wrap">
+                    <div class="tab-text">
+                        <button type="button" class="active" onclick="openTabBtn(this)">휴대전화번호</button>
+                        <button type="button" onclick="openTabBtn(this)">이메일</button>
+                    </div>
+                    <div class="tab--contents">
+
+                        <!-- 기본 -->
+                        <p class="find-title">이름</p>
+                        <div class="input-text is--large">
+                            <div class="box">
+                                <input type="text" placeholder="이름을 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">이름을 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">휴대전화번호</p>
+                        <div class="input-box is--large">
+                            <div class="input-text">
+                                <div class="box">
+                                    <input type="text" placeholder="휴대전화번호를 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">휴대전화번호를 정확히 입력해 주세요.</p>
+                                <p class="desc">휴대전화번호 ‘-’ 제외하고 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 입력해주세요.">
+                                <p class="find-time">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //기본 -->
+
+                        <!-- 오류 -->
+                        <p class="find-title">이름</p>
+                        <div class="input-text is--large err">
+                            <div class="box">
+                                <input type="text" placeholder="이름을 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">이름을 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">휴대전화번호</p>
+                        <div class="input-box is--large">
+                            <div class="input-text err">
+                                <div class="box">
+                                    <input type="text" placeholder="휴대전화번호를 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">휴대전화번호를 정확히 입력해 주세요.</p>
+                                <p class="desc">휴대전화번호 ‘-’ 제외하고 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large err">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." value="123456">
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." disabled>
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //오류 -->
+
+                        
+                    </div>
+                    <div class="tab--contents" style="display: none;">
+
+                        <!-- 기본 -->
+                        <p class="find-title">아이디</p>
+                        <div class="input-text is--large">
+                            <div class="box">
+                                <input type="text" placeholder="아이디를 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">아이디를 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">이메일</p>
+                        <div class="input-box is--large">
+                            <div class="input-text">
+                                <div class="box">
+                                    <input type="text" placeholder="이메일을 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">이메일을 정확히 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 입력해주세요.">
+                                <p class="find-time">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //기본 -->
+
+                        <!-- 오류 -->
+                        <p class="find-title">아이디</p>
+                        <div class="input-text is--large err">
+                            <div class="box">
+                                <input type="text" placeholder="아이디를 입력하세요.">
+                                
+                            </div>
+                            <p class="valid">아이디를 정확히 입력해 주세요.</p>
+                        </div>
+
+                        <p class="find-title">이메일</p>
+                        <div class="input-box is--large">
+                            <div class="input-text err">
+                                <div class="box">
+                                    <input type="text" placeholder="이메일을 입력하세요.">
+                                    
+                                </div>
+                                <p class="valid">이메일을 정확히 입력해 주세요.</p>
+                            </div>
+                            <button type="button" class="btn is--white is--w120 input-box--fixed">인증 요청</button>
+                        </div>
+
+                        <div class="input-text is--large err">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." value="123456">
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+
+                        <div class="input-text is--large">
+                            <div class="box has--timer single">
+                                <input type="text" placeholder="인증번호를 다시 요청하세요." disabled>
+                                <p class="find-time" style="display: none;">02:59</p>
+                            </div>
+                            <p class="valid">인증번호가 일치하지 않습니다. 확인하신 후 다시 입력해 주세요.</p>
+                        </div>
+                        <!-- //오류 -->
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w328 is--blue is--large">is--w328</button>
+            </div>
+        </div>
+    </div>
+    <!-- //비밀번호찾기 -->
+
+    <!-- 비밀번호변경 -->
+    <div class="layer--area layer-find change-pw">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--header">
+                <p class="layer--header__title">비밀번호 변경</p>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.change-pw')">닫기</button>
+            </div>
+            <div class="layer--contents">
+                
+                <!-- 기본 -->
+                <p class="find-title">새 비밀번호</p>
+                <div class="input-text is--large">
+                    <div class="box has--button single">
+                        <input type="text" placeholder="플레이스 홀더 텍스트">
+                        <div class="input-btn">
+                            <button type="button" class="pw-action show">비밀번호 보이기</button>
+                            <!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+                        </div>
+                    </div>
+                    <p class="valid">기존 비밀번호와 다른 비밀번호를 입력해 주세요.</p>
+                    <p class="desc">영문, 숫자, 특수문자를 조합하여 8~15자 입력해 주세요.</p>
+                </div>
+
+                <p class="find-title">새 비밀번호 확인</p>
+                <div class="input-text is--large">
+                    <div class="box has--button single">
+                        <input type="text" placeholder="플레이스 홀더 텍스트">
+                        <div class="input-btn">
+                            <button type="button" class="pw-action show">비밀번호 보이기</button>
+                            <!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
+                        </div>
+                    </div>
+                    <p class="valid">비밀번호가 일치하지 않습니다.</p>
+                </div>
+                <!-- //기본 -->
+
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w160 is--white is--large">취소</button>
+                <button type="button" class="btn is--w160 is--blue is--large">확인</button>
+            </div>
+        </div>
+    </div>
+    <!-- //비밀번호변경 -->
+
+
+</body>
+</html>

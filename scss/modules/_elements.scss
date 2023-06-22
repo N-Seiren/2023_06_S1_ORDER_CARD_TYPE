@@ -1,5 +1,9 @@
 @use '../abstract/' as *;
 
+$DROP: '.dropdown';
+$PAGE: '.page';
+
+// ICON
 .ico {
 	@each $SIZE in $ICON-SIZE-ALL {
 		&-#{$SIZE} {
@@ -11,7 +15,6 @@
 		}
 	}
 }
-
 @each $TYPE, $COLOR-LIST in $IMAGE-SET-ALL {
 	@each $COLOR, $URL-LIST in $COLOR-LIST {
 		@each $NAME, $VALUE in $URL-LIST {
@@ -32,6 +35,7 @@
 	}
 }
 
+// BUTTON
 .btn {
 	@include set-flex($INLINE: true, $JUSTIFY: center, $ALIGN: center);
 	min-width: 75px;
@@ -160,10 +164,23 @@
 				color: $C-FID;
 			}
 		}
+		&--text {
+			@include set-flex($ALIGN: center);
+			display: inline-flex;
+			min-width: 0;
+			padding: 0;
+			border: 0;
+			border-radius: 0;
+			font-size: 14px;
+			line-height: 20px;
+		}
 
 		// Width
 		&--px25 {
 			@include space(false, 25px, x);
+		}
+		&--w120 {
+			width: 120px;
 		}
 		&--w160 {
 			width: 160px;
@@ -186,8 +203,11 @@
 	}
 }
 
+// INPUT
 .input {
 	$EL: '.input';
+	$H-L: 50px;
+
 	&-text {
 		$PW: '.pw';
 		$G: 7px;
@@ -225,6 +245,7 @@
 			&:disabled {
 				background-color: $C-BD;
 				border-color: $C-BN;
+				color: $C-FID;
 			}
 		}
 
@@ -234,23 +255,58 @@
 			height: 100%;
 
 			// BUTTON
-			&.has--button {
-				@include set-flex($ALIGN: center);
-				gap: $P;
-				input {
-					position: relative;
-					width: 100%;
-					z-index: 5;
-				}
-
-				&.single {
+			&.has {
+				&--button {
+					@include set-flex($ALIGN: center);
+					gap: $P;
 					input {
-						padding-right: $S + $P + 16;
+						position: relative;
+						width: 100%;
+						z-index: 5;
+					}
+
+					&.single {
+						input {
+							padding-right: $S + $P + 16;
+						}
+					}
+					&.double {
+						input {
+							padding-right: (($S + $P) * 2) + 16;
+						}
+					}
+					&.date {
+						input {
+							padding-right: $S + 5;
+						}
+						.input-btn {
+							right: 5px;
+						}
+
+						&.bg--white {
+							input {
+								&:disabled {
+									background-color: $C-W;
+								}
+							}
+						}
 					}
 				}
-				&.double {
-					input {
-						padding-right: (($S + $P) * 2) + 16;
+				&--timer {
+					position: relative;
+					.box {
+						input {
+							padding-right: 70px;
+						}
+					}
+					.find-time {
+						position: absolute;
+						top: 50%;
+						right: $P * 2 + 2;
+						color: $C-PN;
+						font-size: 16px;
+						line-height: 19px;
+						transform: translateY(-50%);
 					}
 				}
 			}
@@ -293,6 +349,16 @@
 						}
 						#{$PW}-search {
 							background-image: url(urlImg(ico, search, gray));
+						}
+
+						.ico {
+							&-calendar-black {
+								background-image: url(urlImg(
+									ico,
+									calendar,
+									gray
+								));
+							}
 						}
 					}
 				}
@@ -393,51 +459,62 @@
 			.valid {
 				color: $C-SN;
 			}
+
+			.ico {
+				&-calendar-black {
+					background-image: url(urlImg(ico, calendar, red));
+				}
+			}
 		}
 
 		// SIZE
-		&.is--large {
-			$G: 7px;
-			$S: 24px;
-			$P: 10px;
-			height: 50px;
-			.box {
-				// BUTTON
-				&.has--button {
-					&.single {
-						input {
-							padding-right: $S + $P + 16;
+		&.is {
+			&--large {
+				$G: 7px;
+				$S: 24px;
+				$P: 10px;
+				.box {
+					// BUTTON
+					&.has--button {
+						&.single {
+							input {
+								padding-right: $S + $P + 16;
+							}
+						}
+						&.double {
+							input {
+								padding-right: (($S + $P) * 2) + 16;
+							}
 						}
 					}
-					&.double {
-						input {
-							padding-right: (($S + $P) * 2) + 16;
+
+					#{$PW}-btn {
+						right: 16px;
+						gap: $P;
+						button,
+						a {
+							width: $S;
+							height: $S;
+						}
+						#{$PW}-remove {
+							width: $S - 4;
+							height: $S - 4;
+							background-image: url(urlImg(ico, remove, gray));
+							background-size: $S - 4;
 						}
 					}
-				}
 
-				#{$PW}-btn {
-					right: 16px;
-					gap: $P;
-					button,
-					a {
-						width: $S;
-						height: $S;
-					}
-					#{$PW}-remove {
-						width: $S - 4;
-						height: $S - 4;
-						background-image: url(urlImg(ico, remove, gray));
-						background-size: $S - 4;
+					input {
+						min-height: $H-L;
+						padding-right: 16px;
+						padding-left: 16px;
+						font-size: 18px;
+						line-height: 21px;
 					}
 				}
-
-				input {
-					padding-right: 16px;
-					padding-left: 16px;
-					font-size: 18px;
-					line-height: 21px;
-				}
+			}
+			&--w160 {
+				width: 160px;
 			}
 		}
 	}
@@ -557,12 +634,22 @@
 			font-size: 14px;
 			font-weight: $F-SB;
 			line-height: 20px;
+
+			&.disabled {
+				color: $C-FID;
+			}
 		}
 
 		&.is {
 			// size
 			&--large {
-				height: 50px;
+				min-height: $H-L;
+				#{$EL}-text .box input,
+				.btn {
+					height: $H-L;
+					font-size: 18px;
+					line-height: 21px;
+				}
 			}
 			&--double {
 				@include set-grid($TEMPLATE: auto 17px auto);
@@ -587,7 +674,15 @@
 	}
 }
 
-$DROP: '.dropdown';
+// BOX
+.box {
+	&--white {
+		background-color: $C-W;
+		border-radius: 30px;
+	}
+}
+
+// DROPDOWN
 .dropdown {
 	&--select {
 		$S: 24px;
@@ -599,6 +694,7 @@ $DROP: '.dropdown';
 		padding-right: $S + 10px;
 		border: 1px solid $C-BN;
 		border-radius: 2px;
+		text-align: left;
 		span {
 			@include ellipsis();
 			display: block;
@@ -679,9 +775,32 @@ $DROP: '.dropdown';
 				display: flex;
 			}
 		}
+
+		// type
+		&.is {
+			&--small {
+				#{$DROP}--select {
+					$S: 20px;
+					$X: 9px;
+					$Y: 6px;
+					height: 26px;
+					padding: $Y $X;
+					padding-right: $S + 6px;
+					&::after {
+						width: $S;
+						height: $S;
+						right: 3px;
+					}
+				}
+			}
+			&--w245 {
+				width: 245px;
+			}
+		}
 	}
 }
 
+// SEARCH
 .search {
 	$PB: 30px;
 	&--box {
@@ -700,17 +819,22 @@ $DROP: '.dropdown';
 		flex-wrap: nowrap;
 		padding: 20px $PB 0;
 
-		&:last-child {
-			@include set-flex($JUSTIFY: space-between, $ALIGN: center);
-			padding-bottom: $PB;
-		}
-
 		.input-text {
 			flex-direction: row;
 			.text {
 				font-size: 16px;
 				font-weight: $F-SB;
 			}
+		}
+
+		&:last-child {
+			@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+			padding-bottom: $PB;
+		}
+
+		&.is--radio {
+			@include set-flex();
+			gap: 37px;
 		}
 	}
 	&--items {
@@ -727,12 +851,21 @@ $DROP: '.dropdown';
 			}
 		}
 
+		.dropdown--area {
+			width: 245px;
+		}
+
 		> .input-box {
 			width: 245px;
 		}
 	}
+	&--button {
+		@include set-flex($ALIGN: center);
+		gap: 8px;
+	}
 }
 
+// TAB
 .tab {
 	&-text {
 		@include set-flex($ALIGN: center);
@@ -758,9 +891,268 @@ $DROP: '.dropdown';
 	}
 }
 
+// TABLE
+.table {
+	&--area {
+		padding: 30px 30px 0;
+
+		#{$PAGE}--area {
+			margin-top: 20px;
+		}
+	}
+	&--top {
+		@include set-flex($DIRECTION: column, $ALIGN: stretch);
+		gap: 10px;
+		margin-bottom: 20px;
+	}
+	&--box {
+		overflow-x: auto;
+		table {
+			thead {
+				th {
+					vertical-align: middle;
+					position: relative;
+					padding: 7px 8px;
+					background-color: $C-TTB;
+					color: $C-FI;
+					font-size: 14px;
+					font-weight: $F-SB;
+					line-height: 20px;
+					&:not(:first-child) {
+						&::before {
+							position: absolute;
+							width: 1px;
+							height: 15px;
+							top: 50%;
+							left: 0;
+							background-color: $C-TTL;
+							transform: translateY(-50%);
+							content: '';
+						}
+					}
+
+					&.line {
+						&--full {
+							border-left: 1px solid $C-TTL;
+							&::before {
+								display: none;
+							}
+						}
+						&--none {
+							&::before {
+								display: none;
+							}
+						}
+					}
+				}
+				tr:first-child {
+					th {
+						border-top: 2px solid $C-TTL;
+					}
+				}
+				tr + tr {
+					th {
+						border-top: 1px solid $C-TTL;
+					}
+				}
+			}
+			tbody {
+				th {
+				}
+				td {
+					padding: 8px 12px;
+					border-bottom: 1px solid $C-TLN;
+					color: $C-FI;
+					font-size: 14px;
+					font-weight: $F-SB;
+					line-height: 20px;
+					&.is--date {
+						padding: 1px 4px 2px;
+					}
+					&.has--bg {
+						background-color: $C-BT;
+					}
+				}
+
+				tr {
+					&:hover {
+						th,
+						td {
+							background-color: $C-TTH;
+						}
+					}
+					&.is--checked {
+						th,
+						td {
+							background-color: $C-TTC;
+						}
+					}
+				}
+			}
+
+			th,
+			td {
+				&.px0 {
+					padding-right: 0;
+					padding-left: 0;
+					text-align: center;
+					.input-checkbox {
+						vertical-align: middle;
+						display: inline-block;
+						margin-top: -2px;
+					}
+				}
+			}
+		}
+	}
+
+	&__title {
+		$EL: '.table__title';
+
+		color: $C-B;
+		font-size: 18px;
+		font-weight: $F-SB;
+		line-height: 28px;
+
+		&--left {
+		}
+		&--right {
+		}
+		&.has {
+			&--button {
+				@include set-flex($JUSTIFY: space-between);
+				#{$EL}--right {
+					@include set-flex($ALIGN: center);
+					gap: 8px;
+				}
+			}
+		}
+	}
+	&__filter {
+		@include set-flex($JUSTIFY: space-between);
+		min-height: 34px;
+		&--left {
+		}
+		&--center {
+		}
+		&--right {
+			@include set-flex($ALIGN: center);
+		}
+
+		.has {
+			&--devide {
+				@include set-flex();
+				gap: 24px;
+				.devide {
+					width: 1px;
+					height: 16px;
+					background-color: $C-TTL;
+				}
+			}
+		}
+
+		.filter {
+			&--text {
+				color: $C-FIS;
+				font-size: 14px;
+				line-height: 17px;
+			}
+			&--devide {
+				@include set-flex($ALIGN: center);
+				gap: 8px;
+			}
+		}
+	}
+}
+
+// PAGE
+.page {
+	&--area {
+		@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+		padding-bottom: 69px;
+
+		> div {
+			min-height: 34px;
+		}
+
+		.page {
+			$S: 26px;
+			@mixin pageBtn($IMG) {
+				@extend %resetIcon;
+				background-color: $C-W;
+				border: 1px solid $C-BN;
+				border-radius: 2px;
+				background-size: auto 10px;
+				background-image: url(urlImg(ico, #{$IMG}, black));
+				&:disabled {
+					background-image: url(urlImg(ico, #{$IMG}, gray));
+				}
+
+				&:hover:not(:disabled) {
+					background-color: $C-TTH;
+				}
+			}
+
+			width: $S;
+			height: $S;
+
+			&.is {
+				&--first {
+					@include pageBtn('page-first');
+				}
+				&--prev {
+					@include pageBtn('page-prev');
+				}
+				&--next {
+					@include pageBtn('page-next');
+				}
+				&--last {
+					@include pageBtn('page-last');
+				}
+				&--num {
+					color: #9b9fa8;
+					font-size: 14px;
+					font-weight: $F-SB;
+					line-height: 20px;
+					&.active {
+						color: #222427;
+					}
+					&:disabled {
+						background-color: transparent;
+						color: $C-TLN;
+					}
+				}
+			}
+		}
+
+		#{$DROP}--area {
+			width: 103px;
+			#{$DROP}--select {
+				padding-right: 20px;
+			}
+		}
+	}
+	&--left {
+	}
+	&--center {
+		@include set-flex($JUSTIFY: center, $ALIGN: center);
+		gap: 4px;
+	}
+	&--numberbox {
+		@include set-flex($JUSTIFY: center, $ALIGN: center);
+		gap: 4px;
+		min-width: 86px;
+	}
+	&--right {
+	}
+}
+
+// LAYER
 .layer {
 	&--area {
 		@include set-flex($JUSTIFY: center, $ALIGN: center);
+		position: fixed;
+		display: none;
 		z-index: 999;
 
 		&,
@@ -779,29 +1171,35 @@ $DROP: '.dropdown';
 	}
 	&--box {
 		@include set-flex($DIRECTION: column, $ALIGN: stretch);
-		gap: 30px;
 		position: relative;
-		padding: 30px;
+		max-height: calc(100% - 30px);
+		gap: 30px;
+		padding: 30px 0;
 		background-color: $C-W;
 		z-index: 10;
 	}
 	&--header {
+		$H: 33px;
 		@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+		padding: 0 30px;
+		min-height: $H;
 		&__title {
 			color: $C-B;
 			font-size: 22px;
 			font-weight: $F-EB;
-			line-height: 33px;
+			line-height: $H;
 		}
 		&__close {
 		}
 	}
 	&--contents {
+		overflow-y: auto;
+		padding: 0 30px;
 	}
 	&--buttons {
 		@include set-flex($JUSTIFY: center);
-		padding-top: 20px;
-		padding-bottom: 10px;
+		gap: 8px;
+		padding: 20px 30px 10px;
 		.btn {
 			height: 44px;
 		}
