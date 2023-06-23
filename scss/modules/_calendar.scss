@@ -1,0 +1,187 @@
+@use '../abstract/' as *;
+
+/*!
+ * Datepicker for Bootstrap v1.9.0 (https://github.com/uxsolutions/bootstrap-datepicker)
+ *
+ * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+ */
+
+$PICKER: '.datepicker';
+#{$PICKER} {
+	padding-right: 20px;
+	padding-left: 20px;
+	table {
+		@include set-grid($AUTO: 1);
+		td {
+			@include set-flex($JUSTIFY: center, $ALIGN: center);
+			cursor: pointer;
+		}
+		thead {
+			@include set-grid($AUTO: 1);
+			tr {
+				padding-right: 15px;
+				padding-left: 15px;
+				th {
+					$S: 25px;
+					&.prev,
+					&.next {
+						@include set-flex($FIXED: true);
+						@extend %resetIcon;
+						width: $S;
+						height: $S;
+						background-image: url(urlImg(ico, more));
+						cursor: pointer;
+					}
+
+					&.prev {
+						transform: rotate(180deg);
+					}
+					&#{$PICKER}-switch {
+						@include set-flex($FIXED: false);
+						color: $C-B;
+						font-size: 24px;
+						font-weight: $F-EB;
+						cursor: pointer;
+					}
+				}
+
+				&:nth-child(2) {
+					@include set-flex($ALIGN: center);
+				}
+				&:nth-child(3) {
+					@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+					margin-top: 41px;
+					th {
+						$S: 28px;
+						@include set-flex($JUSTIFY: center, $ALIGN: center);
+						width: $S;
+						height: 24px;
+					}
+				}
+			}
+		}
+	}
+	&-days {
+		table {
+			tbody {
+				@include set-grid($AUTO: 1);
+				padding-right: 15px;
+				padding-left: 15px;
+				margin-top: 10px;
+				gap: 22px;
+				tr {
+					@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+					td {
+						$S: 28px;
+						width: $S;
+						&.day {
+							width: $S;
+							height: $S;
+
+							color: $C-FM;
+							font-size: 16px;
+							font-weight: $F-SB;
+							line-height: 19px;
+							border-radius: $S;
+
+							&.old,
+							&.disabled {
+								color: $C-BN;
+							}
+							&.today {
+								background-color: $C-PN;
+								color: $C-W;
+							}
+
+							&:hover:not(.old, .disabled),
+							&.active:not(.old, .disabled) {
+								color: $C-PN;
+								border: 1px solid $C-PN;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&-months,
+	&-years {
+		table {
+			thead {
+				tr {
+					padding-right: 15px;
+					padding-left: 15px;
+				}
+			}
+			tbody {
+				@include set-grid($AUTO: 1);
+				margin-top: 38px;
+				tr {
+					display: block;
+					td {
+						@include set-grid($AUTO: 3);
+						gap: 10px;
+						.month,
+						.year {
+							@include set-flex($JUSTIFY: center, $ALIGN: center);
+							$S: 57px;
+							height: $S;
+
+							color: $C-FT;
+							font-size: 16px;
+							font-weight: $F-SB;
+							line-height: 19px;
+							border: 1px solid $C-BN;
+							border-radius: 4px;
+
+							&.old,
+							&.disabled {
+								color: $C-BN;
+							}
+							&.today {
+								background-color: $C-PN;
+								color: $C-W;
+							}
+
+							&:hover:not(.old, .disabled),
+							&.active:not(.old, .disabled) {
+								color: $C-PN;
+								border: 1px solid $C-PN;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-dropdown {
+		position: absolute;
+		width: 360px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		margin-top: 46px;
+		background-color: $C-W;
+		border: 1px solid $C-BN;
+	}
+	&--title {
+		@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+		padding: 20px 0;
+		margin-bottom: 16px;
+		.title {
+			color: $C-B;
+			font-size: 20px;
+			font-weight: $F-EB;
+			line-height: 24px;
+		}
+		.reset {
+			color: $C-PN;
+			font-size: 16px;
+			line-height: 19px;
+		}
+	}
+
+	&.has--title {
+		padding-top: 0;
+	}
+}

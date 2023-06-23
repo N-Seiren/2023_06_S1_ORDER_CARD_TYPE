@@ -279,7 +279,7 @@ $PAGE: '.page';
 						input {
 							padding-right: $S + 5;
 						}
-						.input-btn {
+						.date-button {
 							right: 5px;
 						}
 
@@ -350,22 +350,16 @@ $PAGE: '.page';
 						#{$PW}-search {
 							background-image: url(urlImg(ico, search, gray));
 						}
-
-						.ico {
-							&-calendar-black {
-								background-image: url(urlImg(
-									ico,
-									calendar,
-									gray
-								));
-							}
-						}
+					}
+					& + .date-button {
+						background-image: url(urlImg(ico, calendar, gray));
 					}
 				}
 			}
 
 			// TYPE
-			#{$EL}-btn {
+			#{$EL}-btn,
+			.date-button {
 				@include set-flex($ALIGN: center);
 				position: absolute;
 				gap: $P;
@@ -460,10 +454,16 @@ $PAGE: '.page';
 				color: $C-SN;
 			}
 
-			.ico {
-				&-calendar-black {
-					background-image: url(urlImg(ico, calendar, red));
+			.box {
+				&.date {
+					input {
+						color: $C-SN;
+					}
 				}
+			}
+
+			.date-button {
+				background-image: url(urlImg(ico, calendar, red));
 			}
 		}
 
@@ -678,7 +678,7 @@ $PAGE: '.page';
 .box {
 	&--white {
 		background-color: $C-W;
-		border-radius: 30px;
+		border-radius: 4px;
 	}
 }
 

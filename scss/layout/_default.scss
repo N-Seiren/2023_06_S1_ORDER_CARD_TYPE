@@ -4,6 +4,7 @@
 .wrap {
 	@include set-flex($DIRECTION: column);
 	min-height: 100%;
+	min-width: 1280px;
 	background-color: $C-BW;
 
 	&.login {

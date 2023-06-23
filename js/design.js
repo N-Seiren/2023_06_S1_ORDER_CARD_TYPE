@@ -9,6 +9,8 @@ function designInit() {
 	defDropdown();
 	// Table Check
 	defTblCheck();
+	// Datepicker
+	defDatepicker();
 }
 
 /**
@@ -142,6 +144,64 @@ $(document).on('change', '.tbl-check-all', (e) => {
 		});
 	}
 });
+
+/**
+ * Datepicker
+ */
+function defDatepicker() {
+	const _today = new Date();
+	let _year = _today.getFullYear(),
+		_month = _today.getMonth() + 1,
+		_date = _today.getDate();
+
+	if (_month < 10) {
+		_month = '0' + _month;
+	}
+	if (_date < 10) {
+		_date = '0' + _date;
+	}
+
+	$('.input-text .box.date, .inline-calendar').each((idx, el) => {
+		const _idx = $(el).hasClass('inline-calendar')
+			? $('.inline-calendar').index($(el))
+			: $('.box.date').index($(el));
+
+		const _idxCls = `'.datepicker--idx${_idx}'`;
+
+		$(el).addClass('datepicker--idx' + _idx);
+		$(el).datepicker({
+			startDate: String(_year + '.' + _month + '.' + _date),
+			startView: 0, // 0 ~ 2 (day ~ year)
+			maxViewMode: 2,
+			todayHighlight: true,
+			// autoclose: true,
+			defaultViewDate: { year: _year, month: _month - 1, day: _date },
+			language: 'ko',
+		});
+
+		// TODO 달력 title 옵션으로 넣는것 바꾸기
+		// TODO 달력 inline 으로 작업
+		if (el.dataset.title) {
+			let _title = '';
+			let _text = '';
+
+			_text = el.dataset.title ? el.dataset.title : '시작';
+			_title += '<p class="title">' + _text + '</p>';
+			_title +=
+				'<button type="button" class="reset" onclick="resetDatepicker(' +
+				_idxCls +
+				')">초기화</button>';
+
+			$(el).datepicker('updateTitle', _title);
+		}
+	});
+}
+function resetDatepicker(el) {
+	// TODO 초기화 할 때 달력 2개 생김
+	const _target = $(el).find('input') ? $(el).find('input') : $(el);
+
+	_target.datepicker('clearDates');
+}
 
 /**
  * Tab

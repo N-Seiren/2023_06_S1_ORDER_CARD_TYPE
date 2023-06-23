@@ -190,8 +190,10 @@ button:not(:disabled) {
   line-height: 17px;
 }
 
-header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
-.input-text .box .input-btn a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last, .input-checkbox input[type=checkbox] + .input-text .icon::after, .input-radio input[type=checkbox] + .input-text .icon::after {
+header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .datepicker table thead tr th.next, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
+.input-text .box .input-btn a:not([class*=ico-]),
+.input-text .box .date-button button:not([class*=ico-]),
+.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last, .input-checkbox input[type=checkbox] + .input-text .icon::after, .input-radio input[type=checkbox] + .input-text .icon::after {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -199,8 +201,10 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
   font-size: 0;
 }
 
-header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
-.input-text .box .input-btn a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last {
+header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .datepicker table thead tr th.next, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
+.input-text .box .input-btn a:not([class*=ico-]),
+.input-text .box .date-button button:not([class*=ico-]),
+.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last {
   background-color: transparent;
   background-position: center;
   background-size: contain;
@@ -623,7 +627,7 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
 .input-text .box.has--button.date input {
   padding-right: 29px;
 }
-.input-text .box.has--button.date .input-btn {
+.input-text .box.has--button.date .date-button {
   right: 5px;
 }
 .input-text .box.has--button.date.bg--white input:disabled {
@@ -665,10 +669,11 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
 .input-text .box input:disabled + .input-btn .pw-search {
   background-image: url("../images/ico/search-gray.svg");
 }
-.input-text .box input:disabled + .input-btn .ico-calendar-black {
+.input-text .box input:disabled + .date-button {
   background-image: url("../images/ico/calendar-gray.svg");
 }
-.input-text .box .input-btn {
+.input-text .box .input-btn,
+.input-text .box .date-button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -680,23 +685,29 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
   z-index: 10;
 }
 .input-text .box .input-btn button:not([class*=ico-]),
-.input-text .box .input-btn a:not([class*=ico-]) {
+.input-text .box .input-btn a:not([class*=ico-]),
+.input-text .box .date-button button:not([class*=ico-]),
+.input-text .box .date-button a:not([class*=ico-]) {
   width: 24px;
   height: 24px;
 }
-.input-text .box .input-btn .pw-action.show {
+.input-text .box .input-btn .pw-action.show,
+.input-text .box .date-button .pw-action.show {
   background-image: url("../images/ico/pw-on-black.svg");
 }
-.input-text .box .input-btn .pw-action.hide {
+.input-text .box .input-btn .pw-action.hide,
+.input-text .box .date-button .pw-action.hide {
   background-image: url("../images/ico/pw-of-black.svg");
 }
-.input-text .box .input-btn .pw-remove:not([class*=ico-]) {
+.input-text .box .input-btn .pw-remove:not([class*=ico-]),
+.input-text .box .date-button .pw-remove:not([class*=ico-]) {
   width: 20px;
   height: 20px;
   background-image: url("../images/ico/remove-gray.svg");
   background-size: 20px;
 }
-.input-text .box .input-btn .pw-search:not([class*=ico-]) {
+.input-text .box .input-btn .pw-search:not([class*=ico-]),
+.input-text .box .date-button .pw-search:not([class*=ico-]) {
   width: 28px;
   height: 28px;
   background-image: url("../images/ico/search-black.svg");
@@ -737,7 +748,10 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
 .input-text.err .valid {
   color: #ff4555;
 }
-.input-text.err .ico-calendar-black {
+.input-text.err .box.date input {
+  color: #ff4555;
+}
+.input-text.err .date-button {
   background-image: url("../images/ico/calendar-red.svg");
 }
 .input-text.is--large .box.has--button.single input {
@@ -898,7 +912,7 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
 
 .box--white {
   background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 4px;
 }
 
 .dropdown--select {
@@ -1391,11 +1405,201 @@ header .header__left .header__logo .logo, .ico-24, .ico-22, .ico-16, .input-text
   height: 44px;
 }
 
+/*!
+ * Datepicker for Bootstrap v1.9.0 (https://github.com/uxsolutions/bootstrap-datepicker)
+ *
+ * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+ */
+.datepicker {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.datepicker table {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.datepicker table td {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.datepicker table thead {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.datepicker table thead tr {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.datepicker table thead tr th.prev, .datepicker table thead tr th.next {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 25px;
+  height: 25px;
+  background-image: url("../images/ico/more-black.svg");
+  cursor: pointer;
+}
+.datepicker table thead tr th.prev {
+  transform: rotate(180deg);
+}
+.datepicker table thead tr th.datepicker-switch {
+  flex-shrink: 1;
+  flex-grow: 1;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.datepicker table thead tr:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.datepicker table thead tr:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+}
+.datepicker table thead tr:nth-child(3) th {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 24px;
+}
+.datepicker-days table tbody {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 10px;
+  gap: 22px;
+}
+.datepicker-days table tbody tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.datepicker-days table tbody tr td {
+  width: 28px;
+}
+.datepicker-days table tbody tr td.day {
+  width: 28px;
+  height: 28px;
+  color: #7f7f7f;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  border-radius: 28px;
+}
+.datepicker-days table tbody tr td.day.old, .datepicker-days table tbody tr td.day.disabled {
+  color: #dcdcdc;
+}
+.datepicker-days table tbody tr td.day.today {
+  background-color: #1d6ceb;
+  color: #ffffff;
+}
+.datepicker-days table tbody tr td.day:hover:not(.old, .disabled), .datepicker-days table tbody tr td.day.active:not(.old, .disabled) {
+  color: #1d6ceb;
+  border: 1px solid #1d6ceb;
+}
+.datepicker-months table thead tr, .datepicker-years table thead tr {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.datepicker-months table tbody, .datepicker-years table tbody {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  margin-top: 38px;
+}
+.datepicker-months table tbody tr, .datepicker-years table tbody tr {
+  display: block;
+}
+.datepicker-months table tbody tr td, .datepicker-years table tbody tr td {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.datepicker-months table tbody tr td .month,
+.datepicker-months table tbody tr td .year, .datepicker-years table tbody tr td .month,
+.datepicker-years table tbody tr td .year {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+}
+.datepicker-months table tbody tr td .month.old, .datepicker-months table tbody tr td .month.disabled,
+.datepicker-months table tbody tr td .year.old,
+.datepicker-months table tbody tr td .year.disabled, .datepicker-years table tbody tr td .month.old, .datepicker-years table tbody tr td .month.disabled,
+.datepicker-years table tbody tr td .year.old,
+.datepicker-years table tbody tr td .year.disabled {
+  color: #dcdcdc;
+}
+.datepicker-months table tbody tr td .month.today,
+.datepicker-months table tbody tr td .year.today, .datepicker-years table tbody tr td .month.today,
+.datepicker-years table tbody tr td .year.today {
+  background-color: #1d6ceb;
+  color: #ffffff;
+}
+.datepicker-months table tbody tr td .month:hover:not(.old, .disabled), .datepicker-months table tbody tr td .month.active:not(.old, .disabled),
+.datepicker-months table tbody tr td .year:hover:not(.old, .disabled),
+.datepicker-months table tbody tr td .year.active:not(.old, .disabled), .datepicker-years table tbody tr td .month:hover:not(.old, .disabled), .datepicker-years table tbody tr td .month.active:not(.old, .disabled),
+.datepicker-years table tbody tr td .year:hover:not(.old, .disabled),
+.datepicker-years table tbody tr td .year.active:not(.old, .disabled) {
+  color: #1d6ceb;
+  border: 1px solid #1d6ceb;
+}
+.datepicker-dropdown {
+  position: absolute;
+  width: 360px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 46px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+}
+.datepicker--title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 16px;
+}
+.datepicker--title .title {
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.datepicker--title .reset {
+  color: #1d6ceb;
+  font-size: 16px;
+  line-height: 19px;
+}
+.datepicker.has--title {
+  padding-top: 0;
+}
+
 /*---------------------------------------- LAYOUT ----------------------------------------*/
 .wrap {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  min-width: 1280px;
   background-color: #ebebeb;
 }
 .wrap.login {
@@ -1426,6 +1630,7 @@ header {
   min-height: 57px;
   padding-right: 25px;
   padding-left: 25px;
+  z-index: 500;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

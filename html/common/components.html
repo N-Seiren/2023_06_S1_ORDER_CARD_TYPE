@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
 	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/bootstrap-datepicker.js"></script>
+	<script src="../../js/bootstrap-datepicker.ko.min.js"></script>
 	<script src="../../js/design.js"></script>
 	<style>
 		h2, h3 {color: #444;}
@@ -160,6 +162,33 @@
 			</div>
 			<p class="valid">유효성 문구</p>
 		</div>
+	</div>
+	<h2>Datepicker</h2>
+	<div class="tmp">
+		<div class="input-text">
+			<div class="box has--button date">
+				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text">
+			<div class="box has--button date" data-title="시작">
+				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" disabled />
+				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text err">
+			<div class="box has--button date" data-title="종료">
+			<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+	</div>
+	<div class="calendar--area">
+		<div class="inline-calendar"></div>
 	</div>
 
 	<h2>Checkbox</h2>
@@ -378,19 +407,15 @@
 			<div class="input-box is--double">
 				<div class="input-text">
 					<div class="box has--button date">
-						<input type="text" placeholder="플레이스 홀더 텍스트" />
-						<div class="input-btn">
-							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-						</div>
+						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 					</div>
 				</div>
 				<p class="input-desc">~</p>
 				<div class="input-text">
 					<div class="box has--button date">
-						<input type="text" placeholder="플레이스 홀더 텍스트" />
-						<div class="input-btn">
-							<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-						</div>
+						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 					</div>
 				</div>
 			</div>
@@ -469,19 +494,15 @@
 					<div class="input-box is--double">
 						<div class="input-text">
 							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" />
-								<div class="input-btn">
-									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-								</div>
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 							</div>
 						</div>
 						<p class="input-desc">~</p>
 						<div class="input-text">
 							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" />
-								<div class="input-btn">
-									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-								</div>
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 							</div>
 						</div>
 					</div>
@@ -490,19 +511,15 @@
 					<div class="input-box is--double disabled">
 						<div class="input-text">
 							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" />
-								<div class="input-btn">
-									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-								</div>
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 							</div>
 						</div>
 						<p class="input-desc">~</p>
 						<div class="input-text">
 							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" />
-								<div class="input-btn">
-									<button type="button" class="ico-24 ico-calendar-black">날짜 선택</button>
-								</div>
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 							</div>
 						</div>
 					</div>
