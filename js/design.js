@@ -205,26 +205,36 @@ function defDatepicker() {
 
 		_input.on('focus', function () {
 			$('.datepicker--layer').hide();
+
 			const _val = _input.val() != '' ? new Date(_input.val()) : false;
-
-			_layer.show();
-
 			if (_val) {
 				_picker.datepicker('setDate', _val);
 			}
 
-			_picker.datepicker().on('changeDate', function (e) {
-				const _date = _picker.datepicker('getDate');
-				const _str =
-					_date.getFullYear() +
-					'.' +
-					(_date.getMonth() + 1) +
-					'.' +
-					_date.getDate();
+			_layer.show();
+		});
 
-				_input.val(_str);
-				_layer.hide();
-			});
+		_picker.datepicker().on('changeDate', function (e) {
+			const _dates = _picker.datepicker('getDate');
+			let _month, _date, _str;
+
+			if (_dates) {
+				_month = _dates.getMonth() + 1;
+				_date = _dates.getDate();
+
+				if (_month < 10) {
+					_month = '0' + _month;
+				}
+				if (_date < 10) {
+					_date = '0' + _date;
+				}
+
+				_str = _dates.getFullYear() + '.' + _month + '.' + _date;
+			} else {
+				_str = '';
+			}
+			_input.val(_str);
+			_layer.hide();
 		});
 	});
 }
@@ -232,23 +242,42 @@ function recallDatepicker() {
 	$('.date-layer').each((idx, el) => {
 		const _this = $(el);
 		const _input = _this.find('input');
-		const _layer = _this.find('.datepicker--layer');
+		const _pickerLayer = _this.find('.datepicker--layer');
+		// Layer check
+		const _chkLayer = _this.closest('.layer--area') ? true : false;
+		const _scrollCont = _chkLayer
+			? _this.closest('.layer--area').find('.layer--contents')
+			: 0;
 
-		const _layerW = 360;
-		let _offsetTop =
-			_this.offset().top + _this.outerHeight() - $(window).scrollTop();
-		let _offsetLeft = _this.offset().left - $(window).scrollLeft();
-		let _offsetRight = _offsetLeft - (_layerW - _this.outerWidth());
+		let _offsetTop = _this.offset().top + _this.outerHeight(),
+			_offsetLeft = _this.offset().left,
+			_offsetRight = 0;
 
-		if (_this.offset().left + _layerW >= $('.wrap').width()) {
-			_layer.css({
+		// Layer width (fixed)
+		const _pickerLayerW = 360;
+
+		_offsetTop = _offsetTop - $(window).scrollTop();
+		_offsetLeft = _offsetLeft - $(window).scrollLeft();
+		_offsetRight = _offsetLeft - (_pickerLayerW - _this.outerWidth());
+
+		if (_this.offset().left + _pickerLayerW >= $('.wrap').width()) {
+			_pickerLayer.css({
 				top: _offsetTop,
 				left: _offsetRight,
 			});
 		} else {
-			_layer.css({
+			_pickerLayer.css({
 				top: _offsetTop,
 				left: _offsetLeft,
+			});
+		}
+
+		if (_chkLayer) {
+			// Contents Scroll Top
+			_scrollCont.on('scroll', function () {
+				_pickerLayer.css({
+					top: _offsetTop - _scrollCont.scrollTop(),
+				});
 			});
 		}
 	});

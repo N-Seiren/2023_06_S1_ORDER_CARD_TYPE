@@ -85,6 +85,7 @@ $PICKER: '.datepicker';
 							border-radius: $S;
 
 							&.old,
+							&.new,
 							&.disabled {
 								color: $C-BN;
 							}
@@ -94,7 +95,9 @@ $PICKER: '.datepicker';
 							}
 
 							&:hover:not(.old, .disabled),
-							&.active:not(.old, .disabled) {
+							&.active:not(.old, .disabled),
+							&:hover:not(.new, .disabled),
+							&.active:not(.new, .disabled) {
 								color: $C-PN;
 								border: 1px solid $C-PN;
 							}

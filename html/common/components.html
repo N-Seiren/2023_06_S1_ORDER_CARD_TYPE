@@ -16,7 +16,7 @@
 		h1 {margin-top: 30px; margin-bottom: 20px;}
 		h2 {margin-top: 20px; margin-bottom: 10px;}
 		h3 {margin-top: 10px; margin-bottom: 5px;}
-		div.tmp {flex-wrap: wrap;}
+		div.tmp {flex-wrap: wrap; gap: 5px;}
 		div.tmp,
 		.icon > div,
 		.icon > div > p {display: flex; gap: 5px; justify-content: start; align-items: start;}
@@ -256,6 +256,10 @@
 			<input type="checkbox" id="toggleSample5" name="toggleSample5" disabled />
 			<p class="input-text"><span class="icon"></span><span class="text">is--toggle (disabled, off)</span></p>
 		</label>
+		<label for="toggleSample3" class="input-toggle on--text">
+			<input type="checkbox" id="toggleSample3" name="toggleSample3" checked="">
+			<p class="input-text"><span class="text">on--text</span><span class="icon"></span></p>
+		</label>
 	</div>
 
 	<h2>Radio</h2>
@@ -304,6 +308,8 @@
 		<button type="button" class="btn is--state is--white disabled">is--state is--white disabled</button>
 		<button type="button" class="btn is--state is--blue" disabled>is--state is--blue :disabled</button>
 		<button type="button" class="btn is--state is--white" disabled>is--state is--white :disabled</button>
+		<button type="button" class="btn is--text">.is--text</button>
+		<button type="button" class="btn is--text sub">.is--text.sub</button>
 	</div>
 	<h2>Width</h2>
 	<div class="tmp">
@@ -322,6 +328,7 @@
 				<button type="button">선택 항목 2</button>
 				<button type="button">선택 항목 3</button>
 			</div>
+			<p class="valid">유효성 문구</p>
 		</div>
 		<div class="dropdown--area">
 			<button type="button" class="dropdown--select"><div>선택</div></button>
@@ -330,6 +337,7 @@
 				<button type="button">선택 항목 2</button>
 				<button type="button" class="active">선택 항목 3</button>
 			</div>
+			<p class="valid">유효성 문구</p>
 		</div>
 		<div class="dropdown--area">
 			<button type="button" class="dropdown--select" disabled><span>선택</span></button>
@@ -338,6 +346,7 @@
 				<button type="button">선택 항목 2</button>
 				<button type="button" class="active">선택 항목 3</button>
 			</div>
+			<p class="valid">유효성 문구</p>
 		</div>
 
 	</div>
@@ -345,33 +354,34 @@
 
 	<h1>Box</h1>
 	<h2>Input</h2>
-	<div class="input-row">
-		<div class="input-text is--w245">
-			<div class="box">
-				<input type="text" placeholder="플레이스 홀더 텍스트" />
+	<div style="padding: 15px;">
+		<div class="input-row">
+			<div class="input-text is--w245">
+				<div class="box">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+				</div>
+				<p class="valid">유효성 문구</p>
 			</div>
-			<p class="valid">유효성 문구</p>
-		</div>
-		<div class="input-text is--wauto">
-			<div class="box">
-				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			<div class="input-text is--wauto">
+				<div class="box">
+					<input type="text" placeholder="플레이스 홀더 텍스트" />
+				</div>
+				<p class="valid">유효성 문구</p>
 			</div>
-			<p class="valid">유효성 문구</p>
+			<button type="button" class="btn is--white input-box--fixed">등기</button>
 		</div>
-		<button type="button" class="btn is--white input-box--fixed">등기</button>
-	</div>
-	<div class="input-row">
-		<div class="dropdown--area is--w245">
-			<button type="button" class="dropdown--select"><div>선택</div></button>
-			<div class="dropdown--box">
-				<button type="button">선택 항목 1</button>
-				<button type="button">선택 항목 2</button>
-				<button type="button" class="active">선택 항목 3</button>
+		<p style="margin-top: 10px;"></p>
+		<div class="input-row">
+			<div class="dropdown--area is--w245">
+				<button type="button" class="dropdown--select"><div>선택</div></button>
+				<div class="dropdown--box">
+					<button type="button">선택 항목 1</button>
+					<button type="button">선택 항목 2</button>
+					<button type="button" class="active">선택 항목 3</button>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="tmp">
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box">
 			<div class="input-text">
 				<div class="box has--button single">
@@ -384,6 +394,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box is--large">
 			<div class="input-text">
 				<div class="box has--button single">
@@ -396,8 +407,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
-	</div>
-	<div class="tmp">
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box">
 			<p class="input-box--title input-box--fixed">항목명</p>
 			<div class="input-text">
@@ -411,6 +421,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box is--large">
 			<p class="input-box--title input-box--fixed">항목명</p>
 			<div class="input-text">
@@ -424,7 +435,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
-
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box disabled">
 			<p class="input-box--title input-box--fixed">항목명</p>
 			<div class="input-text">
@@ -438,8 +449,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed" disabled>btn--white</button>
 		</div>
-	</div>
-	<div class="tmp">
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box">
 			<div class="input-box is--double">
 				<div class="input-text">
@@ -456,6 +466,7 @@
 			</div>
 			<button type="button" class="btn is--white input-box--fixed">btn--white</button>
 		</div>
+		<p style="margin-top: 10px;"></p>
 		<div class="input-box">
 			<div class="input-box is--double">
 				<div class="input-text date-layer">
@@ -493,7 +504,60 @@
 				</div>
 			</div>
 		</div>
+		<p style="margin-top: 10px;"></p>
+		<div class="input-box">
+			<div class="input-box is--triple">
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+				<p class="input-desc">-</p>
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+				<p class="input-desc">-</p>
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+			</div>
+			<button type="button" class="btn is--white is--w75 input-box--fixed">btn--white</button>
+		</div>
+		<p style="margin-top: 10px;"></p>
+		<div class="input-box">
+			<div class="input-box is--triple">
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+				<p class="input-desc">-</p>
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+				<p class="input-desc">-</p>
+				<div class="input-text">
+					<div class="box">
+						<input type="text" placeholder="플레이스 홀더 텍스트">
+					</div>
+					<p class="valid">유효성 문구</p>
+				</div>
+			</div>
+			<p class="btn is--transparent is--w75 input-box--fixed"></p>
+		</div>
 	</div>
+
 	<h2>Search</h2>
 	<!-- SEARCH -->
 	<div class="search--box">
@@ -727,8 +791,8 @@
 							<tr>
 								<td>2023.04.10 12:34:56</td>
 								<td>접수 특이사항</td>
-								<td>카드 발급 주의 사항</td>
-								<td>카드 발급 2023 주의사항</td>
+								<td class="align-left">카드 발급 주의 사항</td>
+								<td class="align-left">카드 발급 2023 주의사항</td>
 								<td>김*종(에스원CRM)</td>
 							</tr>
 						</tbody>
@@ -782,7 +846,7 @@
 		<div class="edit--box is--double">
 			<div class="edit--box">
 				<p class="edit--title">title</p>
-				<div class="edit--contents">
+				<div class="edit--contents has--box">
 					<div class="edit--box">
 						<p class="edit--title">title</p>
 						<div class="edit--contents">
@@ -805,7 +869,7 @@
 			</div>
 			<div class="edit--box">
 				<p class="edit--title">title</p>
-				<div class="edit--contents">
+				<div class="edit--contents has--box">
 					<div class="edit--box">
 						<p class="edit--title">title</p>
 						<div class="edit--contents">

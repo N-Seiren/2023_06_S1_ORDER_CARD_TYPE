@@ -218,6 +218,21 @@
   gap: 30px;
 }
 .layer-detail .layer--buttons {
+  justify-content: space-between;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.layer-manage .layer--box {
+  max-width: calc(100% - 20px);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.layer-manage .layer--contents .table--area {
+  padding: 0;
+  padding-top: 10px;
+}
+.layer-manage .layer--buttons {
+  justify-content: space-between;
   padding-top: 0;
   padding-bottom: 0;
 }

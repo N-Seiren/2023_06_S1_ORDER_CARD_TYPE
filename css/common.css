@@ -83,6 +83,7 @@ mark,
 time,
 address,
 input,
+textarea,
 label,
 summary {
   margin: 0;
@@ -201,6 +202,22 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 0;
 }
 
+.gap-6.box--row, .gap-6.box--column, .gap-6.box--grid, .gap-6.box--center, .gap-6.edit--contents {
+  gap: 6px;
+}
+.gap-10.box--row, .gap-10.box--column, .gap-10.box--grid, .gap-10.box--center, .gap-10.edit--contents {
+  gap: 10px;
+}
+.gap-12.box--row, .gap-12.box--column, .gap-12.box--grid, .gap-12.box--center, .gap-12.edit--contents {
+  gap: 12px;
+}
+.gap-18.box--row, .gap-18.box--column, .gap-18.box--grid, .gap-18.box--center, .gap-18.edit--contents {
+  gap: 18px;
+}
+.gap-20.box--row, .gap-20.box--column, .gap-20.box--grid, .gap-20.box--center, .gap-20.edit--contents {
+  gap: 20px;
+}
+
 header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .datepicker table thead tr th.next, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
 .input-text .box .input-btn a:not([class*=ico-]),
 .input-text .box .date-button button:not([class*=ico-]),
@@ -211,16 +228,6 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-repeat: no-repeat;
   color: transparent;
   font-size: 0;
-}
-
-.gap-10.edit--contents, .gap-10.box--grid, .gap-10.box--column, .gap-10.box--row {
-  gap: 10px;
-}
-.gap-18.edit--contents, .gap-18.box--grid, .gap-18.box--column, .gap-18.box--row {
-  gap: 18px;
-}
-.gap-20.edit--contents, .gap-20.box--grid, .gap-20.box--column, .gap-20.box--row {
-  gap: 20px;
 }
 
 .ico-24 {
@@ -516,6 +523,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   color: #bfbfbf;
   background-color: #f2f2f2;
 }
+.btn.is--transparent {
+  background-color: transparent;
+  border: transparent;
+}
 .btn.is--large {
   min-height: 44px;
   font-size: 18px;
@@ -578,21 +589,42 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 14px;
   line-height: 20px;
 }
+.btn.is--text.sub {
+  min-height: auto;
+  border-bottom: 1px solid #646464;
+  color: #646464;
+  font-size: 12px;
+  line-height: 14px;
+}
 .btn.is--file {
   padding: 7px 8px;
   padding-right: 13px;
 }
 .btn.is--file.has--ico {
-  padding: 5px;
+  justify-content: start;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.btn.is--file.has--ico :not([class*=is--px]) {
+  padding-left: 5px;
   padding-right: 13px;
 }
 .btn.is--file.has--ico [class*=ico-] {
   margin-left: 0;
   margin-right: 7px;
 }
+.btn.is--px0 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
 .btn.is--px25 {
   padding-right: 25px;
   padding-left: 25px;
+}
+.btn.is--w75 {
+  width: 75px;
+  padding-right: 11px;
+  padding-left: 11px;
 }
 .btn.is--w120 {
   width: 120px;
@@ -602,6 +634,9 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .btn.is--w220 {
   width: 220px;
+}
+.btn.is--w300 {
+  width: 300px;
 }
 .btn.is--w328 {
   width: 328px;
@@ -618,7 +653,8 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-direction: column;
   gap: 7px;
 }
-.input-text input {
+.input-text input,
+.input-text textarea {
   display: block;
   width: 100%;
   padding: 8px 10px;
@@ -629,20 +665,26 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   line-height: 17px;
   font-weight: 400;
   outline: none;
+  resize: none;
 }
-.input-text input::placeholder {
+.input-text input::placeholder,
+.input-text textarea::placeholder {
   color: #c4c4c4;
 }
-.input-text input::-moz-placeholder {
+.input-text input::-moz-placeholder,
+.input-text textarea::-moz-placeholder {
   color: #c4c4c4;
 }
-.input-text input::-webkit-input-placeholder {
+.input-text input::-webkit-input-placeholder,
+.input-text textarea::-webkit-input-placeholder {
   color: #c4c4c4;
 }
-.input-text input:focus:not(:disabled) {
+.input-text input:focus:not(:disabled),
+.input-text textarea:focus:not(:disabled) {
   border-color: #1d6ceb;
 }
-.input-text input:disabled {
+.input-text input:disabled,
+.input-text textarea:disabled {
   background-color: #f2f2f2;
   border-color: #dcdcdc;
   color: #bfbfbf;
@@ -832,6 +874,12 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-shrink: 1;
   flex-grow: 1;
 }
+.input-text.is--h120 {
+  height: 120px;
+}
+.input-text.is--h120 textarea {
+  height: 100%;
+}
 .input-text.date-layer {
   position: relative;
   z-index: 10;
@@ -867,6 +915,16 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .input-text.date-layer .datepicker--layer .datepicker--title {
   padding-right: 20px;
   padding-left: 20px;
+}
+.input-desc {
+  color: #353535;
+  font-size: 14px;
+  line-height: 17px;
+}
+.input-sub {
+  color: #bfbfbf;
+  font-size: 14px;
+  line-height: 17px;
 }
 .input-checkbox .input-text {
   align-items: center;
@@ -931,6 +989,15 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 14px;
   line-height: 17px;
 }
+.input-toggle.on--text input:checked:not(:disabled) + .input-text .text {
+  color: #1d6ceb;
+}
+.input-toggle.on--text .input-text .text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
 .input-radio .input-text {
   align-items: center;
 }
@@ -938,23 +1005,28 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   display: flex;
   flex-direction: row;
   justify-content: stretch;
-  align-items: stretch;
+  align-items: start;
   gap: 6px;
 }
-.input-box div:not([class*="--fixed"]),
-.input-box p:not([class*="--fixed"]),
-.input-box input:not([class*="--fixed"]) {
+.input-box > div:not([class*="--fixed"]),
+.input-box > p:not([class*="--fixed"]),
+.input-box > input:not([class*="--fixed"]) {
   flex-shrink: 1;
   flex-grow: 1;
+  min-height: 34px;
 }
 .input-box--fixed {
   flex-shrink: 0;
   flex-grow: 0;
 }
+.input-box--fixed.is--w75 {
+  width: 75px;
+}
 .input-box--title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 34px;
   margin-right: 16px;
   color: #353535;
   font-size: 14px;
@@ -968,6 +1040,9 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .input-box.is--large {
   min-height: 50px;
 }
+.input-box.is--large .input--title {
+  min-height: 50px;
+}
 .input-box.is--large .input-text .box input,
 .input-box.is--large .btn {
   height: 50px;
@@ -976,7 +1051,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .input-box.is--double {
   display: grid;
-  grid-template-columns: auto 17px auto;
+  grid-template-columns: 1fr 17px 1fr;
   gap: 0;
   max-width: 100%;
 }
@@ -989,6 +1064,25 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+}
+.input-box.is--triple {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr;
+  gap: 0;
+  max-width: 100%;
+}
+.input-box.is--triple .input-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #353535;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.input-box.is--triple .btn.ml-6 {
+  margin-left: 6px;
 }
 .input-box.disabled .input-box--title {
   color: #bfbfbf;
@@ -1014,9 +1108,24 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-direction: column;
   display: inline-flex;
 }
+.box--column.is--wfull {
+  width: 100%;
+}
+.box--grid.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .box--grid.grid-5 {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.box--between {
+  justify-content: space-between;
+}
+.box--center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .dropdown--select {
@@ -1097,6 +1206,14 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .dropdown--area {
   position: relative;
 }
+.dropdown--area .valid,
+.dropdown--area .desc {
+  display: none;
+  margin-top: 6px;
+  color: #ff4555;
+  font-size: 13px;
+  line-height: 16px;
+}
 .dropdown--area.open {
   z-index: 30;
 }
@@ -1108,6 +1225,9 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .dropdown--area.open .dropdown--box {
   display: flex;
+}
+.dropdown--area.pass .valid, .dropdown--area.err .valid {
+  display: block;
 }
 .dropdown--area.is--small .dropdown--select {
   height: 26px;
@@ -1408,6 +1528,11 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-direction: row;
   justify-content: space-between;
 }
+.table__title.has--button .table__title--left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .table__title.has--button .table__title--right {
   display: flex;
   flex-direction: row;
@@ -1497,7 +1622,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .toggle--box .table--area {
   padding: 0;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 .toggle--box .table--top {
   margin-bottom: 10px;
@@ -1529,20 +1654,33 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+.edit--box.mt-10 {
+  margin-top: 10px;
+}
 .edit--title {
   flex-shrink: 0;
   flex-grow: 0;
-  width: 120px;
+  width: 132px;
   padding: 8.5px 12px;
+  padding-right: 0;
   color: #353535;
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
 }
+.edit--title.is--small {
+  width: 90px;
+}
+.edit--title.is--sub {
+  color: #646464;
+}
+.edit--title .imp {
+  color: #ff4555;
+}
 .edit--contents {
   flex-shrink: 1;
   flex-grow: 1;
-  padding: 8.5px 12px;
+  padding: 8.5px 0;
   color: #646464;
   font-size: 14px;
   line-height: 17px;
@@ -1550,12 +1688,44 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .edit--contents .imp {
   color: #ff4555;
 }
+.edit--contents .checkbox-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 34px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 40px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+.edit--contents .edit--box .edit--title {
+  padding-right: 0;
+  padding-left: 0;
+}
 .edit--contents[class*=gap] {
   display: flex;
   flex-direction: column;
 }
-.edit--contents.pa-0 {
+.edit--contents.has--box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 0;
+}
+.edit--contents.has--box.gap-20 {
+  gap: 20px;
+}
+.edit--contents.has--check {
+  justify-content: center;
+  min-height: 34px;
+}
+.edit--contents.has--toggle {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.edit--contents.is--single {
+  padding-left: 12px;
 }
 .edit--gap-36 {
   display: flex;
@@ -1849,14 +2019,14 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   line-height: 19px;
   border-radius: 28px;
 }
-.datepicker-days table tbody tr td.day.old, .datepicker-days table tbody tr td.day.disabled {
+.datepicker-days table tbody tr td.day.old, .datepicker-days table tbody tr td.day.new, .datepicker-days table tbody tr td.day.disabled {
   color: #dcdcdc;
 }
 .datepicker-days table tbody tr td.day.today {
   background-color: #1d6ceb;
   color: #ffffff;
 }
-.datepicker-days table tbody tr td.day:hover:not(.old, .disabled), .datepicker-days table tbody tr td.day.active:not(.old, .disabled) {
+.datepicker-days table tbody tr td.day:hover:not(.old, .disabled), .datepicker-days table tbody tr td.day.active:not(.old, .disabled), .datepicker-days table tbody tr td.day:hover:not(.new, .disabled), .datepicker-days table tbody tr td.day.active:not(.new, .disabled) {
   color: #1d6ceb;
   border: 1px solid #1d6ceb;
 }
