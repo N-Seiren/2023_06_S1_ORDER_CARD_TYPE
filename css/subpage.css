@@ -199,3 +199,25 @@
 .layer-find.change-pw .find-title:first-child {
   margin-top: 0;
 }
+.layer-find.file-pw .layer--desc {
+  margin-top: 20px;
+  color: #7f7f7f;
+  font-size: 15px;
+  line-height: 18px;
+}
+.layer-detail .layer--box {
+  max-width: calc(100% - 20px);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.layer-detail .layer--contents .card-detail--area {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  overflow: hidden;
+  gap: 30px;
+}
+.layer-detail .layer--buttons {
+  padding-top: 0;
+  padding-bottom: 0;
+}

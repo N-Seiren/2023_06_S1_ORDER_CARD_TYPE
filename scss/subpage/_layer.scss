@@ -79,5 +79,39 @@
 				}
 			}
 		}
+
+		&.file-pw {
+			$L: '.layer';
+			.layer {
+				&--desc {
+					margin-top: 20px;
+					color: $C-FM;
+					font-size: 15px;
+					line-height: 18px;
+				}
+			}
+		}
+	}
+
+	&-detail {
+		$EL: '.card-detail';
+		.layer {
+			&--box {
+				max-width: calc(100% - 20px);
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+			&--contents {
+				#{$EL}--area {
+					@include set-flex($DIRECTION: column, $JUSTIFY: stretch);
+					overflow: hidden;
+					gap: 30px;
+				}
+			}
+			&--buttons {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
 	}
 }

@@ -165,26 +165,53 @@
 	</div>
 	<h2>Datepicker</h2>
 	<div class="tmp">
-		<div class="input-text">
-			<div class="box has--button date">
-				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+		<div class="input-text date-layer">
+			<div class="box has--button">
+				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 			</div>
 			<p class="valid">유효성 문구</p>
+			<div class="datepicker--layer" style="display: none;">
+				<div class="datepicker--title">
+					<p class="title">시작</p>
+					<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+				</div>
+				<div class="calendar--area">
+					<div class="inline-calendar"></div>
+				</div>
+			</div>
 		</div>
-		<div class="input-text">
-			<div class="box has--button date" data-title="시작">
+		<div class="input-text date-layer">
+			<div class="box has--button">
 				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" disabled />
 				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 			</div>
 			<p class="valid">유효성 문구</p>
+			<div class="datepicker--layer" style="display: none;">
+				<div class="datepicker--title">
+					<p class="title">시작</p>
+					<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+				</div>
+				<div class="calendar--area">
+					<div class="inline-calendar"></div>
+				</div>
+			</div>
 		</div>
-		<div class="input-text err">
-			<div class="box has--button date" data-title="종료">
-			<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+		<div class="input-text err date-layer">
+			<div class="box has--button">
+				<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
 				<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
 			</div>
 			<p class="valid">유효성 문구</p>
+			<div class="datepicker--layer" style="display: none;">
+				<div class="datepicker--title">
+					<p class="title">종료</p>
+					<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+				</div>
+				<div class="calendar--area">
+					<div class="inline-calendar"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="calendar--area">
@@ -318,6 +345,32 @@
 
 	<h1>Box</h1>
 	<h2>Input</h2>
+	<div class="input-row">
+		<div class="input-text is--w245">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<div class="input-text is--wauto">
+			<div class="box">
+				<input type="text" placeholder="플레이스 홀더 텍스트" />
+			</div>
+			<p class="valid">유효성 문구</p>
+		</div>
+		<button type="button" class="btn is--white input-box--fixed">등기</button>
+	</div>
+	<div class="input-row">
+		<div class="dropdown--area is--w245">
+			<button type="button" class="dropdown--select"><div>선택</div></button>
+			<div class="dropdown--box">
+				<button type="button">선택 항목 1</button>
+				<button type="button">선택 항목 2</button>
+				<button type="button" class="active">선택 항목 3</button>
+			</div>
+		</div>
+	</div>
+
 	<div class="tmp">
 		<div class="input-box">
 			<div class="input-text">
@@ -405,23 +458,44 @@
 		</div>
 		<div class="input-box">
 			<div class="input-box is--double">
-				<div class="input-text">
-					<div class="box has--button date">
-						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+				<div class="input-text date-layer">
+					<div class="box has--button">
+						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 						<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+					</div>
+					<p class="valid">유효성 문구</p>
+					<div class="datepicker--layer" style="display: none;">
+						<div class="datepicker--title">
+							<p class="title">시작</p>
+							<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+						</div>
+						<div class="calendar--area">
+							<div class="inline-calendar"></div>
+						</div>
 					</div>
 				</div>
 				<p class="input-desc">~</p>
-				<div class="input-text">
-					<div class="box has--button date">
-						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+				<div class="input-text date-layer">
+					<div class="box has--button">
+						<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 						<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+					</div>
+					<p class="valid">유효성 문구</p>
+					<div class="datepicker--layer" style="display: none;">
+						<div class="datepicker--title">
+							<p class="title">시작</p>
+							<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+						</div>
+						<div class="calendar--area">
+							<div class="inline-calendar"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<h2>Search</h2>
+	<!-- SEARCH -->
 	<div class="search--box">
 		<p class="search--title">타이틀</p>
 		<div class="search--contents is--radio">
@@ -440,7 +514,7 @@
 				<!-- row -->
 				<div class="input-box search--row">
 					<!-- item -->
-					<p class="input-box--title input-box--fixed">항목명</p>
+					<p class="input-box--title input-box--fixed is--right">항목명</p>
 					<div class="input-box dropdown--area">
 						<button type="button" class="dropdown--select"><div>선택</div></button>
 						<div class="dropdown--box">
@@ -450,7 +524,7 @@
 						</div>
 					</div>
 					<!-- item -->
-					<p class="input-box--title input-box--fixed">이름이 긴 항목</p>
+					<p class="input-box--title input-box--fixed is--right">이름이 긴 항목</p>
 					<div class="input-box dropdown--area">
 						<button type="button" class="dropdown--select"><div>선택</div></button>
 						<div class="dropdown--box">
@@ -458,6 +532,38 @@
 							<button type="button">선택 항목 2</button>
 							<button type="button" class="active">선택 항목 3</button>
 						</div>
+					</div>
+					<!-- item -->
+					<p class="input-box--title input-box--fixed is--right">발송방법</p>
+					<div class="checkbox-box">
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">전체</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">지사</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">센터</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">등기</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">우편</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">퀵</span></p>
+						</label>
+						<label for="chkSample1" class="input-checkbox">
+							<input type="checkbox" id="chkSample1" name="chkSample1" />
+							<p class="input-text"><span class="icon"></span><span class="text">기타</span></p>
+						</label>
 					</div>
 				</div>
 				<!-- //row -->
@@ -480,6 +586,24 @@
 						<div class="input-text">
 							<div class="box has--button single">
 								<input type="text" placeholder="플레이스 홀더 텍스트" />
+							</div>
+							<p class="valid">유효성 문구</p>
+						</div>
+					</div>
+					<!-- item -->
+					<p class="input-box--title input-box--fixed">발송방법</p>
+					<div class="input-box is--wauto">
+						<div class="dropdown--area is--w144">
+							<button type="button" class="dropdown--select"><div>선택</div></button>
+							<div class="dropdown--box">
+								<button type="button">선택 항목 1</button>
+								<button type="button">선택 항목 2</button>
+								<button type="button" class="active">선택 항목 3</button>
+							</div>
+						</div>
+						<div class="input-text is--w245">
+							<div class="box">
+								<input type="text" placeholder="검색어를 입력하세요.">
 							</div>
 							<p class="valid">유효성 문구</p>
 						</div>
@@ -492,34 +616,74 @@
 					<!-- item -->
 					<p class="input-box--title input-box--fixed">항목명</p>
 					<div class="input-box is--double">
-						<div class="input-text">
-							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<div class="input-text date-layer">
+							<div class="box has--button">
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+							</div>
+							<p class="valid">유효성 문구</p>
+							<div class="datepicker--layer" style="display: none;">
+								<div class="datepicker--title">
+									<p class="title">시작</p>
+									<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+								</div>
+								<div class="calendar--area">
+									<div class="inline-calendar"></div>
+								</div>
 							</div>
 						</div>
 						<p class="input-desc">~</p>
-						<div class="input-text">
-							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<div class="input-text date-layer">
+							<div class="box has--button">
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+							</div>
+							<p class="valid">유효성 문구</p>
+							<div class="datepicker--layer" style="display: none;">
+								<div class="datepicker--title">
+									<p class="title">시작</p>
+									<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+								</div>
+								<div class="calendar--area">
+									<div class="inline-calendar"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<!-- item -->
 					<p class="input-box--title input-box--fixed disabled">항목명</p>
 					<div class="input-box is--double disabled">
-						<div class="input-text">
-							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<div class="input-text date-layer">
+							<div class="box has--button">
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+							</div>
+							<p class="valid">유효성 문구</p>
+							<div class="datepicker--layer" style="display: none;">
+								<div class="datepicker--title">
+									<p class="title">시작</p>
+									<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+								</div>
+								<div class="calendar--area">
+									<div class="inline-calendar"></div>
+								</div>
 							</div>
 						</div>
 						<p class="input-desc">~</p>
-						<div class="input-text">
-							<div class="box has--button date">
-								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" />
+						<div class="input-text date-layer">
+							<div class="box has--button">
+								<input type="text" placeholder="플레이스 홀더 텍스트" class="form-control" readonly />
 								<span class="date-button ico-24 ico-calendar-black input-group-addon">날짜 선택</span>
+							</div>
+							<p class="valid">유효성 문구</p>
+							<div class="datepicker--layer" style="display: none;">
+								<div class="datepicker--title">
+									<p class="title">시작</p>
+									<button type="button" class="reset" onclick="resetDatepicker(this)">초기화</button>
+								</div>
+								<div class="calendar--area">
+									<div class="inline-calendar"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -529,6 +693,155 @@
 			</div>
 			<button type="button" class="btn is--search is--blue">검색</button>
 		</div>
+	</div>
+	<!-- //SEARCH -->
+	<h2>Toggle Box</h2>
+	<!-- Toggle Box -->
+	<div class="toggle--area">
+		<div class="toggle--btn" onclick="toggleArea(this)">수정이력</div>
+		<div class="toggle--box">
+			<div class="table--area">
+				<!-- top -->
+				<div class="table--top">
+					<div class="table__filter">
+						<div class="table__filter--left">
+							<p class="table__title">총 26건</p>
+						</div>
+					</div>
+				</div>
+				<!-- //top -->
+		
+				<!-- table -->
+				<div class="table--box">
+					<table>
+						<thead>
+							<tr>
+								<th>수정일자</th>
+								<th>수정 항목</th>
+								<th>기존 내용</th>
+								<th>수정 내용</th>
+								<th>수정인</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2023.04.10 12:34:56</td>
+								<td>접수 특이사항</td>
+								<td>카드 발급 주의 사항</td>
+								<td>카드 발급 2023 주의사항</td>
+								<td>김*종(에스원CRM)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- //table -->
+			</div>
+
+			<!-- page -->
+			<div class="page--area">
+				<div class="page--left"></div>
+				<div class="page--center">
+					<button type="button" class="page is--first" disabled>첫번째 페이지</button>
+					<button type="button" class="page is--prev" disabled>이전 페이지</button>
+					<div class="page--numberbox">
+						<button type="button" class="page is--num active">1</button>
+						<button type="button" class="page is--num">2</button>
+						<button type="button" class="page is--num" disabled>3</button>
+					</div>
+					<button type="button" class="page is--next">다음 페이지</button>
+					<button type="button" class="page is--last">마지막 페이지</button>
+				</div>
+				<div class="page--right"></div>
+			</div>
+			<!-- //page -->
+		</div>
+	</div>
+	<!-- //Toggle Box -->
+	<h2>Edit box</h2>
+	<div class="edit--area">
+		<div class="edit--box">
+			<p class="edit--title">title</p>
+			<div class="edit--contents">
+				sdf
+			</div>
+		</div>
+		<div class="edit--box is--double">
+			<div class="edit--box">
+				<p class="edit--title">title</p>
+				<div class="edit--contents">
+					sdf
+				</div>
+			</div>
+			<div class="edit--box">
+				<p class="edit--title">title</p>
+				<div class="edit--contents">
+					sdf
+				</div>
+			</div>
+		</div>
+		<div class="edit--box is--double">
+			<div class="edit--box">
+				<p class="edit--title">title</p>
+				<div class="edit--contents">
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="edit--box">
+				<p class="edit--title">title</p>
+				<div class="edit--contents">
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+					<div class="edit--box">
+						<p class="edit--title">title</p>
+						<div class="edit--contents">
+							sdf
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2>첨부파일</h2>
+	<div class="tmp">
+		<p class="filebox">
+			<span class="title">원본</span>
+			<span class="text">디엔브이_카드_신청목록.xlsx</span>
+		</p>
+		<button type="button" class="btn is--white is--file">
+			<p class="filebox">
+				<span class="title">원본</span>
+				<span class="text">디엔브이_카드_신청목록.xlsx</span>
+			</p>
+		</button>
+		<button type="button" class="btn is--white has--ico is--file"><span class="ico-24 ico-file-black"></span>첨부파일 2개 전체 다운로드</button>
+		<button type="button" class="btn is--blue line has--ico is--file"><span class="ico-24 ico-file-blue"></span>디엔브이_카드_신청목록_홍길동2추가.xlsx</button>
 	</div>
 
 
@@ -542,6 +855,16 @@
 			<div class="tab--contents">sdf</div>
 			<div class="tab--contents" style="display: none;">sdf</div>
 		</div>
+		
+		<div class="tab--wrap">
+			<div class="tab-button">
+				<button type="button" class="active" onclick="openTabBtn(this)">tab active</button>
+				<button type="button" onclick="openTabBtn(this)">tab</button>
+			</div>
+			<div class="tab--contents">A</div>
+			<div class="tab--contents" style="display: none;">B</div>
+		</div>
+
 	</div>
 
 
@@ -573,6 +896,12 @@
 					<p class="devide"></p>
 					<div class="filter--devide">
 						sdf
+					</div>
+					
+					<div class="filter--buttons">
+						<button type="button" class="btn is--white input-box--fixed">다운로드</button>
+						<button type="button" class="btn is--white input-box--fixed">다운로드 (배송목록)</button>
+						<button type="button" class="btn is--white input-box--fixed">다운로드 (출력)</button>
 					</div>
 				</div>
 			</div>
@@ -644,6 +973,14 @@
 								<p class="input-text"><span class="icon"></span></p>
 							</label>
 						</th>
+						<th colspan="3" class="line--full">sdf</th>
+						<th colspan="3" class="line--full">sdf</th>
+					</tr>
+					<tr>
+						<th  class="line--full">sdf</th>
+						<th>sdf</th>
+						<th>sdf</th>
+						<th  class="line--full">sdf</th>
 						<th>sdf</th>
 						<th>sdf</th>
 					</tr>
@@ -658,6 +995,38 @@
 						</td>
 						<td>sdf</td>
 						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td><button type="button" class="btn is--white">등록</button></td>
+					</tr>
+					<tr>
+						<td>
+							<label for="tblChk1" class="input-checkbox tbl-check">
+								<input type="checkbox" id="tblChk1" name="tblChk1" />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td><button type="button" class="btn is--white">등록</button></td>
+					</tr>
+					<tr class="disabled">
+						<td>
+							<label for="tblChk1" class="input-checkbox tbl-check">
+								<input type="checkbox" id="tblChk1" name="tblChk1" disabled />
+								<p class="input-text"><span class="icon"></span></p>
+							</label>
+						</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td>sdf</td>
+						<td><button type="button" class="btn is--white" disabled>등록</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -782,6 +1151,10 @@
 				<span class="ico-24 ico-close-black"></span>
 				<span>ico-close-black</span>
 			</p>
+			<p>
+				<span class="ico-24 ico-file-black"></span>
+				<span>ico-file-black</span>
+			</p>
 		</div>
 		<div>
 			<h2>Blue</h2>
@@ -820,6 +1193,10 @@
 			<p>
 				<span class="ico-24 ico-more-blue"></span>
 				<span>ico-more-blue</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-file-blue"></span>
+				<span>ico-file-blue</span>
 			</p>
 		</div>
 		<div>
@@ -933,6 +1310,10 @@
 			<p>
 				<span class="ico-24 ico-more-white"></span>
 				<span>ico-more-white</span>
+			</p>
+			<p>
+				<span class="ico-24 ico-up-white"></span>
+				<span>ico-up-white</span>
 			</p>
 		</div>
 	</div>

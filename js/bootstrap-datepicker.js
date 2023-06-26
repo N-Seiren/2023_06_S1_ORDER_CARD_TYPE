@@ -679,15 +679,6 @@
 			}
 		},
 
-		// TODO CUSTOM
-		updateTitle: function (opt) {
-			if (opt) {
-				this.picker.addClass('has--title');
-				this.picker.find('.datepicker--title').show();
-				this.picker.find('.datepicker--title').html(opt);
-			}
-		},
-
 		setDates: function () {
 			var args = $.isArray(arguments[0]) ? arguments[0] : arguments;
 			this.update.apply(this, args);
@@ -1783,11 +1774,6 @@
 				.show();
 			this.updateNavArrows();
 			this._trigger('changeViewMode', new Date(this.viewDate));
-
-			// TODO CUSTOM
-			if (this.picker.find('.datepicker--title').html() != '') {
-				this.picker.find('.datepicker--title').show();
-			}
 		},
 	};
 
@@ -2319,10 +2305,6 @@
 	};
 	DPGlobal.template =
 		'<div class="datepicker">' +
-		/* TODO TITLE BOX CUSTOM */
-		'<div class="datepicker--title">' +
-		'</div>' +
-		/* TODO TITLE BOX CUSTOM */
 		'<div class="datepicker-days">' +
 		'<table class="table-condensed">' +
 		DPGlobal.headTemplate +

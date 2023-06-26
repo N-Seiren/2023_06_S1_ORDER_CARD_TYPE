@@ -3,6 +3,20 @@
 $DROP: '.dropdown';
 $PAGE: '.page';
 
+%gapDefault {
+	&.gap {
+		&-10 {
+			gap: 10px;
+		}
+		&-18 {
+			gap: 18px;
+		}
+		&-20 {
+			gap: 20px;
+		}
+	}
+}
+
 // ICON
 .ico {
 	@each $SIZE in $ICON-SIZE-ALL {
@@ -40,7 +54,7 @@ $PAGE: '.page';
 	@include set-flex($INLINE: true, $JUSTIFY: center, $ALIGN: center);
 	min-width: 75px;
 	min-height: 34px;
-	padding: 7.5px 11px;
+	padding: 7.5px 13px;
 	border: {
 		width: 1px;
 		style: solid;
@@ -67,6 +81,11 @@ $PAGE: '.page';
 				background-color: $C-BD;
 				border-color: $C-BN;
 			}
+
+			&.line {
+				background-color: $C-W;
+				color: $C-PN;
+			}
 		}
 		&--red {
 			background-color: $C-SN;
@@ -82,6 +101,11 @@ $PAGE: '.page';
 				border-color: $C-BN;
 			}
 			&.has--ico {
+			}
+
+			&.line {
+				background-color: $C-W;
+				color: $C-SN;
 			}
 		}
 		&--white {
@@ -126,6 +150,8 @@ $PAGE: '.page';
 		}
 		&--state {
 			height: 60px;
+			padding-right: 0;
+			padding-left: 0;
 			background-color: $C-W;
 			font-size: 14px;
 			line-height: 18px;
@@ -162,6 +188,7 @@ $PAGE: '.page';
 				background-color: $C-BD;
 				border-color: $C-BN;
 				color: $C-FID;
+				font-weight: $F-SB;
 			}
 		}
 		&--text {
@@ -173,6 +200,19 @@ $PAGE: '.page';
 			border-radius: 0;
 			font-size: 14px;
 			line-height: 20px;
+		}
+		&--file {
+			padding: 7px 8px;
+			padding-right: 13px;
+
+			&.has--ico {
+				padding: 5px;
+				padding-right: 13px;
+				[class*='ico-'] {
+					margin-left: 0;
+					margin-right: 7px;
+				}
+			}
 		}
 
 		// Width
@@ -273,22 +313,6 @@ $PAGE: '.page';
 					&.double {
 						input {
 							padding-right: (($S + $P) * 2) + 16;
-						}
-					}
-					&.date {
-						input {
-							padding-right: $S + 5;
-						}
-						.date-button {
-							right: 5px;
-						}
-
-						&.bg--white {
-							input {
-								&:disabled {
-									background-color: $C-W;
-								}
-							}
 						}
 					}
 				}
@@ -514,7 +538,66 @@ $PAGE: '.page';
 				}
 			}
 			&--w160 {
+				@include set-flex($FIXED: true);
 				width: 160px;
+			}
+			&--w245 {
+				@include set-flex($FIXED: true);
+				width: 245px;
+			}
+			&--wauto {
+				@include set-flex($FIXED: false);
+			}
+		}
+
+		// CALENDAR
+		&.date-layer {
+			position: relative;
+			z-index: 10;
+
+			.box {
+				input {
+					padding-right: $S + 5;
+				}
+				.date-button {
+					right: 5px;
+				}
+
+				&.bg--white {
+					input {
+						&:disabled {
+							background-color: $C-W;
+						}
+					}
+				}
+			}
+			.datepicker--layer {
+				$E: '.datepicker--layer';
+				position: fixed;
+				width: 360px;
+				top: 100%;
+				left: 0;
+				margin-top: 4px;
+				background-color: $C-W;
+				border: 1px solid $C-BN;
+				z-index: 10;
+
+				@at-root *:hover {
+					#{$E} {
+						z-index: 50;
+					}
+				}
+
+				.datepicker {
+					padding-right: 0;
+					padding-left: 0;
+					padding-bottom: 41px;
+
+					&--title {
+						padding-right: 20px;
+						padding-left: 20px;
+					}
+				}
 			}
 		}
 	}
@@ -634,6 +717,7 @@ $PAGE: '.page';
 			font-size: 14px;
 			font-weight: $F-SB;
 			line-height: 20px;
+			white-space: nowrap;
 
 			&.disabled {
 				color: $C-FID;
@@ -672,6 +756,11 @@ $PAGE: '.page';
 			}
 		}
 	}
+
+	&-row {
+		@include set-flex($ALIGN: center);
+		gap: 6px;
+	}
 }
 
 // BOX
@@ -679,6 +768,26 @@ $PAGE: '.page';
 	&--white {
 		background-color: $C-W;
 		border-radius: 4px;
+	}
+
+	&--row {
+		@extend %gapDefault;
+		@include set-flex($DIRECTION: row);
+		display: inline-flex;
+	}
+	&--column {
+		@extend %gapDefault;
+		@include set-flex($DIRECTION: column);
+		display: inline-flex;
+	}
+
+	&--grid {
+		@extend %gapDefault;
+		&.grid {
+			&-5 {
+				@include set-grid($AUTO: 5);
+			}
+		}
 	}
 }
 
@@ -807,6 +916,25 @@ $PAGE: '.page';
 		@include set-flex($DIRECTION: column, $ALIGN: stretch);
 		gap: 0;
 		border-bottom: 1px solid $C-TLN;
+
+		&.no--line {
+			border-bottom: none;
+			& + .tab {
+				$T: '.tab';
+				&--wrap {
+					margin-top: 30px;
+
+					#{$T}-button {
+						padding-right: 30px;
+						padding-left: 30px;
+					}
+
+					.search--contents {
+						padding-bottom: 20px;
+					}
+				}
+			}
+		}
 	}
 	&--title {
 		padding: $PB $PB 0;
@@ -846,17 +974,44 @@ $PAGE: '.page';
 		gap: 10px;
 		.input-box {
 			&--title {
+				min-width: 65px;
 				margin-right: 6px;
-				justify-content: flex-end;
+				justify-content: flex-start;
+				&.is {
+					&--right {
+						justify-content: flex-end;
+					}
+				}
 			}
 		}
 
 		.dropdown--area {
 			width: 245px;
+
+			&.is--w144 {
+				width: 114px;
+			}
 		}
 
 		> .input-box {
 			width: 245px;
+
+			&.is--wauto {
+				width: auto;
+			}
+			.is--w245 {
+				width: 245px;
+			}
+		}
+
+		> .checkbox-box {
+			@include set-flex($ALIGN: center);
+			min-height: 34px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			gap: 30px;
+			row-gap: 10px;
+			flex-wrap: wrap;
 		}
 	}
 	&--button {
@@ -889,6 +1044,42 @@ $PAGE: '.page';
 			}
 		}
 	}
+	&-button {
+		@include set-flex($ALIGN: stretch);
+		button,
+		a {
+			width: 255px;
+			height: 56px;
+			background-color: $C-W;
+			border: 1px solid $C-BN;
+			color: $C-B;
+			font-size: 18px;
+			font-weight: $F-B;
+			line-height: 28px;
+
+			&:first-child {
+				border-radius: 4px 0 0 4px;
+			}
+			&:last-child {
+				border-radius: 0 4px 4px 0;
+			}
+
+			&:hover {
+				color: $C-PN;
+			}
+
+			&.active {
+				background-color: $C-PN;
+				border-color: $C-PN;
+				color: $C-W;
+			}
+
+			& + button,
+			& + a {
+				margin-left: -1px;
+			}
+		}
+	}
 }
 
 // TABLE
@@ -907,99 +1098,115 @@ $PAGE: '.page';
 	}
 	&--box {
 		overflow-x: auto;
-		table {
-			thead {
-				th {
-					vertical-align: middle;
-					position: relative;
-					padding: 7px 8px;
-					background-color: $C-TTB;
-					color: $C-FI;
-					font-size: 14px;
-					font-weight: $F-SB;
-					line-height: 20px;
-					&:not(:first-child) {
-						&::before {
-							position: absolute;
-							width: 1px;
-							height: 15px;
-							top: 50%;
-							left: 0;
-							background-color: $C-TTL;
-							transform: translateY(-50%);
-							content: '';
+		> table {
+			> thead {
+				> tr {
+					th {
+						vertical-align: middle;
+						position: relative;
+						padding: 7px 8px;
+						background-color: $C-TTB;
+						color: $C-FI;
+						font-size: 14px;
+						font-weight: $F-SB;
+						line-height: 20px;
+						&:not(:first-child) {
+							&::before {
+								position: absolute;
+								width: 1px;
+								height: 15px;
+								top: 50%;
+								left: 0;
+								background-color: $C-TTL;
+								transform: translateY(-50%);
+								content: '';
+							}
 						}
-					}
 
-					&.line {
-						&--full {
-							border-left: 1px solid $C-TTL;
-							&::before {
-								display: none;
+						&.line {
+							&--full {
+								border-left: 1px solid $C-TTL;
+								&::before {
+									display: none;
+								}
 							}
-						}
-						&--none {
-							&::before {
-								display: none;
+							&--none {
+								&::before {
+									display: none;
+								}
 							}
 						}
 					}
-				}
-				tr:first-child {
-					th {
-						border-top: 2px solid $C-TTL;
+					&:first-child {
+						> th {
+							border-top: 2px solid $C-TTL;
+						}
 					}
-				}
-				tr + tr {
-					th {
-						border-top: 1px solid $C-TTL;
+					& + tr {
+						> th {
+							border-top: 1px solid $C-TTL;
+						}
 					}
 				}
 			}
-			tbody {
-				th {
-				}
-				td {
-					padding: 8px 12px;
-					border-bottom: 1px solid $C-TLN;
-					color: $C-FI;
-					font-size: 14px;
-					font-weight: $F-SB;
-					line-height: 20px;
-					&.is--date {
-						padding: 1px 4px 2px;
+			> tbody {
+				> tr {
+					> td {
+						padding: 8px 12px;
+						border-bottom: 1px solid $C-TB;
+						color: $C-FI;
+						font-size: 14px;
+						font-weight: $F-SB;
+						line-height: 20px;
+						&.is--date {
+							padding: 1px 4px 2px;
+						}
+						&.has--bg {
+							background-color: $C-BT;
+						}
 					}
-					&.has--bg {
-						background-color: $C-BT;
-					}
-				}
 
-				tr {
 					&:hover {
-						th,
-						td {
+						> th,
+						> td {
 							background-color: $C-TTH;
 						}
 					}
 					&.is--checked {
-						th,
-						td {
+						> th,
+						> td {
 							background-color: $C-TTC;
 						}
 					}
 				}
 			}
 
-			th,
-			td {
-				&.px0 {
-					padding-right: 0;
-					padding-left: 0;
-					text-align: center;
-					.input-checkbox {
-						vertical-align: middle;
-						display: inline-block;
-						margin-top: -2px;
+			> thead,
+			> tbody {
+				> tr {
+					> th,
+					> td {
+						text-align: center;
+						&.align-left {
+							text-align: left;
+						}
+						&.px0 {
+							padding-right: 0;
+							padding-left: 0;
+							text-align: center;
+							.input-checkbox {
+								vertical-align: middle;
+								display: inline-block;
+								margin-top: -2px;
+							}
+						}
+					}
+					&.disabled {
+						> th,
+						> td {
+							background-color: $C-BT;
+							color: $C-FID;
+						}
 					}
 				}
 			}
@@ -1032,6 +1239,7 @@ $PAGE: '.page';
 		@include set-flex($JUSTIFY: space-between);
 		min-height: 34px;
 		&--left {
+			@include set-flex($ALIGN: center);
 		}
 		&--center {
 		}
@@ -1061,7 +1269,155 @@ $PAGE: '.page';
 				@include set-flex($ALIGN: center);
 				gap: 8px;
 			}
+			&--buttons {
+				@include set-flex($ALIGN: center);
+				gap: 8px;
+				.btn {
+					min-width: 90px;
+				}
+			}
 		}
+	}
+}
+
+// TOGGLE
+.toggle {
+	$EL: '.toggle';
+	&--area {
+		&.active {
+			#{$EL}--btn {
+				&::after {
+					transform: rotate(0);
+				}
+			}
+			#{$EL}--box {
+				display: block;
+			}
+		}
+	}
+	&--btn {
+		position: relative;
+		padding: 12px;
+		padding-right: 48px;
+		background-color: #666666;
+		border-radius: 6px;
+		color: $C-W;
+		font-size: 16px;
+		font-weight: $F-EB;
+		line-height: 24px;
+		cursor: pointer;
+		&::after {
+			$S: 24px;
+			@extend %resetIcon;
+			position: absolute;
+			display: block;
+			width: $S;
+			height: $S;
+			top: 50%;
+			right: 12px;
+			margin-top: $S * -0.5;
+			background-image: url(urlImg(ico, up, white));
+			transform: rotate(180deg);
+			content: '';
+		}
+	}
+	&--box {
+		display: none;
+		padding-top: 10px;
+
+		.table {
+			&--area {
+				padding: 0;
+				margin-top: 14px;
+			}
+			&--top {
+				margin-bottom: 10px;
+			}
+			&__title {
+				font-size: 16px;
+				font-weight: $F-SB;
+				line-height: 28px;
+			}
+		}
+		.page--area {
+			margin-top: 10px;
+		}
+	}
+}
+
+// EDIT
+.edit {
+	$EL: '.edit';
+	&--area {
+		@include set-flex($DIRECTION: column);
+		gap: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	&--box {
+		@include set-flex($ALIGN: flex-start);
+		gap: 16px;
+		&.is {
+			&--double {
+				@include set-grid($AUTO: 2);
+				gap: 20px;
+			}
+		}
+	}
+	&--title {
+		@include set-flex($FIXED: true);
+		width: 120px;
+		padding: 8.5px 12px;
+		color: $C-FI;
+		font-size: 14px;
+		font-weight: $F-SB;
+		line-height: 17px;
+	}
+	&--contents {
+		@extend %gapDefault;
+		@include set-flex($FIXED: false);
+		padding: 8.5px 12px;
+		color: $C-FIS;
+		font-size: 14px;
+		line-height: 17px;
+
+		.imp {
+			color: $C-SN;
+		}
+
+		&[class*='gap'] {
+			display: flex;
+			flex-direction: column;
+		}
+		&.pa-0 {
+			padding: 0;
+		}
+	}
+	&--gap-36 {
+		@include set-flex($ALIGN: center);
+		gap: 36px;
+	}
+}
+
+// FILE
+.filebox {
+	@include set-flex($ALIGN: center);
+	display: inline-flex;
+	gap: 10px;
+	.title {
+		padding: 3px 8px;
+		background-color: $C-BS;
+		border-radius: 2px;
+		color: $C-W;
+		font-size: 12px;
+		font-weight: $F-B;
+		line-height: 14px;
+	}
+	.text {
+		border-bottom: 1px solid $C-FIS;
+		color: $C-FIS;
+		font-size: 12px;
+		line-height: 14px;
 	}
 }
 
@@ -1184,10 +1540,20 @@ $PAGE: '.page';
 		padding: 0 30px;
 		min-height: $H;
 		&__title {
-			color: $C-B;
-			font-size: 22px;
-			font-weight: $F-EB;
-			line-height: $H;
+			&,
+			.title {
+				color: $C-B;
+				font-size: 22px;
+				font-weight: $F-EB;
+				line-height: $H;
+			}
+			.text {
+				margin-top: 10px;
+				color: $C-IN;
+				font-size: 18px;
+				font-weight: $F-N;
+				line-height: 25px;
+			}
 		}
 		&__close {
 		}

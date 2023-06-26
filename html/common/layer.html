@@ -29,6 +29,8 @@
                 <button type="button" class="btn is--blue" onclick="toggleLayer('.show-id')">아이디제공</button>
                 <button type="button" class="btn is--blue" onclick="toggleLayer('.find-pw')">비밀번호찾기</button>
                 <button type="button" class="btn is--blue" onclick="toggleLayer('.change-pw')">비밀번호변경</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.file-pw')">파일비밀번호지정</button>
+                <button type="button" class="btn is--blue" onclick="toggleLayer('.card-detail')">카드발급대상상세</button>
                 
 			</div>
 		</div>
@@ -442,7 +444,7 @@
                 <p class="find-title">새 비밀번호</p>
                 <div class="input-text is--large">
                     <div class="box has--button single">
-                        <input type="text" placeholder="플레이스 홀더 텍스트">
+                        <input type="text" placeholder="입력해 주세요.">
                         <div class="input-btn">
                             <button type="button" class="pw-action show">비밀번호 보이기</button>
                             <!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
@@ -455,7 +457,7 @@
                 <p class="find-title">새 비밀번호 확인</p>
                 <div class="input-text is--large">
                     <div class="box has--button single">
-                        <input type="text" placeholder="플레이스 홀더 텍스트">
+                        <input type="text" placeholder="비밀번호를 다시 입력해 주세요.">
                         <div class="input-btn">
                             <button type="button" class="pw-action show">비밀번호 보이기</button>
                             <!-- <button type="button" class="pw-action hide">비밀번호 숨기기</button> -->
@@ -473,6 +475,359 @@
         </div>
     </div>
     <!-- //비밀번호변경 -->
+
+    <!-- 파일비밀번호지정 -->
+    <div class="layer--area layer-find file-pw">
+        <div class="layer--box" style="width: 510px;">
+            <div class="layer--header">
+                <div class="layer--header__title">
+                    <p class="title">파일 비밀번호 지정</p>
+                    <p class="text">파일 암호화를 위해 4자리 이상의 암호를 입력해주세요.</p>
+                </div>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.file-pw')">닫기</button>
+            </div>
+            <div class="layer--contents">
+                
+                <!-- 기본 -->
+                <div class="input-text is--large">
+                    <div class="box">
+                        <input type="text" placeholder="비밀번호">
+                    </div>
+                    <p class="valid">기존 비밀번호와 다른 비밀번호를 입력해 주세요.</p>
+                </div>
+                <p class="layer--desc">* 정보보호를 위해 사용 용도가 완료된 파일은 즉시 폐기하시기 바랍니다.</p>
+                <!-- //기본 -->
+
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w160 is--white is--large">취소</button>
+                <button type="button" class="btn is--w160 is--blue is--large">다운로드</button>
+            </div>
+        </div>
+    </div>
+    <!-- //파일비밀번호지정 -->
+
+    <!-- 카드발급대상상세 -->
+    <div class="layer--area layer-detail card-detail">
+        <div class="layer--box" style="width: 1080px;">
+            <div class="layer--header">
+                <div class="layer--header__title">카드 발급 대상 상세</div>
+                <button type="button" class="ico-24 ico-close-black layer--header__close" onclick="toggleLayer('.card-detail')">닫기</button>
+            </div>
+            <div class="layer--contents">
+
+                <div class="card-detail--area">
+                    <div class="card-detail--box">
+                        <!-- Toggle Box -->
+                        <div class="toggle--area">
+                            <div class="toggle--btn" onclick="toggleArea(this)">신청정보</div>
+                            <div class="toggle--box">
+                                <div class="edit--area">
+                                    <div class="edit--box">
+                                        <p class="edit--title">제목</p>
+                                        <div class="edit--contents">홍길동님 오피스텔</div>
+                                    </div>
+                                    <div class="edit--box is--double">
+                                        <div class="edit--box">
+                                            <p class="edit--title">신청일자</p>
+                                            <div class="edit--contents">2023년 4월 10일 14:13:21</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">신청인</p>
+                                            <div class="edit--contents">홍길동</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">신청인 연락처</p>
+                                            <div class="edit--contents">02-1234-5678</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">신청인 이메일</p>
+                                            <div class="edit--contents">00gildong_1@korea.co.kr</div>
+                                        </div>
+                                    </div>
+                                    <div class="edit--box">
+                                        <p class="edit--title">내용</p>
+                                        <div class="edit--contents">안녕하세요. 홍길동입니다. 카드 신청합니다. 감사합니다.</div>
+                                    </div>
+                                    <div class="edit--box">
+                                        <p class="edit--title">첨부파일</p>
+                                        <div class="edit--contents">
+                                            <div class="box--column gap-20">
+                                                <div>
+                                                    <button type="button" class="btn is--blue line has--ico is--file"><span class="ico-24 ico-file-blue"></span>첨부파일 2개 전체 다운로드</button>
+                                                </div>
+                                                <div class="box--column gap-10">
+                                                    <button type="button" class="btn is--white has--ico is--file"><span class="ico-24 ico-file-black"></span>디엔브이_카드_신청목록_홍길동2추가.xlsx</button>
+                                                    <a href="" class="filebox">
+                                                        <span class="title">원본</span>
+                                                        <span class="text">디엔브이_카드_신청목록.xlsx</span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <button type="button" class="btn is--white is--file">
+                                                        <p class="filebox">
+                                                            <span class="title">원본</span>
+                                                            <span class="text">디엔브이_카드_신청목록.xlsx</span>
+                                                        </p>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit--box">
+                                        <p class="edit--title">카드상태</p>
+                                        <div class="edit--contents pa-0">
+                                            <div class="box--grid grid-5 gap-18">
+                                                <button type="button" class="btn is--state is--white" disabled>고객신청<br>(2023.04.10 14:13:21)</button>
+                                                <button type="button" class="btn is--state is--white" disabled>인쇄접수<br>(2023.04.12 14:!3:21)</button>
+                                                <button type="button" class="btn is--state is--white" disabled>인쇄완료<br>(2023.04.12 15:20:59)</button>
+                                                <button type="button" class="btn is--state is--white">발급완료</button>
+                                                <button type="button" class="btn is--state is--white">취소</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit--box">
+                                        <p class="edit--title">접수 특이사항</p>
+                                        <div class="edit--contents">접수 특이사항은 이렇습니다.</div>
+                                    </div>
+                                    <div class="edit--box is--double">
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드신청 매수</p>
+                                            <div class="edit--contents">3</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드케이스 추가</p>
+                                            <div class="edit--contents edit--gap-36">
+                                                <span>인쇄업체 5</span>
+                                                <span>에스원 0</span>
+                                            </div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">외부카드 여부</p>
+                                            <div class="edit--contents">해당</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">거래명세서 요청</p>
+                                            <div class="edit--contents">요청</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드제작 여부</p>
+                                            <div class="edit--contents">미포함</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">등록 구분</p>
+                                            <div class="edit--contents">고객 신청</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //Toggle Box -->
+                    </div>
+                    <div class="card-detail--box">
+                        <!-- Toggle Box -->
+                        <div class="toggle--area active">
+                            <div class="toggle--btn" onclick="toggleArea(this)">고객정보</div>
+                            <div class="toggle--box">
+                                <div class="edit--area">
+                                    <div class="edit--box is--double">
+                                        <div class="edit--box">
+                                            <p class="edit--title">계약번호</p>
+                                            <div class="edit--contents">N4505234 디앤브이코리아부산</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">고객코드</p>
+                                            <div class="edit--contents">A0822717 (주) 디엔브이코리아</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">개시사업장</p>
+                                            <div class="edit--contents">서울사업팀 서초지사</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">인쇄업체</p>
+                                            <div class="edit--contents">신흥테크</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">담당자</p>
+                                            <div class="edit--contents">김세종</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">연락처</p>
+                                            <div class="edit--contents">02-1234-5678</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">이메일</p>
+                                            <div class="edit--contents">00gildong_1@korea.co.kr</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드 종류</p>
+                                            <div class="edit--contents">마이페어</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드 단가</p>
+                                            <div class="edit--contents">7,000원</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드 케이스</p>
+                                            <div class="edit--contents">업체</div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">카드 신청</p>
+                                            <div class="edit--contents pa-0">
+                                                <div class="edit--box">
+                                                    <p class="edit--title">자동신청 여부</p>
+                                                    <div class="edit--contents">대상</div>
+                                                </div>
+                                                <div class="edit--box">
+                                                    <p class="edit--title">청구</p>
+                                                    <div class="edit--contents">수시</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="edit--box">
+                                            <p class="edit--title">청구방법</p>
+                                            <div class="edit--contents pa-0">
+                                                <div class="edit--box">
+                                                    <p class="edit--title">신청 특이사항</p>
+                                                    <div class="edit--contents">50개까지 무상 이번까지 35개 나감</div>
+                                                </div>
+                                                <div class="edit--box">
+                                                    <p class="edit--title">청구 특이사항</p>
+                                                    <div class="edit--contents">말일자 청구 계산서만 발행</div>
+                                                </div>
+                                                <div class="edit--box">
+                                                    <p class="edit--title">청구서 수신 이메일</p>
+                                                    <div class="edit--contents">dongscompany@korea.co.kr</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit--box">
+                                        <p class="edit--title">발송</p>
+                                        <div class="edit--contents gap-10 pa-0">
+                                            <div class="edit--box">
+                                                <p class="edit--title">발송방법</p>
+                                                <div class="edit--contents pa-0">
+                                                    <div class="input-row">
+                                                        <div class="dropdown--area is--w245">
+                                                            <button type="button" class="dropdown--select"><div>선택</div></button>
+                                                            <div class="dropdown--box">
+                                                                <button type="button">선택 항목 1</button>
+                                                                <button type="button">선택 항목 2</button>
+                                                                <button type="button" class="active">선택 항목 3</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="edit--box">
+                                                <p class="edit--title">주소 <span class="imp">*</span></p>
+                                                <div class="edit--contents pa-0">
+                                                    <div class="input-row">
+                                                        <div class="input-text is--w245">
+                                                            <div class="box">
+                                                                <input type="text" placeholder="우편번호" value="03214" disabled />
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-text is--wauto">
+                                                            <div class="box">
+                                                                <input type="text" placeholder="주소" value="서울시 중구 세종대로 7" disabled />
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn is--white input-box--fixed">등기</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="edit--box">
+                                                <p class="edit--title"></p>
+                                                <div class="edit--contents pa-0">
+                                                    <div class="input-text">
+                                                        <div class="box">
+                                                            <input type="text" placeholder="주소 상세" value="에스원 빌딩 16층" disabled />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //Toggle Box -->
+                    </div>
+                    <div class="card-detail--box">
+                        <!-- Toggle Box -->
+                        <div class="toggle--area active">
+                            <div class="toggle--btn" onclick="toggleArea(this)">수정이력</div>
+                            <div class="toggle--box">
+                                <div class="table--area">
+                                    <!-- top -->
+                                    <div class="table--top">
+                                        <div class="table__filter">
+                                            <div class="table__filter--left">
+                                                <p class="table__title">총 26건</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- //top -->
+                            
+                                    <!-- table -->
+                                    <div class="table--box">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>수정일자</th>
+                                                    <th>수정 항목</th>
+                                                    <th>기존 내용</th>
+                                                    <th>수정 내용</th>
+                                                    <th>수정인</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2023.04.10 12:34:56</td>
+                                                    <td>접수 특이사항</td>
+                                                    <td>카드 발급 주의 사항</td>
+                                                    <td>카드 발급 2023 주의사항</td>
+                                                    <td>김*종(에스원CRM)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- //table -->
+                                </div>
+
+                                <!-- page -->
+                                <div class="page--area">
+                                    <div class="page--left"></div>
+                                    <div class="page--center">
+                                        <button type="button" class="page is--first" disabled>첫번째 페이지</button>
+                                        <button type="button" class="page is--prev" disabled>이전 페이지</button>
+                                        <div class="page--numberbox">
+                                            <button type="button" class="page is--num active">1</button>
+                                            <button type="button" class="page is--num">2</button>
+                                            <button type="button" class="page is--num" disabled>3</button>
+                                        </div>
+                                        <button type="button" class="page is--next">다음 페이지</button>
+                                        <button type="button" class="page is--last">마지막 페이지</button>
+                                    </div>
+                                    <div class="page--right"></div>
+                                </div>
+                                <!-- //page -->
+                            </div>
+                        </div>
+                        <!-- //Toggle Box -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="layer--buttons">
+                <button type="button" class="btn is--w160 is--white is--large">취소</button>
+                <button type="button" class="btn is--w160 is--blue is--large">다운로드</button>
+            </div>
+        </div>
+    </div>
+    <!-- //카드발급대상상세 -->
 
 
 </body>

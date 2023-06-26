@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>주문형 카드</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/subpage.css" />
+	<script src="../../js/jquery-3.6.0.min.js"></script>
+	<script src="../../js/bootstrap-datepicker.js"></script>
+	<script src="../../js/bootstrap-datepicker.ko.min.js"></script>
+	<script src="../../js/design.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="header__left">
+                <a href="" class="header__logo">
+                    <p class="logo">에스원</p>
+                    <p class="text">주문형 카드</p>
+                </a>
+                <nav class="header__menu">
+
+                    <!-- [개발자 참고]
+                        depth1--btn : 선택됐을 경우 'active' 클래스 추가
+                        header__depth2 > a : 선택됐을 경우 'active' 클래스 추가
+                    -->
+                    <a href="" data-depth="card" class="depth1--btn">카드 발급 대상</a>
+                    <!-- <a href="" data-depth="card" class="depth1--btn active">카드 발급 대상</a> -->
+                    <a href="" data-depth="signup" class="depth1--btn">카드 신청/발급 현황 조회</a>
+                    
+                    <div class="depth1">
+                        <a href="" data-depth="master" class="depth1--btn active">마스터 정보 관리</a>
+                        <div class="header__depth2" data-depth="master">
+                            <a href="">관리자 정보 관리</a>
+                            <a href="">업체정보 관리</a>
+                            <a href="" class="active">고객 정보 관리</a>
+                        </div>
+                    </div>
+                    <div class="depth1">
+                        <a href="" data-depth="search" class="depth1--btn">조회</a>
+                        <div class="header__depth2" data-depth="search">
+                            <a href="">카드 신청/발급 현황 조회</a>
+                            <!-- <a href="" class="active">카드 신청/발급 현황 조회</a> -->
+                            <a href="">첨부파일 다운로드 현황</a>
+                            <a href="">로그인 현황</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="header__right">
+                <p class="header__right--text">신흥테크 <strong>홍길동</strong>님</p>
+                <button type="button" class="btn is--white header__right--button">로그아웃</button>
+            </div>
+        </header>
+		<div class="container">
+			<div class="contents--box">
+                <div class="box--white">
+                    
+                    <!-- SEARCH -->
+                    <div class="search--box no--line">
+                        <p class="search--title">고객 정보 관리</p>
+                    </div>
+                    <!-- //SEARCH -->
+
+                    <div class="tab--wrap">
+                        <div class="tab-button">
+                            <button type="button" class="active" onclick="openTabBtn(this)">등록 요청 3</button>
+                            <button type="button" onclick="openTabBtn(this)">고객 목록</button>
+                        </div>
+                        <div class="tab--contents">
+                             <!-- SEARCH -->
+                             <div class="search--box">
+                                <div class="search--contents">
+                                    <div class="search--items">
+
+                                        <!-- row -->
+                                        <div class="input-box search--row">
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">계약번호</p>
+                                            <div class="input-box is--wauto">
+                                                <div class="input-text is--w245">
+                                                    <div class="box">
+                                                        <input type="text" placeholder="검색어를 입력하세요.">
+                                                    </div>
+                                                    <p class="valid">유효성 문구</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //row -->
+
+                                    </div>
+                                    <div class="search--button">
+                                        <button type="button" class="btn is--search is--blue">검색</button>
+                                        <button type="button" class="btn is--search is--white">초기화</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //SEARCH -->
+                    
+                            <!-- TABLE -->
+                            <div class="table--area">
+                                <!-- top -->
+                                <div class="table--top">
+                                    <div class="table__filter">
+                                        <div class="table__filter--left">
+                                            <p class="table__title">총 26건</p>
+                                        </div>
+                                        <div class="table__filter--right has--devide">
+                                            <div class="filter--buttons">
+                                                <button type="button" class="btn is--white input-box--fixed">고객 등록</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //top -->
+
+                                <!-- table -->
+                                <div class="table--box">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width: 120px;" />
+                                            <col style="width: 120px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 160px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 160px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 140px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 120px;" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>사업팀</th>
+                                                <th>개시사업장</th>
+                                                <th>계약번호</th>
+                                                <th>서비스제공처명</th>
+                                                <th>고객코드</th>
+                                                <th>고객명</th>
+                                                <th>카드종류</th>
+                                                <th>신청인</th>
+                                                <th>신청인 연락처</th>
+                                                <th>카드케이스</th>
+                                                <th>신청인 이메일</th>
+                                                <th>우편번호</th>
+                                                <th>주소</th>
+                                                <th>신청일자</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>서울사업팀</td>
+                                                <td>서울중앙지사</td>
+                                                <td>N4505234</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>A0822717</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>마이페어</td>
+                                                <td>홍*동</td>
+                                                <td>010-1234-567*</td>
+                                                <td>당사</td>
+                                                <td class="align-left">zzan*******@korea.co.kr</td>
+                                                <td>67890</td>
+                                                <td class="align-left">서울시 중구 세종대로 7</td>
+                                                <td>2023-04-10</td>
+                                            </tr>
+                                            <tr class="disabled">
+                                                <td>서울사업팀</td>
+                                                <td>서울중앙지사</td>
+                                                <td>N4505234</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>A0822717</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>마이페어</td>
+                                                <td>홍*동</td>
+                                                <td>010-1234-567*</td>
+                                                <td>당사</td>
+                                                <td class="align-left">zzan*******@korea.co.kr</td>
+                                                <td>67890</td>
+                                                <td class="align-left">서울시 중구 세종대로 7</td>
+                                                <td>2023-04-10</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- //table -->
+
+                                <!-- page -->
+                                <div class="page--area">
+                                    <div class="page--left"></div>
+                                    <div class="page--center">
+                                        <button type="button" class="page is--first" disabled>첫번째 페이지</button>
+                                        <button type="button" class="page is--prev" disabled>이전 페이지</button>
+                                        <div class="page--numberbox">
+                                            <button type="button" class="page is--num active">1</button>
+                                            <button type="button" class="page is--num">2</button>
+                                            <button type="button" class="page is--num" disabled>3</button>
+                                        </div>
+                                        <button type="button" class="page is--next">다음 페이지</button>
+                                        <button type="button" class="page is--last">마지막 페이지</button>
+                                    </div>
+                                    <div class="page--right">
+                                        <div class="dropdown--area is--small">
+                                            <button type="button" class="dropdown--select"><div>20개씩 보기</div></button>
+                                            <div class="dropdown--box">
+                                                <button type="button">10개씩 보기</button>
+                                                <button type="button">15개씩 보기</button>
+                                                <button type="button" class="active">20개씩 보기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //page -->
+                            </div>
+                            <!-- //TABLE -->
+
+                        </div>
+                        <div class="tab--contents" style="display: none;">
+                        
+                            <!-- SEARCH -->
+                            <div class="search--box">
+                                <div class="search--contents">
+                                    <div class="search--items">
+
+                                        <!-- row -->
+                                        <div class="input-box search--row">
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">서비스제공처명</p>
+                                            <div class="input-box">
+                                                <div class="input-text">
+                                                    <div class="box">
+                                                        <input type="text" placeholder="서비스제공처명을 입력하세요">
+                                                    </div>
+                                                    <p class="valid">유효성 문구</p>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">인쇄업체</p>
+                                            <div class="input-box dropdown--area">
+                                                <button type="button" class="dropdown--select"><div>선택</div></button>
+                                                <div class="dropdown--box">
+                                                    <button type="button">선택 항목 1</button>
+                                                    <button type="button">선택 항목 2</button>
+                                                    <button type="button" class="active">선택 항목 3</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //row -->
+                                        <!-- row -->
+                                        <div class="input-box search--row">
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">담당자</p>
+                                            <div class="input-box">
+                                                <div class="input-text">
+                                                    <div class="box">
+                                                        <input type="text" placeholder="담당자를 입력하세요">
+                                                    </div>
+                                                    <p class="valid">유효성 문구</p>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">계약번호</p>
+                                            <div class="input-box">
+                                                <div class="input-text">
+                                                    <div class="box">
+                                                        <input type="text" placeholder="계약번호를 입력하세요">
+                                                    </div>
+                                                    <p class="valid">유효성 문구</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //row -->
+                                        <!-- row -->
+                                        <div class="input-box search--row">
+                                            <!-- item -->
+                                            <p class="input-box--title input-box--fixed">상태</p>
+                                            <div class="input-box dropdown--area">
+                                                <button type="button" class="dropdown--select"><div>선택</div></button>
+                                                <div class="dropdown--box">
+                                                    <button type="button">선택 항목 1</button>
+                                                    <button type="button">선택 항목 2</button>
+                                                    <button type="button" class="active">선택 항목 3</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //row -->
+
+                                    </div>
+                                    <div class="search--button">
+                                        <button type="button" class="btn is--search is--blue">검색</button>
+                                        <button type="button" class="btn is--search is--white">초기화</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //SEARCH -->
+                    
+                            <!-- TABLE -->
+                            <div class="table--area">
+                                <!-- top -->
+                                <div class="table--top">
+                                    <div class="table__filter">
+                                        <div class="table__filter--left">
+                                            <p class="table__title">총 26건</p>
+                                        </div>
+                                        <div class="table__filter--right has--devide">
+                                            <div class="filter--buttons">
+                                                <button type="button" class="btn is--white input-box--fixed">고객 등록</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //top -->
+
+                                <!-- table -->
+                                <div class="table--box">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width: 120px;" />
+                                            <col style="width: 120px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 160px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 160px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 120px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 140px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 100px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 80px;" />
+                                            <col style="width: 235px;" />
+                                            <col style="width: 120px;" />
+                                            <col style="width: 80px;" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>사업팀</th>
+                                                <th>개시사업장</th>
+                                                <th>계약번호</th>
+                                                <th>상태</th>
+                                                <th>서비스제공처명</th>
+                                                <th>고객코드</th>
+                                                <th>고객명</th>
+                                                <th>카드종류</th>
+                                                <th>카드종류</th>
+                                                <th>단가<br>(VAT 별도)</th>
+                                                <th>담당자</th>
+                                                <th>연락처</th>
+                                                <th>카드케이스</th>
+                                                <th>자동신청</th>
+                                                <th>신청 특이사항</th>
+                                                <th>청구방법</th>
+                                                <th>청구 특이사항</th>
+                                                <th>청구서 수신 메일</th>
+                                                <th>발송방법</th>
+                                                <th>우편번호</th>
+                                                <th>주소</th>
+                                                <th>등록일자</th>
+                                                <th>카드 발급</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>서울사업팀</td>
+                                                <td>서울중앙지사</td>
+                                                <td>N4505234</td>
+                                                <td>개시</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>A0822717</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>마이페어</td>
+                                                <td>금아데이타테크</td>
+                                                <td>7000</td>
+                                                <td>홍*동</td>
+                                                <td>010-1234-567*</td>
+                                                <td>당사</td>
+                                                <td>O</td>
+                                                <td class="align-left">50개까지 무상. 이번까지 35개.</td>
+                                                <td>합산(말일)</td>
+                                                <td>말일자 청구 계산서만 발송</td>
+                                                <td class="align-left">zzan*******@korea.co.kr</td>
+                                                <td>등기</td>
+                                                <td>67890</td>
+                                                <td class="align-left">서울시 중구 세종대로 7</td>
+                                                <td>2023.04.07</td>
+                                                <td class="is--date"><button type="button" class="btn is--white">추가</button></td>
+                                            </tr>
+                                            <tr class="disabled">
+                                                <td>서울사업팀</td>
+                                                <td>서울중앙지사</td>
+                                                <td>N4505234</td>
+                                                <td>개시</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>A0822717</td>
+                                                <td>비에이치아이본사</td>
+                                                <td>마이페어</td>
+                                                <td>금아데이타테크</td>
+                                                <td>7000</td>
+                                                <td>홍*동</td>
+                                                <td>010-1234-567*</td>
+                                                <td>당사</td>
+                                                <td>O</td>
+                                                <td class="align-left">50개까지 무상. 이번까지 35개.</td>
+                                                <td>합산(말일)</td>
+                                                <td>말일자 청구 계산서만 발송</td>
+                                                <td class="align-left">zzan*******@korea.co.kr</td>
+                                                <td>등기</td>
+                                                <td>67890</td>
+                                                <td class="align-left">서울시 중구 세종대로 7</td>
+                                                <td>2023.04.07</td>
+                                                <td class="is--date"><button type="button" class="btn is--white" disabled>추가</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- //table -->
+
+                                <!-- page -->
+                                <div class="page--area">
+                                    <div class="page--left"></div>
+                                    <div class="page--center">
+                                        <button type="button" class="page is--first" disabled>첫번째 페이지</button>
+                                        <button type="button" class="page is--prev" disabled>이전 페이지</button>
+                                        <div class="page--numberbox">
+                                            <button type="button" class="page is--num active">1</button>
+                                            <button type="button" class="page is--num">2</button>
+                                            <button type="button" class="page is--num" disabled>3</button>
+                                        </div>
+                                        <button type="button" class="page is--next">다음 페이지</button>
+                                        <button type="button" class="page is--last">마지막 페이지</button>
+                                    </div>
+                                    <div class="page--right">
+                                        <div class="dropdown--area is--small">
+                                            <button type="button" class="dropdown--select"><div>20개씩 보기</div></button>
+                                            <div class="dropdown--box">
+                                                <button type="button">10개씩 보기</button>
+                                                <button type="button">15개씩 보기</button>
+                                                <button type="button" class="active">20개씩 보기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //page -->
+                            </div>
+                            <!-- //TABLE -->
+                        </div>
+                    </div>
+
+
+                </div>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

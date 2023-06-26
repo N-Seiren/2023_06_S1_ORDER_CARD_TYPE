@@ -193,7 +193,7 @@ button:not(:disabled) {
 header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .datepicker table thead tr th.next, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
 .input-text .box .input-btn a:not([class*=ico-]),
 .input-text .box .date-button button:not([class*=ico-]),
-.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last, .input-checkbox input[type=checkbox] + .input-text .icon::after, .input-radio input[type=checkbox] + .input-text .icon::after {
+.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .toggle--btn::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last, .input-checkbox input[type=checkbox] + .input-text .icon::after, .input-radio input[type=checkbox] + .input-text .icon::after {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -204,13 +204,23 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .datepicker table thead tr th.next, .ico-24, .ico-22, .ico-16, .input-text .box .input-btn button:not([class*=ico-]),
 .input-text .box .input-btn a:not([class*=ico-]),
 .input-text .box .date-button button:not([class*=ico-]),
-.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last {
+.input-text .box .date-button a:not([class*=ico-]), .dropdown--select::after, .toggle--btn::after, .page--area .page.is--first, .page--area .page.is--prev, .page--area .page.is--next, .page--area .page.is--last {
   background-color: transparent;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   color: transparent;
   font-size: 0;
+}
+
+.gap-10.edit--contents, .gap-10.box--grid, .gap-10.box--column, .gap-10.box--row {
+  gap: 10px;
+}
+.gap-18.edit--contents, .gap-18.box--grid, .gap-18.box--column, .gap-18.box--row {
+  gap: 18px;
+}
+.gap-20.edit--contents, .gap-20.box--grid, .gap-20.box--column, .gap-20.box--row {
+  gap: 20px;
 }
 
 .ico-24 {
@@ -280,6 +290,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-image: url("../images/ico/close-black.svg");
 }
 
+.ico-file-black {
+  background-image: url("../images/ico/file-black.svg");
+}
+
 .ico-product-name-blue {
   background-image: url("../images/ico/product-name-blue.svg");
 }
@@ -314,6 +328,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 
 .ico-more-blue {
   background-image: url("../images/ico/more-blue.svg");
+}
+
+.ico-file-blue {
+  background-image: url("../images/ico/file-blue.svg");
 }
 
 .ico-search-gray {
@@ -420,6 +438,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-image: url("../images/ico/more-white.svg");
 }
 
+.ico-up-white {
+  background-image: url("../images/ico/up-white.svg");
+}
+
 .ico-logo-symbol1 {
   background-image: url("../images/ico/logo-symbol1.svg");
 }
@@ -435,7 +457,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   align-items: center;
   min-width: 75px;
   min-height: 34px;
-  padding: 7.5px 11px;
+  padding: 7.5px 13px;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
@@ -459,6 +481,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-color: #f2f2f2;
   border-color: #dcdcdc;
 }
+.btn.is--blue.line {
+  background-color: #ffffff;
+  color: #1d6ceb;
+}
 .btn.is--red {
   background-color: #ff4555;
   border-color: #ff4555;
@@ -472,6 +498,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   color: #bfbfbf;
   background-color: #f2f2f2;
   border-color: #dcdcdc;
+}
+.btn.is--red.line {
+  background-color: #ffffff;
+  color: #ff4555;
 }
 .btn.is--white {
   background-color: #ffffff;
@@ -509,6 +539,8 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .btn.is--state {
   height: 60px;
+  padding-right: 0;
+  padding-left: 0;
   background-color: #ffffff;
   font-size: 14px;
   line-height: 18px;
@@ -532,6 +564,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-color: #f2f2f2;
   border-color: #dcdcdc;
   color: #bfbfbf;
+  font-weight: 500;
 }
 .btn.is--text {
   display: flex;
@@ -544,6 +577,18 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   border-radius: 0;
   font-size: 14px;
   line-height: 20px;
+}
+.btn.is--file {
+  padding: 7px 8px;
+  padding-right: 13px;
+}
+.btn.is--file.has--ico {
+  padding: 5px;
+  padding-right: 13px;
+}
+.btn.is--file.has--ico [class*=ico-] {
+  margin-left: 0;
+  margin-right: 7px;
 }
 .btn.is--px25 {
   padding-right: 25px;
@@ -623,15 +668,6 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .input-text .box.has--button.double input {
   padding-right: 78px;
-}
-.input-text .box.has--button.date input {
-  padding-right: 29px;
-}
-.input-text .box.has--button.date .date-button {
-  right: 5px;
-}
-.input-text .box.has--button.date.bg--white input:disabled {
-  background-color: #ffffff;
 }
 .input-text .box.has--timer {
   position: relative;
@@ -783,7 +819,54 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   line-height: 21px;
 }
 .input-text.is--w160 {
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 160px;
+}
+.input-text.is--w245 {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 245px;
+}
+.input-text.is--wauto {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.input-text.date-layer {
+  position: relative;
+  z-index: 10;
+}
+.input-text.date-layer .box input {
+  padding-right: 29px;
+}
+.input-text.date-layer .box .date-button {
+  right: 5px;
+}
+.input-text.date-layer .box.bg--white input:disabled {
+  background-color: #ffffff;
+}
+.input-text.date-layer .datepicker--layer {
+  position: fixed;
+  width: 360px;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  z-index: 10;
+}
+*:hover .datepicker--layer {
+  z-index: 50;
+}
+
+.input-text.date-layer .datepicker--layer .datepicker {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 41px;
+}
+.input-text.date-layer .datepicker--layer .datepicker--title {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 .input-checkbox .input-text {
   align-items: center;
@@ -877,6 +960,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  white-space: nowrap;
 }
 .input-box--title.disabled {
   color: #bfbfbf;
@@ -909,10 +993,30 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .input-box.disabled .input-box--title {
   color: #bfbfbf;
 }
+.input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
 
 .box--white {
   background-color: #ffffff;
   border-radius: 4px;
+}
+.box--row {
+  display: flex;
+  flex-direction: row;
+  display: inline-flex;
+}
+.box--column {
+  display: flex;
+  flex-direction: column;
+  display: inline-flex;
+}
+.box--grid.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .dropdown--select {
@@ -1026,6 +1130,19 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   gap: 0;
   border-bottom: 1px solid #dcdcdc;
 }
+.search--box.no--line {
+  border-bottom: none;
+}
+.search--box.no--line + .tab--wrap {
+  margin-top: 30px;
+}
+.search--box.no--line + .tab--wrap .tab-button {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.search--box.no--line + .tab--wrap .search--contents {
+  padding-bottom: 20px;
+}
 .search--title {
   padding: 30px 30px 0;
   color: #000000;
@@ -1068,14 +1185,38 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   gap: 10px;
 }
 .search--row .input-box--title {
+  min-width: 65px;
   margin-right: 6px;
+  justify-content: flex-start;
+}
+.search--row .input-box--title.is--right {
   justify-content: flex-end;
 }
 .search--row .dropdown--area {
   width: 245px;
 }
+.search--row .dropdown--area.is--w144 {
+  width: 114px;
+}
 .search--row > .input-box {
   width: 245px;
+}
+.search--row > .input-box.is--wauto {
+  width: auto;
+}
+.search--row > .input-box .is--w245 {
+  width: 245px;
+}
+.search--row > .checkbox-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 34px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 30px;
+  row-gap: 10px;
+  flex-wrap: wrap;
 }
 .search--button {
   display: flex;
@@ -1108,6 +1249,45 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   color: #1d6ceb;
   font-weight: 700;
 }
+.tab-button {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.tab-button button,
+.tab-button a {
+  width: 255px;
+  height: 56px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.tab-button button:first-child,
+.tab-button a:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.tab-button button:last-child,
+.tab-button a:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.tab-button button:hover,
+.tab-button a:hover {
+  color: #1d6ceb;
+}
+.tab-button button.active,
+.tab-button a.active {
+  background-color: #1d6ceb;
+  border-color: #1d6ceb;
+  color: #ffffff;
+}
+.tab-button button + button, .tab-button button + a,
+.tab-button a + button,
+.tab-button a + a {
+  margin-left: -1px;
+}
 
 .table--area {
   padding: 30px 30px 0;
@@ -1125,7 +1305,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .table--box {
   overflow-x: auto;
 }
-.table--box table thead th {
+.table--box > table > thead > tr th {
   vertical-align: middle;
   position: relative;
   padding: 7px 8px;
@@ -1135,7 +1315,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-weight: 500;
   line-height: 20px;
 }
-.table--box table thead th:not(:first-child)::before {
+.table--box > table > thead > tr th:not(:first-child)::before {
   position: absolute;
   width: 1px;
   height: 15px;
@@ -1145,54 +1325,77 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   transform: translateY(-50%);
   content: "";
 }
-.table--box table thead th.line--full {
+.table--box > table > thead > tr th.line--full {
   border-left: 1px solid #e1e1e1;
 }
-.table--box table thead th.line--full::before {
+.table--box > table > thead > tr th.line--full::before {
   display: none;
 }
-.table--box table thead th.line--none::before {
+.table--box > table > thead > tr th.line--none::before {
   display: none;
 }
-.table--box table thead tr:first-child th {
+.table--box > table > thead > tr:first-child > th {
   border-top: 2px solid #e1e1e1;
 }
-.table--box table thead tr + tr th {
+.table--box > table > thead > tr + tr > th {
   border-top: 1px solid #e1e1e1;
 }
-.table--box table tbody td {
+.table--box > table > tbody > tr > td {
   padding: 8px 12px;
-  border-bottom: 1px solid #dcdcdc;
+  border-bottom: 1px solid #ebebeb;
   color: #353535;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
-.table--box table tbody td.is--date {
+.table--box > table > tbody > tr > td.is--date {
   padding: 1px 4px 2px;
 }
-.table--box table tbody td.has--bg {
+.table--box > table > tbody > tr > td.has--bg {
   background-color: #fafafa;
 }
-.table--box table tbody tr:hover th,
-.table--box table tbody tr:hover td {
+.table--box > table > tbody > tr:hover > th,
+.table--box > table > tbody > tr:hover > td {
   background-color: #eaf2fd;
 }
-.table--box table tbody tr.is--checked th,
-.table--box table tbody tr.is--checked td {
+.table--box > table > tbody > tr.is--checked > th,
+.table--box > table > tbody > tr.is--checked > td {
   background-color: #d5e6fd;
 }
-.table--box table th.px0,
-.table--box table td.px0 {
+.table--box > table > thead > tr > th,
+.table--box > table > thead > tr > td,
+.table--box > table > tbody > tr > th,
+.table--box > table > tbody > tr > td {
+  text-align: center;
+}
+.table--box > table > thead > tr > th.align-left,
+.table--box > table > thead > tr > td.align-left,
+.table--box > table > tbody > tr > th.align-left,
+.table--box > table > tbody > tr > td.align-left {
+  text-align: left;
+}
+.table--box > table > thead > tr > th.px0,
+.table--box > table > thead > tr > td.px0,
+.table--box > table > tbody > tr > th.px0,
+.table--box > table > tbody > tr > td.px0 {
   padding-right: 0;
   padding-left: 0;
   text-align: center;
 }
-.table--box table th.px0 .input-checkbox,
-.table--box table td.px0 .input-checkbox {
+.table--box > table > thead > tr > th.px0 .input-checkbox,
+.table--box > table > thead > tr > td.px0 .input-checkbox,
+.table--box > table > tbody > tr > th.px0 .input-checkbox,
+.table--box > table > tbody > tr > td.px0 .input-checkbox {
   vertical-align: middle;
   display: inline-block;
   margin-top: -2px;
+}
+.table--box > table > thead > tr.disabled > th,
+.table--box > table > thead > tr.disabled > td,
+.table--box > table > tbody > tr.disabled > th,
+.table--box > table > tbody > tr.disabled > td {
+  background-color: #fafafa;
+  color: #bfbfbf;
 }
 .table__title {
   color: #000000;
@@ -1216,6 +1419,11 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-direction: row;
   justify-content: space-between;
   min-height: 34px;
+}
+.table__filter--left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .table__filter--right {
   display: flex;
@@ -1242,6 +1450,141 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   flex-direction: row;
   align-items: center;
   gap: 8px;
+}
+.table__filter .filter--buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.table__filter .filter--buttons .btn {
+  min-width: 90px;
+}
+
+.toggle--area.active .toggle--btn::after {
+  transform: rotate(0);
+}
+.toggle--area.active .toggle--box {
+  display: block;
+}
+.toggle--btn {
+  position: relative;
+  padding: 12px;
+  padding-right: 48px;
+  background-color: #666666;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+}
+.toggle--btn::after {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  right: 12px;
+  margin-top: -12px;
+  background-image: url("../images/ico/up-white.svg");
+  transform: rotate(180deg);
+  content: "";
+}
+.toggle--box {
+  display: none;
+  padding-top: 10px;
+}
+.toggle--box .table--area {
+  padding: 0;
+  margin-top: 14px;
+}
+.toggle--box .table--top {
+  margin-bottom: 10px;
+}
+.toggle--box .table__title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.toggle--box .page--area {
+  margin-top: 10px;
+}
+
+.edit--area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.edit--box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+.edit--box.is--double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.edit--title {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 120px;
+  padding: 8.5px 12px;
+  color: #353535;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+.edit--contents {
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 8.5px 12px;
+  color: #646464;
+  font-size: 14px;
+  line-height: 17px;
+}
+.edit--contents .imp {
+  color: #ff4555;
+}
+.edit--contents[class*=gap] {
+  display: flex;
+  flex-direction: column;
+}
+.edit--contents.pa-0 {
+  padding: 0;
+}
+.edit--gap-36 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 36px;
+}
+
+.filebox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+}
+.filebox .title {
+  padding: 3px 8px;
+  background-color: #b0b0b0;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+}
+.filebox .text {
+  border-bottom: 1px solid #646464;
+  color: #646464;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .page--area {
@@ -1384,11 +1727,19 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   padding: 0 30px;
   min-height: 33px;
 }
-.layer--header__title {
+.layer--header__title,
+.layer--header__title .title {
   color: #000000;
   font-size: 22px;
   font-weight: 700;
   line-height: 33px;
+}
+.layer--header__title .text {
+  margin-top: 10px;
+  color: #262626;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
 }
 .layer--contents {
   overflow-y: auto;
@@ -1599,7 +1950,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  min-width: 1280px;
+  min-width: 1920px;
   background-color: #ebebeb;
 }
 .wrap.login {

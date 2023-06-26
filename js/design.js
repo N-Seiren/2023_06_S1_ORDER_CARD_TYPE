@@ -2,6 +2,19 @@ $(function () {
 	designInit();
 });
 
+$(window).on('load', function () {
+	// Datepicker
+	designRecall();
+});
+$(window).on('resize', function () {
+	// Datepicker
+	designRecall();
+});
+$(window).on('scroll', function () {
+	// Datepicker
+	designRecall();
+});
+
 function designInit() {
 	// Header Hover
 	defHeaderHover();
@@ -11,6 +24,10 @@ function designInit() {
 	defTblCheck();
 	// Datepicker
 	defDatepicker();
+}
+function designRecall() {
+	// Datepicker
+	recallDatepicker();
 }
 
 /**
@@ -43,6 +60,8 @@ function defDropdown() {
 		const _itm = _box.find('button');
 
 		_btn.on('click', () => {
+			$('.datepicker--layer').hide();
+
 			if (_area.hasClass('open')) {
 				closeDropdown(_area);
 			} else {
@@ -52,6 +71,8 @@ function defDropdown() {
 
 		_itm.each((idx, itm) => {
 			$(itm).on('click', () => {
+				$('.datepicker--layer').hide();
+
 				setTextDropdown(itm);
 			});
 		});
@@ -162,13 +183,9 @@ function defDatepicker() {
 	}
 
 	$('.input-text .box.date, .inline-calendar').each((idx, el) => {
-		const _idx = $(el).hasClass('inline-calendar')
-			? $('.inline-calendar').index($(el))
-			: $('.box.date').index($(el));
-
-		const _idxCls = `'.datepicker--idx${_idx}'`;
-
-		$(el).addClass('datepicker--idx' + _idx);
+		$(el).on('click', function () {
+			$('.datepicker--layer').hide();
+		});
 		$(el).datepicker({
 			startDate: String(_year + '.' + _month + '.' + _date),
 			startView: 0, // 0 ~ 2 (day ~ year)
@@ -178,29 +195,70 @@ function defDatepicker() {
 			defaultViewDate: { year: _year, month: _month - 1, day: _date },
 			language: 'ko',
 		});
+	});
 
-		// TODO 달력 title 옵션으로 넣는것 바꾸기
-		// TODO 달력 inline 으로 작업
-		if (el.dataset.title) {
-			let _title = '';
-			let _text = '';
+	$('.date-layer').each((idx, el) => {
+		const _this = $(el);
+		const _input = _this.find('input');
+		const _layer = _this.find('.datepicker--layer');
+		const _picker = _this.find('.inline-calendar');
 
-			_text = el.dataset.title ? el.dataset.title : '시작';
-			_title += '<p class="title">' + _text + '</p>';
-			_title +=
-				'<button type="button" class="reset" onclick="resetDatepicker(' +
-				_idxCls +
-				')">초기화</button>';
+		_input.on('focus', function () {
+			$('.datepicker--layer').hide();
+			const _val = _input.val() != '' ? new Date(_input.val()) : false;
 
-			$(el).datepicker('updateTitle', _title);
+			_layer.show();
+
+			if (_val) {
+				_picker.datepicker('setDate', _val);
+			}
+
+			_picker.datepicker().on('changeDate', function (e) {
+				const _date = _picker.datepicker('getDate');
+				const _str =
+					_date.getFullYear() +
+					'.' +
+					(_date.getMonth() + 1) +
+					'.' +
+					_date.getDate();
+
+				_input.val(_str);
+				_layer.hide();
+			});
+		});
+	});
+}
+function recallDatepicker() {
+	$('.date-layer').each((idx, el) => {
+		const _this = $(el);
+		const _input = _this.find('input');
+		const _layer = _this.find('.datepicker--layer');
+
+		const _layerW = 360;
+		let _offsetTop =
+			_this.offset().top + _this.outerHeight() - $(window).scrollTop();
+		let _offsetLeft = _this.offset().left - $(window).scrollLeft();
+		let _offsetRight = _offsetLeft - (_layerW - _this.outerWidth());
+
+		if (_this.offset().left + _layerW >= $('.wrap').width()) {
+			_layer.css({
+				top: _offsetTop,
+				left: _offsetRight,
+			});
+		} else {
+			_layer.css({
+				top: _offsetTop,
+				left: _offsetLeft,
+			});
 		}
 	});
 }
 function resetDatepicker(el) {
-	// TODO 초기화 할 때 달력 2개 생김
-	const _target = $(el).find('input') ? $(el).find('input') : $(el);
+	const _this = $(el);
+	const _box = _this.closest('.input-text');
+	const _calendar = _box.find('.datepicker--layer .inline-calendar');
 
-	_target.datepicker('clearDates');
+	_calendar.datepicker('clearDates');
 }
 
 /**
@@ -228,5 +286,19 @@ function toggleLayer(el) {
 	} else {
 		$('html').css('overflow', 'hidden');
 		$(el).css('display', 'flex');
+	}
+}
+
+/**
+ * Toggle Box
+ */
+function toggleArea(el) {
+	const _this = $(el);
+	const _area = _this.closest('.toggle--area');
+
+	if (_area.hasClass('active')) {
+		_area.removeClass('active');
+	} else {
+		_area.addClass('active');
 	}
 }
