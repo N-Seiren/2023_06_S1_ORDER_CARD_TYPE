@@ -579,6 +579,10 @@ $PAGE: '.page';
 			z-index: 10;
 
 			.box {
+				&,
+				input {
+					cursor: pointer;
+				}
 				input {
 					padding-right: $S + 5;
 				}
@@ -619,6 +623,107 @@ $PAGE: '.page';
 					&--title {
 						padding-right: 20px;
 						padding-left: 20px;
+					}
+				}
+			}
+			.calendar--timer {
+				$TIMER: '.calendar--timer';
+				@include set-flex($JUSTIFY: space-between, $ALIGN: center);
+				padding: 26px 20px;
+				border-top: 1px solid $C-BN;
+				#{$TIMER}__date {
+					span,
+					strong {
+						font-size: 16px;
+						font-weight: $F-SB;
+						line-height: 19px;
+					}
+					strong {
+						color: $C-PN;
+						font-weight: $F-B;
+					}
+					.day {
+						color: $C-FI;
+					}
+					.year {
+						color: $C-FIS;
+					}
+				}
+				#{$TIMER}__times {
+					@include set-flex($JUSTIFY: start, $ALIGN: center);
+					position: relative;
+					width: 114px;
+					padding: 5px;
+					padding-left: 10px;
+					border: 1px solid $C-BN;
+					border-radius: 2px;
+					&::after {
+						$S: 24px;
+						position: absolute;
+						display: block;
+						width: $S;
+						height: $S;
+						right: 4px;
+						background: {
+							image: url(urlImg(ico, clock));
+							repeat: no-repeat;
+							position: center center;
+							size: contain;
+						}
+						content: '';
+					}
+
+					.times__devider {
+						width: 12px;
+						text-align: center;
+					}
+				}
+				.dropdown {
+					$DROP: '.dropdown';
+					&--area {
+						#{$DROP}--box {
+							left: -9px;
+						}
+						&.open {
+							#{$DROP}--select {
+								border: 1px solid $C-PN;
+								border-radius: 2px;
+								color: $C-PN;
+							}
+						}
+						&:first-child {
+							#{$DROP}--box {
+								left: -11px;
+							}
+						}
+					}
+					&--select {
+						$S: 20px;
+						@include set-flex($JUSTIFY: center, $ALIGN: center);
+						border: none;
+						width: $S;
+						height: $S;
+						padding: 0;
+						color: $C-FI;
+						font-size: 14px;
+						letter-spacing: -0.5px;
+						&::after {
+							display: none;
+						}
+					}
+					&--box {
+						@extend %setScrollBarY;
+						overflow: hidden;
+						overflow-y: auto;
+						width: 40px;
+						max-height: 140px;
+						margin-top: 10px;
+						button {
+							padding: 0;
+							height: 30px;
+							text-align: center;
+							line-height: 30px;
+						}
 					}
 				}
 			}
@@ -1262,6 +1367,8 @@ $PAGE: '.page';
 			}
 			> tbody {
 				> tr {
+					position: relative;
+					z-index: 5;
 					> td {
 						padding: 8px 12px;
 						border-bottom: 1px solid $C-TB;

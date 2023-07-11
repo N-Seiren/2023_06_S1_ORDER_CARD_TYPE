@@ -230,6 +230,24 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   font-size: 0;
 }
 
+.input-text.date-layer .calendar--timer .dropdown--box::-webkit-scrollbar {
+  width: 7px;
+}
+.input-text.date-layer .calendar--timer .dropdown--box::-webkit-scrollbar-button:start:decrement, .input-text.date-layer .calendar--timer .dropdown--box::-webkit-scrollbar-button:end:increment {
+  display: block;
+  width: 0;
+  height: 0;
+}
+.input-text.date-layer .calendar--timer .dropdown--box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.input-text.date-layer .calendar--timer .dropdown--box::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  background-color: #cccccc;
+  border-radius: 6px;
+}
+
 .ico-24 {
   display: inline-block;
   width: 24px;
@@ -299,6 +317,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 
 .ico-file-black {
   background-image: url("../images/ico/file-black.svg");
+}
+
+.ico-clock-black {
+  background-image: url("../images/ico/clock-black.svg");
 }
 
 .ico-product-name-blue {
@@ -884,6 +906,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   position: relative;
   z-index: 10;
 }
+.input-text.date-layer .box,
+.input-text.date-layer .box input {
+  cursor: pointer;
+}
 .input-text.date-layer .box input {
   padding-right: 29px;
 }
@@ -915,6 +941,98 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 .input-text.date-layer .datepicker--layer .datepicker--title {
   padding-right: 20px;
   padding-left: 20px;
+}
+.input-text.date-layer .calendar--timer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 20px;
+  border-top: 1px solid #dcdcdc;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__date span,
+.input-text.date-layer .calendar--timer .calendar--timer__date strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__date strong {
+  color: #1d6ceb;
+  font-weight: 600;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__date .day {
+  color: #353535;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__date .year {
+  color: #646464;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__times {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  width: 114px;
+  padding: 5px;
+  padding-left: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 2px;
+}
+.input-text.date-layer .calendar--timer .calendar--timer__times::after {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px;
+  right: 4px;
+  background-image: url("../images/ico/clock-black.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  content: "";
+}
+.input-text.date-layer .calendar--timer .calendar--timer__times .times__devider {
+  width: 12px;
+  text-align: center;
+}
+.input-text.date-layer .calendar--timer .dropdown--area .dropdown--box {
+  left: -9px;
+}
+.input-text.date-layer .calendar--timer .dropdown--area.open .dropdown--select {
+  border: 1px solid #1d6ceb;
+  border-radius: 2px;
+  color: #1d6ceb;
+}
+.input-text.date-layer .calendar--timer .dropdown--area:first-child .dropdown--box {
+  left: -11px;
+}
+.input-text.date-layer .calendar--timer .dropdown--select {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  color: #353535;
+  font-size: 14px;
+  letter-spacing: -0.5px;
+}
+.input-text.date-layer .calendar--timer .dropdown--select::after {
+  display: none;
+}
+.input-text.date-layer .calendar--timer .dropdown--box {
+  overflow: hidden;
+  overflow-y: auto;
+  width: 40px;
+  max-height: 140px;
+  margin-top: 10px;
+}
+.input-text.date-layer .calendar--timer .dropdown--box button {
+  padding: 0;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
 }
 .input-desc {
   color: #353535;
@@ -1459,6 +1577,10 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .table--box > table > thead > tr + tr > th {
   border-top: 1px solid #e1e1e1;
+}
+.table--box > table > tbody > tr {
+  position: relative;
+  z-index: 5;
 }
 .table--box > table > tbody > tr > td {
   padding: 8px 12px;
@@ -2110,6 +2232,11 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   color: #1d6ceb;
   font-size: 16px;
   line-height: 19px;
+}
+.datepicker--layer .datepicker-months table tr td,
+.datepicker--layer .datepicker-years table tr td {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 .datepicker.has--title {
   padding-top: 0;

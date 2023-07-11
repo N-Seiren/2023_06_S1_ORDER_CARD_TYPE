@@ -60,7 +60,7 @@ function defDropdown() {
 		const _itm = _box.find('button');
 
 		_btn.on('click', () => {
-			$('.datepicker--layer').hide();
+			hideTimerLayer(_btn);
 
 			if (_area.hasClass('open')) {
 				closeDropdown(_area);
@@ -71,12 +71,17 @@ function defDropdown() {
 
 		_itm.each((idx, itm) => {
 			$(itm).on('click', () => {
-				$('.datepicker--layer').hide();
+				hideTimerLayer(_btn);
 
 				setTextDropdown(itm);
 			});
 		});
 	});
+}
+function hideTimerLayer(_btn) {
+	if (_btn.closest('.has--timer').length == 0) {
+		$('.datepicker--layer').hide();
+	}
 }
 // close
 function closeDropdown(el) {
@@ -202,16 +207,29 @@ function defDatepicker() {
 		const _input = _this.find('input');
 		const _layer = _this.find('.datepicker--layer');
 		const _picker = _this.find('.inline-calendar');
+		const _tr = _this.closest('tr');
 
-		_input.on('focus', function () {
-			$('.datepicker--layer').hide();
+		_input.on('click', function () {
+			if (_tr.length > 0) {
+				_tr.css('z-index', 10);
+			}
 
 			const _val = _input.val() != '' ? new Date(_input.val()) : false;
 			if (_val) {
 				_picker.datepicker('setDate', _val);
 			}
 
-			_layer.show();
+			if (_this.hasClass('focus')) {
+				_layer.hide();
+				_this.removeClass('focus');
+				_this.css('z-index', '');
+			} else {
+				$('.date-layer').removeClass('focus');
+				$('.datepicker--layer').hide();
+				_layer.show();
+				_this.addClass('focus');
+				_this.css('z-index', 20);
+			}
 		});
 
 		_picker.datepicker().on('changeDate', function (e) {
@@ -234,7 +252,15 @@ function defDatepicker() {
 				_str = '';
 			}
 			_input.val(_str);
-			_layer.hide();
+			if (!_layer.hasClass('has--timer')) {
+				_this.removeClass('focus');
+				_layer.hide();
+				_this.css('z-index', '');
+			}
+
+			if (_tr.length > 0) {
+				_tr.css('z-index', '');
+			}
 		});
 	});
 }
