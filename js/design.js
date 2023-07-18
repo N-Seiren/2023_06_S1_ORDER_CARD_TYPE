@@ -86,11 +86,21 @@ function hideTimerLayer(_btn) {
 // close
 function closeDropdown(el) {
 	$(el).removeClass('open');
+
+	// Timer 있을 경우 body scroll 늘리기
+	if ($(el).closest('.has--timer').length > 0) {
+		layerTimerSetBody($(el), false);
+	}
 }
 // open
 function openDropdown(el) {
 	$('.dropdown--area').removeClass('open');
 	$(el).addClass('open');
+
+	// Timer 있을 경우 body scroll 늘리기
+	if ($(el).closest('.has--timer').length > 0) {
+		layerTimerSetBody($(el), true);
+	}
 }
 // text set
 function setTextDropdown(el, txt) {
@@ -206,29 +216,46 @@ function defDatepicker() {
 		const _this = $(el);
 		const _input = _this.find('input');
 		const _layer = _this.find('.datepicker--layer');
+		let _layerT = 0;
+		let _layerH = 0;
 		const _picker = _this.find('.inline-calendar');
 		const _tr = _this.closest('tr');
+		const _winH = $(window).height();
 
 		_input.on('click', function () {
-			if (_tr.length > 0) {
-				_tr.css('z-index', 10);
-			}
-
 			const _val = _input.val() != '' ? new Date(_input.val()) : false;
+
 			if (_val) {
 				_picker.datepicker('setDate', _val);
+			}
+
+			if (_tr.length > 0) {
+				_this.closest('table').find('tr').css('z-index', '');
 			}
 
 			if (_this.hasClass('focus')) {
 				_layer.hide();
 				_this.removeClass('focus');
 				_this.css('z-index', '');
+				if (_tr.length > 0) {
+					_tr.css('z-index', '');
+				}
+				$('body').height('');
 			} else {
 				$('.date-layer').removeClass('focus');
 				$('.datepicker--layer').hide();
 				_layer.show();
 				_this.addClass('focus');
 				_this.css('z-index', 20);
+				if (_tr.length > 0) {
+					_tr.css('z-index', 10);
+				}
+				_layerT = _layer.offset().top;
+				_layerH = _layer.outerHeight();
+
+				if (_layerT + _layerH > _winH) {
+					$('body').height(_layerT + _layerH + 10);
+				}
 			}
 		});
 
@@ -314,6 +341,33 @@ function resetDatepicker(el) {
 	const _calendar = _box.find('.datepicker--layer .inline-calendar');
 
 	_calendar.datepicker('clearDates');
+}
+function layerTimerSetBody(el, open) {
+	const _elLayer = $(el).closest('.has--timer')
+		? $(el).closest('.has--timer')
+		: $(el);
+	const _elBox = _elLayer.find('.dropdown--box');
+
+	// 높이
+	const _elBoxGap = _elLayer.data('boxgap')
+		? _elLayer.data('boxgap')
+		: _elBox.offset().top - _elLayer.offset().top;
+	const _bodyH = $('body').height();
+	const _elLayerH = _elLayer.outerHeight() + _elBox.outerHeight() + _elBoxGap;
+	const _elBoxH = _elBox.outerHeight();
+
+	// 열렸을 때 body Height 보다 클 경우 스크롤 추가
+	let _scroll = _bodyH < _elLayerH || _elLayer.data('boxgap') ? true : false;
+
+	if (_scroll) {
+		if (open) {
+			$('body').height(_bodyH + _elBoxH);
+			_elLayer.attr('data-boxgap', _elBoxH);
+		} else {
+			$('body').height(_bodyH - _elBoxH);
+			_elLayer.attr('data-boxgap', '');
+		}
+	}
 }
 
 /**
