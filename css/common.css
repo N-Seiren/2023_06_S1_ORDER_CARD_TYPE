@@ -2148,7 +2148,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-color: #1d6ceb;
   color: #ffffff;
 }
-.datepicker-days table tbody tr td.day:hover:not(.old, .disabled), .datepicker-days table tbody tr td.day.active:not(.old, .disabled), .datepicker-days table tbody tr td.day:hover:not(.new, .disabled), .datepicker-days table tbody tr td.day.active:not(.new, .disabled) {
+.datepicker-days table tbody tr td.day:hover:not(.old, .disabled, .day), .datepicker-days table tbody tr td.day.active:not(.old, .disabled, .day), .datepicker-days table tbody tr td.day:hover:not(.new, .disabled, .day), .datepicker-days table tbody tr td.day.active:not(.new, .disabled, .day) {
   color: #1d6ceb;
   border: 1px solid #1d6ceb;
 }
