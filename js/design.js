@@ -246,6 +246,7 @@ function defDatepicker() {
 				$('.datepicker--layer').hide();
 				_layer.show();
 				_this.addClass('focus');
+				_this.closest('table').find('tr').css('z-index', '');
 				_this.css('z-index', 20);
 				if (_tr.length > 0) {
 					_tr.css('z-index', 10);

@@ -420,7 +420,7 @@ $PAGE: '.page';
 						background-image: url(urlImg(ico, pw-on));
 					}
 					&.hide {
-						background-image: url(urlImg(ico, pw-of));
+						background-image: url(urlImg(ico, pw-off));
 					}
 				}
 				#{$PW}-remove:not([class*='ico-']) {

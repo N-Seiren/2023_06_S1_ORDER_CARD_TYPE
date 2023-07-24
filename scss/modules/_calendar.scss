@@ -94,10 +94,10 @@ $PICKER: '.datepicker';
 								color: $C-W;
 							}
 
-							&:hover:not(.old, .disabled, .day),
-							&.active:not(.old, .disabled, .day),
-							&:hover:not(.new, .disabled, .day),
-							&.active:not(.new, .disabled, .day) {
+							&:hover:not(.old, .disabled, .today),
+							&.active:not(.old, .disabled, .today),
+							&:hover:not(.new, .disabled, .today),
+							&.active:not(.new, .disabled, .today) {
 								color: $C-PN;
 								border: 1px solid $C-PN;
 							}

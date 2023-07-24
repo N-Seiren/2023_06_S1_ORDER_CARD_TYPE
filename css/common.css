@@ -797,7 +797,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
 }
 .input-text .box .input-btn .pw-action.hide,
 .input-text .box .date-button .pw-action.hide {
-  background-image: url("../images/ico/pw-of-black.svg");
+  background-image: url("../images/ico/pw-off-black.svg");
 }
 .input-text .box .input-btn .pw-remove:not([class*=ico-]),
 .input-text .box .date-button .pw-remove:not([class*=ico-]) {
@@ -2148,7 +2148,7 @@ header .header__left .header__logo .logo, .datepicker table thead tr th.prev, .d
   background-color: #1d6ceb;
   color: #ffffff;
 }
-.datepicker-days table tbody tr td.day:hover:not(.old, .disabled, .day), .datepicker-days table tbody tr td.day.active:not(.old, .disabled, .day), .datepicker-days table tbody tr td.day:hover:not(.new, .disabled, .day), .datepicker-days table tbody tr td.day.active:not(.new, .disabled, .day) {
+.datepicker-days table tbody tr td.day:hover:not(.old, .disabled, .today), .datepicker-days table tbody tr td.day.active:not(.old, .disabled, .today), .datepicker-days table tbody tr td.day:hover:not(.new, .disabled, .today), .datepicker-days table tbody tr td.day.active:not(.new, .disabled, .today) {
   color: #1d6ceb;
   border: 1px solid #1d6ceb;
 }
